@@ -1,0 +1,45 @@
+var annotated_dup =
+[
+    [ "Common", "namespace_common.html", "namespace_common" ],
+    [ "Lua", null, [
+      [ "LuaFileConfig", "class_lua_1_1_lua_file_config.html", "class_lua_1_1_lua_file_config" ],
+      [ "LuaFileProxy", "class_lua_1_1_lua_file_proxy.html", "class_lua_1_1_lua_file_proxy" ],
+      [ "LuaFileRead", "class_lua_1_1_lua_file_read.html", "class_lua_1_1_lua_file_read" ]
+    ] ],
+    [ "Util", null, [
+      [ "CompactSerializedDouble", "struct_util_1_1_compact_serialized_double.html", "struct_util_1_1_compact_serialized_double" ],
+      [ "SerializedDouble", "struct_util_1_1_serialized_double.html", "struct_util_1_1_serialized_double" ]
+    ] ],
+    [ "CallInfo", "struct_call_info.html", "struct_call_info" ],
+    [ "CClosure", "struct_c_closure.html", "struct_c_closure" ],
+    [ "Closure", "union_closure.html", "union_closure" ],
+    [ "expdesc", "structexpdesc.html", "structexpdesc" ],
+    [ "FuncState", "struct_func_state.html", "struct_func_state" ],
+    [ "GCheader", "struct_g_cheader.html", "struct_g_cheader" ],
+    [ "GCObject", "union_g_c_object.html", "union_g_c_object" ],
+    [ "global_State", "structglobal___state.html", "structglobal___state" ],
+    [ "LClosure", "struct_l_closure.html", "struct_l_closure" ],
+    [ "LexState", "struct_lex_state.html", "struct_lex_state" ],
+    [ "LocVar", "struct_loc_var.html", "struct_loc_var" ],
+    [ "lua_Debug", "structlua___debug.html", "structlua___debug" ],
+    [ "lua_State", "structlua___state.html", "structlua___state" ],
+    [ "lua_TValue", "structlua___t_value.html", "structlua___t_value" ],
+    [ "luaL_Buffer", "structlua_l___buffer.html", "structlua_l___buffer" ],
+    [ "luaL_Reg", "structlua_l___reg.html", "structlua_l___reg" ],
+    [ "Mbuffer", "struct_mbuffer.html", "struct_mbuffer" ],
+    [ "Node", "struct_node.html", "struct_node" ],
+    [ "OSystem", "class_o_system.html", "class_o_system" ],
+    [ "Proto", "struct_proto.html", "struct_proto" ],
+    [ "SemInfo", "union_sem_info.html", "union_sem_info" ],
+    [ "stringtable", "structstringtable.html", "structstringtable" ],
+    [ "Table", "struct_table.html", "struct_table" ],
+    [ "TimeDate", "struct_time_date.html", "struct_time_date" ],
+    [ "TKey", "union_t_key.html", "union_t_key" ],
+    [ "Token", "struct_token.html", "struct_token" ],
+    [ "TString", "union_t_string.html", "union_t_string" ],
+    [ "Udata", "union_udata.html", "union_udata" ],
+    [ "UpVal", "struct_up_val.html", "struct_up_val" ],
+    [ "upvaldesc", "structupvaldesc.html", "structupvaldesc" ],
+    [ "Value", "union_value.html", "union_value" ],
+    [ "Zio", "struct_zio.html", "struct_zio" ]
+];

@@ -1,0 +1,28 @@
+var structglobal___state =
+[
+    [ "strt", "structglobal___state.html#a8cdea736db8d268e488aa9e9fa5c992c", null ],
+    [ "frealloc", "structglobal___state.html#aa26cfe7f3761fda56740a545d15001ea", null ],
+    [ "ud", "structglobal___state.html#af12419c778ac134ece8e269bfcaf06ad", null ],
+    [ "currentwhite", "structglobal___state.html#a31fbedd19538500531d49532226a001a", null ],
+    [ "gcstate", "structglobal___state.html#aea4d494b8b9accef389f2be8830f7a84", null ],
+    [ "sweepstrgc", "structglobal___state.html#a3ed87bf66fdfcaa467c0a1f49078885e", null ],
+    [ "rootgc", "structglobal___state.html#a80eccc9fb1fdf5501c58eb11e5dc520e", null ],
+    [ "sweepgc", "structglobal___state.html#a357ff5a5981fc6c64825508c7718fbbc", null ],
+    [ "gray", "structglobal___state.html#a2d96e2afbc62ff832ab660ed4c357696", null ],
+    [ "grayagain", "structglobal___state.html#a2ccaa5d2e98c086489c04e2045082535", null ],
+    [ "weak", "structglobal___state.html#ab84f67e3b1e863392e504e9d13787891", null ],
+    [ "tmudata", "structglobal___state.html#a8f11ac1643d581a8340f8b894b1ce869", null ],
+    [ "buff", "structglobal___state.html#a7ba3bd769769241f717761a9bef3be23", null ],
+    [ "GCthreshold", "structglobal___state.html#aa9ac0098ecb410b77df6c05188442ac6", null ],
+    [ "totalbytes", "structglobal___state.html#a8c2db9bdf2b63884b770acbbc8f0d25c", null ],
+    [ "estimate", "structglobal___state.html#ae46cf63c1cff8908ab4f36a9918962b6", null ],
+    [ "gcdept", "structglobal___state.html#a2900d5228c66bb92f2d121306bc7d4b1", null ],
+    [ "gcpause", "structglobal___state.html#ac043711149aed55ef1d8b911e795b04d", null ],
+    [ "gcstepmul", "structglobal___state.html#acd2271d481c60fa86f30577f88227e1e", null ],
+    [ "panic", "structglobal___state.html#aa925f5bcdedf55e5353e37cfe9e5d6d0", null ],
+    [ "l_registry", "structglobal___state.html#a3e4eaa91bd14094bf3217073aa40b4f7", null ],
+    [ "mainthread", "structglobal___state.html#a2c81856ac69a92580d4330cd1070c7c5", null ],
+    [ "uvhead", "structglobal___state.html#a640a585a8c5d8c68b1c0118010b7674f", null ],
+    [ "mt", "structglobal___state.html#a8ce9f738bca2651030dad5f034525d89", null ],
+    [ "tmname", "structglobal___state.html#ac1d80bd5bb3d4427b25054696eb1542c", null ]
+];

@@ -1,0 +1,28 @@
+var struct_common_1_1_quick_time_parser_1_1_track =
+[
+    [ "Track", "struct_common_1_1_quick_time_parser_1_1_track.html#a21f55e0a5ed930faf09e591a884e599d", null ],
+    [ "~Track", "struct_common_1_1_quick_time_parser_1_1_track.html#a1e61c7d2c5a51d468fde01b049fa14d2", null ],
+    [ "chunkCount", "struct_common_1_1_quick_time_parser_1_1_track.html#a352c1b93c68df7194359653c4f0b6a98", null ],
+    [ "chunkOffsets", "struct_common_1_1_quick_time_parser_1_1_track.html#adee1c4e93d0820ee65b557ad21132600", null ],
+    [ "timeToSampleCount", "struct_common_1_1_quick_time_parser_1_1_track.html#a2a9344756c5097471aa5a28940f529ce", null ],
+    [ "timeToSample", "struct_common_1_1_quick_time_parser_1_1_track.html#a95a35eabdd506774e7d28300c548a16c", null ],
+    [ "sampleToChunkCount", "struct_common_1_1_quick_time_parser_1_1_track.html#ab5e99cffe8059e91decd32c4bc07ed5c", null ],
+    [ "sampleToChunk", "struct_common_1_1_quick_time_parser_1_1_track.html#a5fedab827a7bbed9f1df82c03a4568dd", null ],
+    [ "sampleSize", "struct_common_1_1_quick_time_parser_1_1_track.html#a0dccb222104153b450b0ca8966f82783", null ],
+    [ "sampleCount", "struct_common_1_1_quick_time_parser_1_1_track.html#ad1e134dd3dddf25d7f8257774bf736a4", null ],
+    [ "sampleSizes", "struct_common_1_1_quick_time_parser_1_1_track.html#a59a8610b8662ba274f75f776fc6baf4d", null ],
+    [ "keyframeCount", "struct_common_1_1_quick_time_parser_1_1_track.html#a92671c4bfc3f9b1816e25bcce88e0b4f", null ],
+    [ "keyframes", "struct_common_1_1_quick_time_parser_1_1_track.html#a1c150f57b1179cb1f0d6905e2b4d33c4", null ],
+    [ "timeScale", "struct_common_1_1_quick_time_parser_1_1_track.html#acfa4979af9bb7eb7d1865652b97dff3e", null ],
+    [ "width", "struct_common_1_1_quick_time_parser_1_1_track.html#a6786e27750e80e54caa08e9beb254e7c", null ],
+    [ "height", "struct_common_1_1_quick_time_parser_1_1_track.html#a350a148a97f02805249b4d70922f38d7", null ],
+    [ "codecType", "struct_common_1_1_quick_time_parser_1_1_track.html#a37e521e9865583865b35873dd594f268", null ],
+    [ "sampleDescs", "struct_common_1_1_quick_time_parser_1_1_track.html#a2098dfdcec3cbba70119233686d5ae89", null ],
+    [ "editList", "struct_common_1_1_quick_time_parser_1_1_track.html#a767f1166c5a3e0af9fe8bb4a40e2dd8c", null ],
+    [ "frameCount", "struct_common_1_1_quick_time_parser_1_1_track.html#a302620f4a0660311c27074f5c6bc2d2b", null ],
+    [ "duration", "struct_common_1_1_quick_time_parser_1_1_track.html#ad0b2a4b38f154e59820a9cece8347df3", null ],
+    [ "mediaDuration", "struct_common_1_1_quick_time_parser_1_1_track.html#a86f38ee659ef561c2b1670cb3b2ee5d6", null ],
+    [ "startTime", "struct_common_1_1_quick_time_parser_1_1_track.html#a4a0f10cdafc9b24bf5f8030eeb8df5c6", null ],
+    [ "scaleFactorX", "struct_common_1_1_quick_time_parser_1_1_track.html#a10b5af04494d1db19524e0b927d96697", null ],
+    [ "scaleFactorY", "struct_common_1_1_quick_time_parser_1_1_track.html#ad689a0505edef470549c798f097db7cf", null ]
+];
