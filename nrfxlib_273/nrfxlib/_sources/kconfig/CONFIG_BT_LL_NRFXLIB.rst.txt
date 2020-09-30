@@ -1,0 +1,66 @@
+:orphan:
+
+.. title:: BT_LL_NRFXLIB
+
+.. option:: CONFIG_BT_LL_NRFXLIB
+
+*Nordic proprietary BLE Link Layer*
+
+Type: ``bool``
+
+Help
+====
+
+Use Nordic BLE Link Layer implementation.
+
+Direct dependencies
+===================
+
+(SOC_SERIES_NRF52X || SOC_SERIES_NRF53X) && \ :ref:`<choice BT_LL_CHOICE: Bluetooth Link Layer Selection> <choice_0>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Symbols selected by this symbol
+===============================
+
+- \ :option:`MPSL <CONFIG_MPSL>`
+- ZERO_LATENCY_IRQS
+- BT_CTLR_LE_ENC_SUPPORT
+- BT_CTLR_EXT_REJ_IND_SUPPORT
+- BT_CTLR_SLAVE_FEAT_REQ_SUPPORT
+- BT_CTLR_PRIVACY_SUPPORT
+- BT_CTLR_EXT_SCAN_FP_SUPPORT
+- BT_CTLR_PHY_UPDATE_SUPPORT
+- BT_CTLR_CHAN_SEL_2_SUPPORT
+- BT_HAS_HCI_VS
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\ble_controller/Kconfig:30``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:11``
+
+Menu path: (Top) → Nordic nrfxlib → Bluetooth Link Layer Selection
+
+.. parsed-literal::
+
+    config BT_LL_NRFXLIB
+    	bool "Nordic proprietary BLE Link Layer"
+    	select \ :option:`MPSL <CONFIG_MPSL>`
+    	select ZERO_LATENCY_IRQS
+    	select BT_CTLR_LE_ENC_SUPPORT
+    	select BT_CTLR_EXT_REJ_IND_SUPPORT
+    	select BT_CTLR_SLAVE_FEAT_REQ_SUPPORT
+    	select BT_CTLR_PRIVACY_SUPPORT
+    	select BT_CTLR_EXT_SCAN_FP_SUPPORT
+    	select BT_CTLR_PHY_UPDATE_SUPPORT
+    	select BT_CTLR_CHAN_SEL_2_SUPPORT
+    	select BT_HAS_HCI_VS
+    	depends on (SOC_SERIES_NRF52X || SOC_SERIES_NRF53X) && \ :ref:`<choice BT_LL_CHOICE: Bluetooth Link Layer Selection> <choice_0>`
+    	help
+    	  Use Nordic BLE Link Layer implementation.
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

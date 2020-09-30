@@ -1,0 +1,60 @@
+:orphan:
+
+.. title:: MPSL
+
+.. option:: CONFIG_MPSL
+
+*Nordic Multi Protocol Service Layer (MPSL)*
+
+Type: ``bool``
+
+Help
+====
+
+Use Nordic Multi Protocol Service Layer (MPSL) implementation,
+providing services for single and multi-protocol implementations.
+
+Direct dependencies
+===================
+
+SOC_SERIES_NRF52X || SOC_SERIES_NRF53X
+
+*(Includes any dependencies from ifs and menus.)*
+
+Defaults
+========
+
+No defaults. Implicitly defaults to ``n``.
+
+Symbols selected by this symbol
+===============================
+
+- ZERO_LATENCY_IRQS
+
+Symbols that select this symbol
+===============================
+
+- \ :option:`BT_LL_NRFXLIB <CONFIG_BT_LL_NRFXLIB>`
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\mpsl/Kconfig:7``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:12``
+
+Menu path: (Top) → Nordic nrfxlib
+
+.. parsed-literal::
+
+    config MPSL
+    	bool "Nordic Multi Protocol Service Layer (MPSL)"
+    	select ZERO_LATENCY_IRQS
+    	depends on SOC_SERIES_NRF52X || SOC_SERIES_NRF53X
+    	help
+    	  Use Nordic Multi Protocol Service Layer (MPSL) implementation,
+    	  providing services for single and multi-protocol implementations.
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

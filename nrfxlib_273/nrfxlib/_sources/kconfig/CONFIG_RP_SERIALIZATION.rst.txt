@@ -1,0 +1,39 @@
+:orphan:
+
+.. title:: RP_SERIALIZATION
+
+.. option:: CONFIG_RP_SERIALIZATION
+
+*Serialization library*
+
+Type: ``bool``
+
+Help
+====
+
+Enable serialization library, with a chosen transport layer
+
+Defaults
+========
+
+No defaults. Implicitly defaults to ``n``.
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\serialization/Kconfig:7``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:15``
+
+Menu path: (Top) → Nordic nrfxlib
+
+.. parsed-literal::
+
+    menuconfig RP_SERIALIZATION
+    	bool "Serialization library"
+    	help
+    	  Enable serialization library, with a chosen transport layer
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

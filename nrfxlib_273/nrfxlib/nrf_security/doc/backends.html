@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nrf_security backends &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mbed TLS glue layer" href="glue_layer.html" />
+    <link rel="prev" title="Configuration" href="configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../bsdlib/README.html">BSD library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">Nordic Security Module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">nrf_security backends</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enabling-the-arm-cryptocell-cc310-backend">Enabling the Arm CryptoCell cc310 backend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nrf-oberon-backend">nrf_oberon backend</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enabling-the-nrf-oberon-backend">Enabling the nrf_oberon backend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enabling-the-original-mbed-tls-backend">Enabling the original mbed TLS backend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-nrf-cc310-mbedcrypto-as-backend">Using the nrf_cc310_mbedcrypto as backend</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="glue_layer.html">mbed TLS glue layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backend_config.html">Backend configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv_backend_config.html">Advanced backend configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mbed_tls_header.html">User-provided mbed TLS config header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../README.html">Nordic Security Module</a> &raquo;</li>
+        
+      <li>nrf_security backends</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/nrf_security/doc/backends.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nrf-security-backends">
+<span id="id1"></span><h1>nrf_security backends<a class="headerlink" href="#nrf-security-backends" title="Permalink to this headline">¶</a></h1>
+<p>The nrf_security module supports multiple enabled backends at the same time.
+This mechanism is intended to extend the available feature set of hardware-accelerated cryptography or to provide alternative implementations of the mbed TLS APIs.
+Enabling one or more backends adds more configuration options grouped into classes of cryptographic algorithms.</p>
+<p>Note that some cryptographic features are provided as an option regardless of the backend enabled.
+In such cases, the feature is compiled using open-source software from the original Arm mbed TLS project.
+An example of this is <cite>SHA-512</cite>, which is only accessible using open-source software from the Arm mbed TLS project.</p>
+<p>The configuration options added after enabling one or more backends will change based on the number of enabled backends.
+Some configuration options allow for adding support from multiple backends by utilizing the mbed TLS glue layer, while other provide a selection between the enabled backends (as radio buttons).</p>
+<p>The nrf_security module supports the following backends:</p>
+<ul class="simple">
+<li><p>Arm CryptoCell cc310 (in nRF52840 and nRF9160)</p></li>
+<li><p>nrf_oberon binary library</p></li>
+<li><p>Original mbed TLS</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that whenever this documentation mentions ‘original’ mbed TLS, it refers to the open-source <a class="reference external" href="https://github.com/ARMmbed/mbedtls">Arm mbed TLS project</a>, not the customized version available in Zephyr.
+KConfig options used to configure this backend include the term <code class="docutils literal notranslate"><span class="pre">VANILLA</span></code>.</p>
+</div>
+<div class="section" id="arm-cryptocell-cc310-backend">
+<span id="nrf-security-backends-cc-310"></span><h2>Arm CryptoCell cc310 backend<a class="headerlink" href="#arm-cryptocell-cc310-backend" title="Permalink to this headline">¶</a></h2>
+<p>The Arm CryptoCell cc310 backend is a runtime library that provides hardware-accelerated cryptography using the Arm CryptoCell cc310 hardware.</p>
+<p>The Arm CryptoCell cc310 backend is only available on the following devices:</p>
+<ul class="simple">
+<li><p>nRF52840</p></li>
+<li><p>nRF9160</p></li>
+</ul>
+<div class="section" id="enabling-the-arm-cryptocell-cc310-backend">
+<h3>Enabling the Arm CryptoCell cc310 backend<a class="headerlink" href="#enabling-the-arm-cryptocell-cc310-backend" title="Permalink to this headline">¶</a></h3>
+<p>The Arm CryptoCell cc310 backend can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_CC310_BACKEND.html#cmdoption-arg-config-cc310-backend"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CC310_BACKEND</span></code></a> Kconfig variable.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This backend is only available in nRF52840 and nRF9160.</p>
+</div>
+</div>
+</div>
+<div class="section" id="nrf-oberon-backend">
+<span id="nrf-security-backends-oberon"></span><h2>nrf_oberon backend<a class="headerlink" href="#nrf-oberon-backend" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../../crypto/doc/nrf_oberon.html#nrf-oberon-readme"><span class="std std-ref">nrf_oberon crypto library</span></a> library is a binary library that provides select cryptographic algorithms optimized for use in nRF devices.
+This provides faster execution than the original mbed TLS implementation.</p>
+<p>The nrf_oberon backend provides support for AES ciphers, SHA-1, SHA-256, and ECC (ECDH, ECDSA, and ECJPAKE) using NIST curve secp256r1.</p>
+<div class="section" id="enabling-the-nrf-oberon-backend">
+<h3>Enabling the nrf_oberon backend<a class="headerlink" href="#enabling-the-nrf-oberon-backend" title="Permalink to this headline">¶</a></h3>
+<p>To use the <a class="reference internal" href="../../crypto/doc/nrf_oberon.html#nrf-oberon-readme"><span class="std std-ref">nrf_oberon crypto library</span></a> as a backend, set the <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_OBERON_BACKEND</span></code> Kconfig variable to true.</p>
+</div>
+</div>
+<div class="section" id="original-mbed-tls-backend">
+<span id="nrf-security-backends-orig-mbedtls"></span><h2>Original mbed TLS backend<a class="headerlink" href="#original-mbed-tls-backend" title="Permalink to this headline">¶</a></h2>
+<p>The original mbed TLS backend uses the open-source software from the <a class="reference external" href="https://github.com/ARMmbed/mbedtls">Arm mbed TLS project</a>.</p>
+<p>The software is unaltered from the Arm mbed TLS project source distribution, meaning it is in its <cite>vanilla</cite> form.</p>
+<p>You can use the original mbed TLS backend to add support for features not available in the <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a>, for example AES-256 or ECC Brainpool curve types.</p>
+<p>Similarly, you can use the original mbed TLS backend to add support for features not available in the <a class="reference internal" href="#nrf-oberon-backend">nrf_oberon backend</a>, for example to support more ECC curve types.</p>
+<div class="section" id="enabling-the-original-mbed-tls-backend">
+<h3>Enabling the original mbed TLS backend<a class="headerlink" href="#enabling-the-original-mbed-tls-backend" title="Permalink to this headline">¶</a></h3>
+<p>To enable the original mbed TLS backend, set the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_VANILLA_BACKEND.html#cmdoption-arg-config-mbedtls-vanilla-backend"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_VANILLA_BACKEND</span></code></a> Kconfig variable to true.</p>
+</div>
+</div>
+<div class="section" id="using-the-nrf-cc310-mbedcrypto-as-backend">
+<h2>Using the nrf_cc310_mbedcrypto as backend<a class="headerlink" href="#using-the-nrf-cc310-mbedcrypto-as-backend" title="Permalink to this headline">¶</a></h2>
+<p>To use the <a class="reference internal" href="../../crypto/doc/nrf_cc310_mbedcrypto.html#nrf-cc310-mbedcrypto-readme"><span class="std std-ref">nrf_cc310_mbedcrypto library</span></a> as a backend, the Arm CryptoCell cc310 hardware must be first initialized.</p>
+<p>The Arm CryptoCell cc310 hardware is initialized in <code class="file docutils literal notranslate"><span class="pre">&lt;NCS&gt;/nrf/drivers/hw_cc310/hw_cc310.c</span></code> and is controlled with the <a class="reference external" href="../..\..\nrf\reference/kconfig/CONFIG_HW_CC310.html#cmdoption-arg-config-hw-cc310" title="(in nRF Connect SDK v1.3.99)"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_HW_CC310</span></code></a> Kconfig variable.
+The Kconfig variable has a default value of ‘y’ when cc310 is available in the SoC.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="glue_layer.html" class="btn btn-neutral float-right" title="mbed TLS glue layer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configuration.html" class="btn btn-neutral" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

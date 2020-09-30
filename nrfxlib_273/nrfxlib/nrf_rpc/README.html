@@ -1,0 +1,1051 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Remote procedure call library (nRF RPC) &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Architecture" href="doc/architecture.html" />
+    <link rel="prev" title="ZBOSS Zigbee stack" href="../zboss/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bsdlib/README.html">BSD library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nrf_security/README.html">Nordic Security Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Remote procedure call library (nRF RPC)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc/architecture.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/usage.html">Implementing remote procedure calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-documentation">API documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core-api-documentation">Core API documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tinycbor-api-documentation">TinyCBOR API documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../README.html">Docs</a> &raquo;</li>
+        
+      <li>Remote procedure call library (nRF RPC)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/nrf_rpc/README.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="remote-procedure-call-library-nrf-rpc">
+<span id="nrf-rpc"></span><h1>Remote procedure call library (nRF RPC)<a class="headerlink" href="#remote-procedure-call-library-nrf-rpc" title="Permalink to this headline">¶</a></h1>
+<p>nRF RPC is a remote procedure call library for nRF Connect SDK enabling inter-processor communication on Nordic Semiconductor SoCs.
+The library is RTOS-agnostic and implements serialization of function calls.
+It is designed to be used with an underlying transport layer, for example <a class="reference external" href="https://github.com/OpenAMP/open-amp/">OpenAMP</a>.</p>
+<p>The nRF RPC library allows for calling a function on remote processors from a local processor, in both synchronous and asynchronous way.</p>
+<p>Depending on the transport layer, the remote processor is not limited to a single device.
+It can also be a separate device of any type (e.g. a PC), or another core on the same system.</p>
+<p>The nRF RPC library simplifies the serialization of user APIs, such as a Bluetooth stack, and executing of functions implementing those APIs on a remote CPU.
+The library is operating system independent so it can be used with any operating system after porting the OS-dependent layers of the library.</p>
+<p>The API layer on top of the core nRF RPC API uses the <a class="reference external" href="https://github.com/zephyrproject-rtos/tinycbor">TinyCBOR</a> library for serialization.
+nRF RPC requires the Zephyr Project fork of TinyCBOR, because of API differences.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="doc/architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc/architecture.html#types-of-communication">Types of communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/architecture.html#threads">Threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/architecture.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/architecture.html#lower-layers">Lower layers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doc/usage.html">Implementing remote procedure calls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc/usage.html#rpc-encoders">RPC Encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/usage.html#rpc-decoders">RPC Decoders</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="api-documentation">
+<h2>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="core-api-documentation">
+<span id="nrf-rpc-core-api-documentation"></span><h3>Core API documentation<a class="headerlink" href="#core-api-documentation" title="Permalink to this headline">¶</a></h3>
+<p>This API uses pointers to raw packet data.
+<a class="reference internal" href="#nrf-rpc-cbor-api-documentation"><span class="std std-ref">TinyCBOR API documentation</span></a> provides serialization layer over it that uses TinyCBOR.</p>
+<dl class="group">
+<dt>
+<span class="target" id="group__nrf__rpc"></span><em>group</em> <code class="sig-name descname">nrf_rpc</code></dt>
+<dd><p>Module to call procedures on a remote processor. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Defines</p>
+<dl class="macro">
+<dt id="c.NRF_RPC_ID_UNKNOWN">
+<span class="target" id="group__nrf__rpc_1ga33157a5300ab16ca0f1cd1584ede98c7"></span><code class="sig-name descname">NRF_RPC_ID_UNKNOWN</code><a class="headerlink" href="#c.NRF_RPC_ID_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special value to indicate that ID is unknown or irrelevant. </p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.NRF_RPC_GROUP_DEFINE">
+<span class="target" id="group__nrf__rpc_1ga1c70a532243f2a520dfa0bf694398b4e"></span><code class="sig-name descname">NRF_RPC_GROUP_DEFINE</code><span class="sig-paren">(</span>_name, _strid, _ack_handler, _ack_data, _err_handler<span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_RPC_GROUP_DEFINE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define a group of commands and events. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_name</span></code>: Symbol name of the group. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_strid</span></code>: String containing unique identifier of the group. Naming conventions the same as C symbol name. Groups on local and remote must have the same unique identifier. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_ack_handler</span></code>: Handler of type nrf_rpc_ack_handler_t called when ACK was received after event completion. Can be NULL if group does not want to receive ACK notifications. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_ack_data</span></code>: Opaque pointer for the <code class="docutils literal notranslate"><span class="pre">_ack_handler</span></code>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_err_handler</span></code>: Handler of type nrf_rpc_err_handler_t called when error occurred in context of this group. Can be NULL if group does not want to receive error notifications. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.NRF_RPC_GROUP_DECLARE">
+<span class="target" id="group__nrf__rpc_1gaa7347eeda2a3d4ed6d73d0728639513e"></span><code class="sig-name descname">NRF_RPC_GROUP_DECLARE</code><span class="sig-paren">(</span>_name<span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_RPC_GROUP_DECLARE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extern declaration of a group. </p>
+<p>Can be used in a header file.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_name</span></code>: Symbol name of the group. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.NRF_RPC_CMD_DECODER">
+<span class="target" id="group__nrf__rpc_1gaf2483384888788d80776e114bd264975"></span><code class="sig-name descname">NRF_RPC_CMD_DECODER</code><span class="sig-paren">(</span>_group, _name, _cmd, _handler, _data<span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_RPC_CMD_DECODER" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a command decoder. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_group</span></code>: Group that the decoder will belong to, created with a NRF_RPC_GROUP_DEFINE(). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_name</span></code>: Name of the decoder. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_cmd</span></code>: Command id. Can be from 0 to 254. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_handler</span></code>: Handler function of type nrf_rpc_handler_t. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_data</span></code>: Opaque pointer for the <code class="docutils literal notranslate"><span class="pre">_handler</span></code>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.NRF_RPC_EVT_DECODER">
+<span class="target" id="group__nrf__rpc_1ga9a8cb32d487b49ed553542b7c71f32ea"></span><code class="sig-name descname">NRF_RPC_EVT_DECODER</code><span class="sig-paren">(</span>_group, _name, _evt, _handler, _data<span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_RPC_EVT_DECODER" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register an event decoder. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_group</span></code>: Group that the decoder will belong to, created with a NRF_RPC_GROUP_DEFINE(). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_name</span></code>: Name of the decoder. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_evt</span></code>: Event id. Can be from 0 to 254. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_handler</span></code>: Handler function of type nrf_rpc_handler_t. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_data</span></code>: Opaque pointer for the <code class="docutils literal notranslate"><span class="pre">_handler</span></code>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.NRF_RPC_ALLOC">
+<span class="target" id="group__nrf__rpc_1ga75e97ce2569c09bea54291006a089d4f"></span><code class="sig-name descname">NRF_RPC_ALLOC</code><span class="sig-paren">(</span>_packet, _len<span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_RPC_ALLOC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocates memory for a packet. </p>
+<p>Macro may allocate some variables on stack, so it should be used at top level of a function.</p>
+<p>Memory is automatically deallocated when it is passed to any of the send functions. If not NRF_RPC_DISCARD() can be used.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">_packet</span></code>: Variable of type <code class="docutils literal notranslate"><span class="pre">uint8_t</span> <span class="pre">*</span></code> that will hold pointer to a newly allocated packet buffer. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">_len</span></code>: Requested length of the packet. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.NRF_RPC_DISCARD">
+<span class="target" id="group__nrf__rpc_1ga6e89dd18e1257ff574a1442928be66c0"></span><code class="sig-name descname">NRF_RPC_DISCARD</code><span class="sig-paren">(</span>_packet<span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_RPC_DISCARD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deallocate memory for a packet. </p>
+<p>This macro should be used if memory was allocated, but it will not be send with any of the send functions.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_packet</span></code>: Packet that was previously allocated. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Typedefs</p>
+<dl class="type">
+<dt id="_CPPv417nrf_rpc_handler_t">
+<span id="_CPPv317nrf_rpc_handler_t"></span><span id="_CPPv217nrf_rpc_handler_t"></span><span id="nrf_rpc_handler_t"></span><span class="target" id="group__nrf__rpc_1ga6078dcc7040883f9f90c24067ddf09b4"></span><em class="property">typedef </em>void (*<code class="sig-name descname">nrf_rpc_handler_t</code>)<span class="sig-paren">(</span><em class="property">const</em> uint8_t *packet, size_t len, void *handler_data<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417nrf_rpc_handler_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback that handles decoding of commands, events and responses. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">packet</span></code>: Packet data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len</span></code>: Length of the packet. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler_data</span></code>: Opaque pointer provided by the user. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv421nrf_rpc_ack_handler_t">
+<span id="_CPPv321nrf_rpc_ack_handler_t"></span><span id="_CPPv221nrf_rpc_ack_handler_t"></span><span id="nrf_rpc_ack_handler_t"></span><span class="target" id="group__nrf__rpc_1ga78abebb22359e844aea0282e2e60ed8d"></span><em class="property">typedef </em>void (*<code class="sig-name descname">nrf_rpc_ack_handler_t</code>)<span class="sig-paren">(</span>uint8_t id, void *handler_data<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421nrf_rpc_ack_handler_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback called when ACK was received. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p>NRF_RPC_GROUP_DEFINE</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: Id of the event that was completed. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler_data</span></code>: Opaque pointer provided by the user. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv421nrf_rpc_err_handler_t">
+<span id="_CPPv321nrf_rpc_err_handler_t"></span><span id="_CPPv221nrf_rpc_err_handler_t"></span><span id="nrf_rpc_err_handler_t"></span><span class="target" id="group__nrf__rpc_1ga35504489b8bcffe2d7fb86f60b96f706"></span><em class="property">typedef </em>void (*<code class="sig-name descname">nrf_rpc_err_handler_t</code>)<span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv418nrf_rpc_err_report" title="nrf_rpc_err_report">nrf_rpc_err_report</a> *report<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421nrf_rpc_err_handler_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback to report error that cannot be returned by the API call. </p>
+<p>This callback will be called when received packet cannot be correctly interpreted. Second case is when one of <code class="docutils literal notranslate"><span class="pre">_no_err</span></code> sending functions failed.</p>
+<p>Callback can be assigned to specific group. If group in which error occurred is known associated error handler is called. Later global error handler provided in nrf_rpc_init is called.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p>NRF_RPC_GROUP_DEFINE </p>
+</dd>
+<dt><strong>See</strong></dt><dd><p>nrf_rpc_init</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">report</span></code>: Error report. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Enums</p>
+<dl class="enum">
+<dt id="_CPPv4N7nrf_rpc19nrf_rpc_packet_typeE">
+<span id="_CPPv3N7nrf_rpc19nrf_rpc_packet_typeE"></span><span id="_CPPv2N7nrf_rpc19nrf_rpc_packet_typeE"></span><span class="target" id="group__nrf__rpc_1gaa316396160da73fa936fdb37695f9011"></span><em class="property">enum </em><code class="sig-name descname">nrf_rpc_packet_type</code><a class="headerlink" href="#_CPPv4N7nrf_rpc19nrf_rpc_packet_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Type of packet. </p>
+<p>Used by <a class="reference internal" href="#structnrf__rpc__err__report"><span class="std std-ref">nrf_rpc_err_report</span></a> to indicate which packet caused the problem. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N7nrf_rpc23NRF_RPC_PACKET_TYPE_EVTE">
+<span id="_CPPv3N7nrf_rpc23NRF_RPC_PACKET_TYPE_EVTE"></span><span id="_CPPv2N7nrf_rpc23NRF_RPC_PACKET_TYPE_EVTE"></span><span class="target" id="group__nrf__rpc_gaa316396160da73fa936fdb37695f9011_1ggaa316396160da73fa936fdb37695f9011acb9d44223e1b4ccd1f60549a59063b7a"></span><code class="sig-name descname">NRF_RPC_PACKET_TYPE_EVT</code> = 0x00<a class="headerlink" href="#_CPPv4N7nrf_rpc23NRF_RPC_PACKET_TYPE_EVTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Event. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N7nrf_rpc23NRF_RPC_PACKET_TYPE_RSPE">
+<span id="_CPPv3N7nrf_rpc23NRF_RPC_PACKET_TYPE_RSPE"></span><span id="_CPPv2N7nrf_rpc23NRF_RPC_PACKET_TYPE_RSPE"></span><span class="target" id="group__nrf__rpc_gaa316396160da73fa936fdb37695f9011_1ggaa316396160da73fa936fdb37695f9011a7a58e799b99b677b5201b1d366a8a348"></span><code class="sig-name descname">NRF_RPC_PACKET_TYPE_RSP</code> = 0x01<a class="headerlink" href="#_CPPv4N7nrf_rpc23NRF_RPC_PACKET_TYPE_RSPE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Response. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N7nrf_rpc23NRF_RPC_PACKET_TYPE_ACKE">
+<span id="_CPPv3N7nrf_rpc23NRF_RPC_PACKET_TYPE_ACKE"></span><span id="_CPPv2N7nrf_rpc23NRF_RPC_PACKET_TYPE_ACKE"></span><span class="target" id="group__nrf__rpc_gaa316396160da73fa936fdb37695f9011_1ggaa316396160da73fa936fdb37695f9011a3d4755719aa258bd70ed03d0cb2cc40b"></span><code class="sig-name descname">NRF_RPC_PACKET_TYPE_ACK</code> = 0x02<a class="headerlink" href="#_CPPv4N7nrf_rpc23NRF_RPC_PACKET_TYPE_ACKE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Event acknowledge. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N7nrf_rpc23NRF_RPC_PACKET_TYPE_ERRE">
+<span id="_CPPv3N7nrf_rpc23NRF_RPC_PACKET_TYPE_ERRE"></span><span id="_CPPv2N7nrf_rpc23NRF_RPC_PACKET_TYPE_ERRE"></span><span class="target" id="group__nrf__rpc_gaa316396160da73fa936fdb37695f9011_1ggaa316396160da73fa936fdb37695f9011a21238e44c98e27d2cf6432bb6c79dacb"></span><code class="sig-name descname">NRF_RPC_PACKET_TYPE_ERR</code> = 0x03<a class="headerlink" href="#_CPPv4N7nrf_rpc23NRF_RPC_PACKET_TYPE_ERRE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Error report from remote. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N7nrf_rpc24NRF_RPC_PACKET_TYPE_INITE">
+<span id="_CPPv3N7nrf_rpc24NRF_RPC_PACKET_TYPE_INITE"></span><span id="_CPPv2N7nrf_rpc24NRF_RPC_PACKET_TYPE_INITE"></span><span class="target" id="group__nrf__rpc_gaa316396160da73fa936fdb37695f9011_1ggaa316396160da73fa936fdb37695f9011a42557879c4d072c3b1e9bc437b99690b"></span><code class="sig-name descname">NRF_RPC_PACKET_TYPE_INIT</code> = 0x04<a class="headerlink" href="#_CPPv4N7nrf_rpc24NRF_RPC_PACKET_TYPE_INITE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialization packet. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N7nrf_rpc23NRF_RPC_PACKET_TYPE_CMDE">
+<span id="_CPPv3N7nrf_rpc23NRF_RPC_PACKET_TYPE_CMDE"></span><span id="_CPPv2N7nrf_rpc23NRF_RPC_PACKET_TYPE_CMDE"></span><span class="target" id="group__nrf__rpc_gaa316396160da73fa936fdb37695f9011_1ggaa316396160da73fa936fdb37695f9011a3df49e72cdd661ca60d2eee56ca90097"></span><code class="sig-name descname">NRF_RPC_PACKET_TYPE_CMD</code> = 0x80<a class="headerlink" href="#_CPPv4N7nrf_rpc23NRF_RPC_PACKET_TYPE_CMDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Command. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="enum">
+<dt id="_CPPv4N7nrf_rpc15nrf_rpc_err_srcE">
+<span id="_CPPv3N7nrf_rpc15nrf_rpc_err_srcE"></span><span id="_CPPv2N7nrf_rpc15nrf_rpc_err_srcE"></span><span class="target" id="group__nrf__rpc_1ga5d897f390cbbad4f9962815c1fd90e43"></span><em class="property">enum </em><code class="sig-name descname">nrf_rpc_err_src</code><a class="headerlink" href="#_CPPv4N7nrf_rpc15nrf_rpc_err_srcE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Error source. </p>
+<p>Used by <a class="reference internal" href="#structnrf__rpc__err__report"><span class="std std-ref">nrf_rpc_err_report</span></a> to indicate when the problem occurred. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N7nrf_rpc20NRF_RPC_ERR_SRC_RECVE">
+<span id="_CPPv3N7nrf_rpc20NRF_RPC_ERR_SRC_RECVE"></span><span id="_CPPv2N7nrf_rpc20NRF_RPC_ERR_SRC_RECVE"></span><span class="target" id="group__nrf__rpc_ga5d897f390cbbad4f9962815c1fd90e43_1gga5d897f390cbbad4f9962815c1fd90e43abaddab912ba32599c5e283c32b6d4d73"></span><code class="sig-name descname">NRF_RPC_ERR_SRC_RECV</code><a class="headerlink" href="#_CPPv4N7nrf_rpc20NRF_RPC_ERR_SRC_RECVE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Error during receiving. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N7nrf_rpc20NRF_RPC_ERR_SRC_SENDE">
+<span id="_CPPv3N7nrf_rpc20NRF_RPC_ERR_SRC_SENDE"></span><span id="_CPPv2N7nrf_rpc20NRF_RPC_ERR_SRC_SENDE"></span><span class="target" id="group__nrf__rpc_ga5d897f390cbbad4f9962815c1fd90e43_1gga5d897f390cbbad4f9962815c1fd90e43abc7b8b40d553b566ea7707df6f71af0f"></span><code class="sig-name descname">NRF_RPC_ERR_SRC_SEND</code><a class="headerlink" href="#_CPPv4N7nrf_rpc20NRF_RPC_ERR_SRC_SENDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Error during sending. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N7nrf_rpc22NRF_RPC_ERR_SRC_REMOTEE">
+<span id="_CPPv3N7nrf_rpc22NRF_RPC_ERR_SRC_REMOTEE"></span><span id="_CPPv2N7nrf_rpc22NRF_RPC_ERR_SRC_REMOTEE"></span><span class="target" id="group__nrf__rpc_ga5d897f390cbbad4f9962815c1fd90e43_1gga5d897f390cbbad4f9962815c1fd90e43a7ea5154c214428566f15d7adc2acae19"></span><code class="sig-name descname">NRF_RPC_ERR_SRC_REMOTE</code><a class="headerlink" href="#_CPPv4N7nrf_rpc22NRF_RPC_ERR_SRC_REMOTEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Error reported be the remote. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv412nrf_rpc_init21nrf_rpc_err_handler_t">
+<span id="_CPPv312nrf_rpc_init21nrf_rpc_err_handler_t"></span><span id="_CPPv212nrf_rpc_init21nrf_rpc_err_handler_t"></span><span id="nrf_rpc_init__nrf_rpc_err_handler_t"></span><span class="target" id="group__nrf__rpc_1ga7cc841c6b46724eb1d8b2574d525c0d2"></span>int <code class="sig-name descname">nrf_rpc_init</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv421nrf_rpc_err_handler_t" title="nrf_rpc_err_handler_t">nrf_rpc_err_handler_t</a> <em>err_handler</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412nrf_rpc_init21nrf_rpc_err_handler_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize the nRF RPC. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success or negative error code. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">err_handler</span></code>: Error handler that will be called to report error in nRF RPC.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv411nrf_rpc_cmdPK13nrf_rpc_group7uint8_tP7uint8_t6size_t17nrf_rpc_handler_tPv">
+<span id="_CPPv311nrf_rpc_cmdPK13nrf_rpc_group7uint8_tP7uint8_t6size_t17nrf_rpc_handler_tPv"></span><span id="_CPPv211nrf_rpc_cmdPK13nrf_rpc_group7uint8_tP7uint8_t6size_t17nrf_rpc_handler_tPv"></span><span id="nrf_rpc_cmd__nrf_rpc_groupCP.uint8_t.uint8_tP.s.nrf_rpc_handler_t.voidP"></span><span class="target" id="group__nrf__rpc_1ga929f823630b8a8c459df0277a737874d"></span><em class="property">static</em> int <code class="sig-name descname">nrf_rpc_cmd</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>cmd</em>, uint8_t *<em>packet</em>, size_t <em>len</em>, <a class="reference internal" href="#_CPPv417nrf_rpc_handler_t" title="nrf_rpc_handler_t">nrf_rpc_handler_t</a> <em>handler</em>, void *<em>handler_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411nrf_rpc_cmdPK13nrf_rpc_group7uint8_tP7uint8_t6size_t17nrf_rpc_handler_tPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a command and provide callback to handle response. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success or negative error code if a transport layer reported a sendig error. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Group that command belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmd</span></code>: Command id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">packet</span></code>: Packet allocated by NRF_RPC_ALLOC and filled with an encoded data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len</span></code>: Length of the packet. Can be smaller than allocated. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: Callback that handles the response. In case of error (e.g. malformed response packet was received) it is undefined if the handler will be called. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler_data</span></code>: Opaque pointer that will be passed to <code class="docutils literal notranslate"><span class="pre">handler</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv415nrf_rpc_cmd_rspPK13nrf_rpc_group7uint8_tP7uint8_t6size_tPPK7uint8_tP6size_t">
+<span id="_CPPv315nrf_rpc_cmd_rspPK13nrf_rpc_group7uint8_tP7uint8_t6size_tPPK7uint8_tP6size_t"></span><span id="_CPPv215nrf_rpc_cmd_rspPK13nrf_rpc_group7uint8_tP7uint8_t6size_tPPK7uint8_tP6size_t"></span><span id="nrf_rpc_cmd_rsp__nrf_rpc_groupCP.uint8_t.uint8_tP.s.uint8_tCPP.sP"></span><span class="target" id="group__nrf__rpc_1ga80ef515e9a32773e2cfd5fad84646519"></span><em class="property">static</em> int <code class="sig-name descname">nrf_rpc_cmd_rsp</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>cmd</em>, uint8_t *<em>packet</em>, size_t <em>len</em>, <em class="property">const</em> uint8_t **<em>rsp_packet</em>, size_t *<em>rsp_len</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415nrf_rpc_cmd_rspPK13nrf_rpc_group7uint8_tP7uint8_t6size_tPPK7uint8_tP6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a command and get response as an output parameter. </p>
+<p>This variant of command send function outputs response as an output parameter. Caller is responsible to call nrf_rpc_decoding_done with a response packet just after response packet was decoded and can be deallocated.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success or negative error code if a transport layer reported a sendig error. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">group</span></code>: Group that command belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cmd</span></code>: Command id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">packet</span></code>: Packet allocated by NRF_RPC_ALLOC and filled with an encoded data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">len</span></code>: Length of the packet. Can be smaller than allocated. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">rsp_packet</span></code>: Packet containing the response or NULL on error. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">rsp_len</span></code>: Length of <code class="docutils literal notranslate"><span class="pre">rsp_packet</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv418nrf_rpc_cmd_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_t17nrf_rpc_handler_tPv">
+<span id="_CPPv318nrf_rpc_cmd_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_t17nrf_rpc_handler_tPv"></span><span id="_CPPv218nrf_rpc_cmd_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_t17nrf_rpc_handler_tPv"></span><span id="nrf_rpc_cmd_no_err__nrf_rpc_groupCP.uint8_t.uint8_tP.s.nrf_rpc_handler_t.voidP"></span><span class="target" id="group__nrf__rpc_1ga7c863d40759f1d8e885a8c7ba27ced76"></span><em class="property">static</em> void <code class="sig-name descname">nrf_rpc_cmd_no_err</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>cmd</em>, uint8_t *<em>packet</em>, size_t <em>len</em>, <a class="reference internal" href="#_CPPv417nrf_rpc_handler_t" title="nrf_rpc_handler_t">nrf_rpc_handler_t</a> <em>handler</em>, void *<em>handler_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418nrf_rpc_cmd_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_t17nrf_rpc_handler_tPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a command, provide callback to handle response and pass any error to an error handler. </p>
+<p>This variant of command send function returns <code class="docutils literal notranslate"><span class="pre">void</span></code>, so sending error returned from the transport layer is passed to the error handler. Source of error is <a class="reference internal" href="#group__nrf__rpc_ga5d897f390cbbad4f9962815c1fd90e43_1gga5d897f390cbbad4f9962815c1fd90e43abc7b8b40d553b566ea7707df6f71af0f"><span class="std std-ref">NRF_RPC_ERR_SRC_SEND</span></a>.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Group that command belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmd</span></code>: Command id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">packet</span></code>: Packet allocated by NRF_RPC_ALLOC and filled with an encoded data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len</span></code>: Length of the packet. Can be smaller than allocated. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: Callback that handles the response. In case of error (e.g. malformed response packet was received) it is undefined if the handler will be called. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler_data</span></code>: Opaque pointer that will be passed to <code class="docutils literal notranslate"><span class="pre">handler</span></code>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv422nrf_rpc_cmd_rsp_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_tPPK7uint8_tP6size_t">
+<span id="_CPPv322nrf_rpc_cmd_rsp_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_tPPK7uint8_tP6size_t"></span><span id="_CPPv222nrf_rpc_cmd_rsp_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_tPPK7uint8_tP6size_t"></span><span id="nrf_rpc_cmd_rsp_no_err__nrf_rpc_groupCP.uint8_t.uint8_tP.s.uint8_tCPP.sP"></span><span class="target" id="group__nrf__rpc_1gac98f39c7229bfa43db9063ba7fd01c3a"></span><em class="property">static</em> void <code class="sig-name descname">nrf_rpc_cmd_rsp_no_err</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>cmd</em>, uint8_t *<em>packet</em>, size_t <em>len</em>, <em class="property">const</em> uint8_t **<em>rsp_packet</em>, size_t *<em>rsp_len</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422nrf_rpc_cmd_rsp_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_tPPK7uint8_tP6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a command, get response as an output parameter and pass any error to an error handler. </p>
+<p>See both nrf_rpc_cmd_rsp and nrf_rpc_cmd_no_err for more details on this variant of command send function.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">group</span></code>: Group that command belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cmd</span></code>: Command id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">packet</span></code>: Packet allocated by NRF_RPC_ALLOC and filled with an encoded data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">len</span></code>: Length of the packet. Can be smaller than allocated. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">rsp_packet</span></code>: Packet containing the response or NULL on error. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">rsp_len</span></code>: Length of <code class="docutils literal notranslate"><span class="pre">rsp_packet</span></code>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv411nrf_rpc_evtPK13nrf_rpc_group7uint8_tP7uint8_t6size_t">
+<span id="_CPPv311nrf_rpc_evtPK13nrf_rpc_group7uint8_tP7uint8_t6size_t"></span><span id="_CPPv211nrf_rpc_evtPK13nrf_rpc_group7uint8_tP7uint8_t6size_t"></span><span id="nrf_rpc_evt__nrf_rpc_groupCP.uint8_t.uint8_tP.s"></span><span class="target" id="group__nrf__rpc_1gab7e2053c01536daf299319c762b99254"></span>int <code class="sig-name descname">nrf_rpc_evt</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>evt</em>, uint8_t *<em>packet</em>, size_t <em>len</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411nrf_rpc_evtPK13nrf_rpc_group7uint8_tP7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send an event. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success or negative error code if a transport layer reported a sendig error. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Group that event belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evt</span></code>: Event id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">packet</span></code>: Packet allocated by NRF_RPC_ALLOC and filled with an encoded data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len</span></code>: Length of the packet. Can be smaller than allocated.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv418nrf_rpc_evt_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_t">
+<span id="_CPPv318nrf_rpc_evt_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_t"></span><span id="_CPPv218nrf_rpc_evt_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_t"></span><span id="nrf_rpc_evt_no_err__nrf_rpc_groupCP.uint8_t.uint8_tP.s"></span><span class="target" id="group__nrf__rpc_1ga9795807dca63005ace4ad8fe82a0e3fc"></span>void <code class="sig-name descname">nrf_rpc_evt_no_err</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>evt</em>, uint8_t *<em>packet</em>, size_t <em>len</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418nrf_rpc_evt_no_errPK13nrf_rpc_group7uint8_tP7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send an event and pass any error to an error handler. </p>
+<p>This variant of event send function returns <code class="docutils literal notranslate"><span class="pre">void</span></code>, so sending error returned from the transport layer is passed to the error handler. Source of error is <a class="reference internal" href="#group__nrf__rpc_ga5d897f390cbbad4f9962815c1fd90e43_1gga5d897f390cbbad4f9962815c1fd90e43abc7b8b40d553b566ea7707df6f71af0f"><span class="std std-ref">NRF_RPC_ERR_SRC_SEND</span></a>.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Group that event belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evt</span></code>: Event id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">packet</span></code>: Packet allocated by NRF_RPC_ALLOC and filled with an encoded data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len</span></code>: Length of the packet. Can be smaller than allocated. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv411nrf_rpc_rspP7uint8_t6size_t">
+<span id="_CPPv311nrf_rpc_rspP7uint8_t6size_t"></span><span id="_CPPv211nrf_rpc_rspP7uint8_t6size_t"></span><span id="nrf_rpc_rsp__uint8_tP.s"></span><span class="target" id="group__nrf__rpc_1ga81000bac0d05f714febc1e56e4cd738b"></span>int <code class="sig-name descname">nrf_rpc_rsp</code><span class="sig-paren">(</span>uint8_t *<em>packet</em>, size_t <em>len</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411nrf_rpc_rspP7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a response. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success or negative error code if a transport layer reported a sendig error. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">packet</span></code>: Packet allocated by NRF_RPC_ALLOC and filled with encoded data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len</span></code>: Length of the packet. Can be smaller than allocated.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv418nrf_rpc_rsp_no_errP7uint8_t6size_t">
+<span id="_CPPv318nrf_rpc_rsp_no_errP7uint8_t6size_t"></span><span id="_CPPv218nrf_rpc_rsp_no_errP7uint8_t6size_t"></span><span id="nrf_rpc_rsp_no_err__uint8_tP.s"></span><span class="target" id="group__nrf__rpc_1gacc43f2f3aa22c7319fe86e33865148aa"></span>void <code class="sig-name descname">nrf_rpc_rsp_no_err</code><span class="sig-paren">(</span>uint8_t *<em>packet</em>, size_t <em>len</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418nrf_rpc_rsp_no_errP7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a response and pass any error to an error handler. </p>
+<p>This variant of response send function returns <code class="docutils literal notranslate"><span class="pre">void</span></code>, so sending error returned from the transport layer is passed to the error handler. Source of error is <a class="reference internal" href="#group__nrf__rpc_ga5d897f390cbbad4f9962815c1fd90e43_1gga5d897f390cbbad4f9962815c1fd90e43abc7b8b40d553b566ea7707df6f71af0f"><span class="std std-ref">NRF_RPC_ERR_SRC_SEND</span></a>.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">packet</span></code>: Packet allocated by NRF_RPC_ALLOC and filled with encoded data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len</span></code>: Length of the packet. Can be smaller than allocated. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv421nrf_rpc_decoding_donePK7uint8_t">
+<span id="_CPPv321nrf_rpc_decoding_donePK7uint8_t"></span><span id="_CPPv221nrf_rpc_decoding_donePK7uint8_t"></span><span id="nrf_rpc_decoding_done__uint8_tCP"></span><span class="target" id="group__nrf__rpc_1ga5b184f0d3e416b0f25ed9bcc2983e303"></span>void <code class="sig-name descname">nrf_rpc_decoding_done</code><span class="sig-paren">(</span><em class="property">const</em> uint8_t *<em>packet</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421nrf_rpc_decoding_donePK7uint8_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Indicate that decoding of the input packet is done. </p>
+<p>This function must be called as soon as the input packet was parsed and can be deallocated. It must be called in command decoder, event decoder and after nrf_rpc_cmd_rsp or nrf_rpc_cmd_rsp_no_err. Packet is automatically deallocated after completetion of the response handler function, so this <code class="docutils literal notranslate"><span class="pre">nrf_rpc_decoding_done</span></code> is not needed in response handler.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">packet</span></code>: Packet which parsing has completed. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv411nrf_rpc_erri15nrf_rpc_err_srcPK13nrf_rpc_group7uint8_t7uint8_t">
+<span id="_CPPv311nrf_rpc_erri15nrf_rpc_err_srcPK13nrf_rpc_group7uint8_t7uint8_t"></span><span id="_CPPv211nrf_rpc_erri15nrf_rpc_err_srcPK13nrf_rpc_group7uint8_t7uint8_t"></span><span id="nrf_rpc_err__i.nrf_rpc_err_src.nrf_rpc_groupCP.uint8_t.uint8_t"></span><span class="target" id="group__nrf__rpc_1gadf9ca078ca29ff03dff92482cc0ab0dc"></span>void <code class="sig-name descname">nrf_rpc_err</code><span class="sig-paren">(</span>int <em>code</em>, <em class="property">enum</em> nrf_rpc_err_src <em>src</em>, <em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>id</em>, uint8_t <em>packet_type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411nrf_rpc_erri15nrf_rpc_err_srcPK13nrf_rpc_group7uint8_t7uint8_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Report an error to nRP PRC error handler. </p>
+<p>Main intention for exposing this function is to allow serialization layer (e.g. TinyCBOR) report error to the same error handler as entire nRF RPC.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code>: Negative error code. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src</span></code>: Source of error. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Group where error happent or NULL if unknown. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: Command or event id which caused the error or NRF_RPC_ID_UNKNOWN if unknown. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">packet_type</span></code>: Type of packet related to this error. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv413nrf_rpc_group">
+<span id="_CPPv313nrf_rpc_group"></span><span id="_CPPv213nrf_rpc_group"></span><span id="nrf_rpc_group"></span><span class="target" id="structnrf__rpc__group"></span><em class="property">struct </em><code class="sig-name descname">nrf_rpc_group</code><a class="headerlink" href="#_CPPv413nrf_rpc_group" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;nrf_rpc.h&gt;</em><p>Defines a group of commands and events. </p>
+<p>Created by NRF_RPC_GROUP_DEFINE.</p>
+<p>Fields of this structure are used internally by nRF RPC and not intended to be used by the user. </p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv418nrf_rpc_err_report">
+<span id="_CPPv318nrf_rpc_err_report"></span><span id="_CPPv218nrf_rpc_err_report"></span><span id="nrf_rpc_err_report"></span><span class="target" id="structnrf__rpc__err__report"></span><em class="property">struct </em><code class="sig-name descname">nrf_rpc_err_report</code><a class="headerlink" href="#_CPPv418nrf_rpc_err_report" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;nrf_rpc.h&gt;</em><p>Error report. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N18nrf_rpc_err_report4codeE">
+<span id="_CPPv3N18nrf_rpc_err_report4codeE"></span><span id="_CPPv2N18nrf_rpc_err_report4codeE"></span><span id="nrf_rpc_err_report::code__i"></span><span class="target" id="structnrf__rpc__err__report_a54485d6efc4b8c147e04747dfa369674_1a54485d6efc4b8c147e04747dfa369674"></span>int <code class="sig-name descname">code</code><a class="headerlink" href="#_CPPv4N18nrf_rpc_err_report4codeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Error code. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N18nrf_rpc_err_report5groupE">
+<span id="_CPPv3N18nrf_rpc_err_report5groupE"></span><span id="_CPPv2N18nrf_rpc_err_report5groupE"></span><span id="nrf_rpc_err_report::group__nrf_rpc_groupCP"></span><span class="target" id="structnrf__rpc__err__report_ac24c17edd883c31aa573b4db477ff27f_1ac24c17edd883c31aa573b4db477ff27f"></span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<code class="sig-name descname">group</code><a class="headerlink" href="#_CPPv4N18nrf_rpc_err_report5groupE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Group where the error occurred or NULL if it is unknown. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N18nrf_rpc_err_report3srcE">
+<span id="_CPPv3N18nrf_rpc_err_report3srcE"></span><span id="_CPPv2N18nrf_rpc_err_report3srcE"></span><span id="nrf_rpc_err_report::src__nrf_rpc_err_src"></span><span class="target" id="structnrf__rpc__err__report_abe9158fac949d716a79171c997be219b_1abe9158fac949d716a79171c997be219b"></span>nrf_rpc_err_src <code class="sig-name descname">src</code><a class="headerlink" href="#_CPPv4N18nrf_rpc_err_report3srcE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Source of the error. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N18nrf_rpc_err_report2idE">
+<span id="_CPPv3N18nrf_rpc_err_report2idE"></span><span id="_CPPv2N18nrf_rpc_err_report2idE"></span><span id="nrf_rpc_err_report::id__uint8_t"></span><span class="target" id="structnrf__rpc__err__report_ae3148080a18366bcdfabc2bb5190d421_1ae3148080a18366bcdfabc2bb5190d421"></span>uint8_t <code class="sig-name descname">id</code><a class="headerlink" href="#_CPPv4N18nrf_rpc_err_report2idE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Command or event id or NRF_RPC_ID_UNKNOWN. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N18nrf_rpc_err_report11packet_typeE">
+<span id="_CPPv3N18nrf_rpc_err_report11packet_typeE"></span><span id="_CPPv2N18nrf_rpc_err_report11packet_typeE"></span><span id="nrf_rpc_err_report::packet_type__nrf_rpc_packet_type"></span><span class="target" id="structnrf__rpc__err__report_aad40f5d2154239284e61bb62a0cd9468_1aad40f5d2154239284e61bb62a0cd9468"></span>nrf_rpc_packet_type <code class="sig-name descname">packet_type</code><a class="headerlink" href="#_CPPv4N18nrf_rpc_err_report11packet_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Type of packet. Value may be outside defined enum values if packet is malformed. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="tinycbor-api-documentation">
+<span id="nrf-rpc-cbor-api-documentation"></span><h3>TinyCBOR API documentation<a class="headerlink" href="#tinycbor-api-documentation" title="Permalink to this headline">¶</a></h3>
+<p>This API is built on top of the core nRF RPC API and it is not independent.
+See <a class="reference internal" href="#nrf-rpc-core-api-documentation"><span class="std std-ref">Core API documentation</span></a> for more information on how to use nRF RPC together with TinyCBOR.</p>
+<dl class="group">
+<dt>
+<span class="target" id="group__nrf__rpc__cbor"></span><em>group</em> <code class="sig-name descname">nrf_rpc_cbor</code></dt>
+<dd><p>Module simplifying usage of TinyCBOR as a serialization for nRF RPC module. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Defines</p>
+<dl class="macro">
+<dt id="c.NRF_RPC_CBOR_CMD_DECODER">
+<span class="target" id="group__nrf__rpc__cbor_1ga7dd69a5a65ccae2a5dbe834bb0ce53e1"></span><code class="sig-name descname">NRF_RPC_CBOR_CMD_DECODER</code><span class="sig-paren">(</span>_group, _name, _cmd, _handler, _data<span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_RPC_CBOR_CMD_DECODER" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a command decoder. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_group</span></code>: Group that the decoder will belong to, created with a NRF_RPC_GROUP_DEFINE(). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_name</span></code>: Name of the decoder. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_cmd</span></code>: Command id. Can be from 0 to 254. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_handler</span></code>: Handler function of type nrf_rpc_cbor_handler_t. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_data</span></code>: Opaque pointer for the <code class="docutils literal notranslate"><span class="pre">_handler</span></code>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.NRF_RPC_CBOR_EVT_DECODER">
+<span class="target" id="group__nrf__rpc__cbor_1ga8dc704469cad9b5855c31b18ceee042f"></span><code class="sig-name descname">NRF_RPC_CBOR_EVT_DECODER</code><span class="sig-paren">(</span>_group, _name, _evt, _handler, _data<span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_RPC_CBOR_EVT_DECODER" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register an event decoder. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_group</span></code>: Group that the decoder will belong to, created with a NRF_RPC_GROUP_DEFINE(). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_name</span></code>: Name of the decoder. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_evt</span></code>: Event id. Can be from 0 to 254. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_handler</span></code>: Handler function of type nrf_rpc_cbor_handler_t. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_data</span></code>: Opaque pointer for the <code class="docutils literal notranslate"><span class="pre">_handler</span></code>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.NRF_RPC_CBOR_ALLOC">
+<span class="target" id="group__nrf__rpc__cbor_1ga9b71ed5984f03f263f98e91b4d364cd2"></span><code class="sig-name descname">NRF_RPC_CBOR_ALLOC</code><span class="sig-paren">(</span>_ctx, _len<span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_RPC_CBOR_ALLOC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocates memory for a packet. </p>
+<p>Macro may allocate some variables on stack, so it should be used at top level of a function.</p>
+<p>Memory is automatically deallocated when it is passed to any of the send functions. If not NRF_RPC_CBOR_DISCARD() can be used.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">_ctx</span></code>: Variable of type <a class="reference internal" href="#structnrf__rpc__cbor__ctx"><span class="std std-ref">nrf_rpc_cbor_ctx</span></a> or <a class="reference internal" href="#structnrf__rpc__cbor__rsp__ctx"><span class="std std-ref">nrf_rpc_cbor_rsp_ctx</span></a> that will hold newly allocated resources to encode and send a packet. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">_len</span></code>: Requested length of the packet. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.NRF_RPC_CBOR_DISCARD">
+<span class="target" id="group__nrf__rpc__cbor_1ga01240b05e6605bc949481e63bb33021b"></span><code class="sig-name descname">NRF_RPC_CBOR_DISCARD</code><span class="sig-paren">(</span>_ctx<span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_RPC_CBOR_DISCARD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deallocate memory for a packet. </p>
+<p>This macro should be used if memory was allocated, but it will not be sent with any of the send functions.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_ctx</span></code>: Packet that was previously allocated. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Typedefs</p>
+<dl class="type">
+<dt id="_CPPv422nrf_rpc_cbor_handler_t">
+<span id="_CPPv322nrf_rpc_cbor_handler_t"></span><span id="_CPPv222nrf_rpc_cbor_handler_t"></span><span id="nrf_rpc_cbor_handler_t"></span><span class="target" id="group__nrf__rpc__cbor_1ga6b3fb015e81700867f9cb022ab7ff0d4"></span><em class="property">typedef </em>void (*<code class="sig-name descname">nrf_rpc_cbor_handler_t</code>)<span class="sig-paren">(</span>CborValue *value, void *handler_data<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422nrf_rpc_cbor_handler_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback that handles decoding of commands, events and responses. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: TinyCBOR value to decode. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler_data</span></code>: Custom handler data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv416nrf_rpc_cbor_cmdPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx22nrf_rpc_cbor_handler_tPv">
+<span id="_CPPv316nrf_rpc_cbor_cmdPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx22nrf_rpc_cbor_handler_tPv"></span><span id="_CPPv216nrf_rpc_cbor_cmdPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx22nrf_rpc_cbor_handler_tPv"></span><span id="nrf_rpc_cbor_cmd__nrf_rpc_groupCP.uint8_t.nrf_rpc_cbor_ctxP.nrf_rpc_cbor_handler_t.voidP"></span><span class="target" id="group__nrf__rpc__cbor_1gaf944c9fe5ceae78ccaefbb878f972d94"></span>int <code class="sig-name descname">nrf_rpc_cbor_cmd</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>cmd</em>, <em class="property">struct</em> <a class="reference internal" href="#_CPPv416nrf_rpc_cbor_ctx" title="nrf_rpc_cbor_ctx">nrf_rpc_cbor_ctx</a> *<em>ctx</em>, <a class="reference internal" href="#_CPPv422nrf_rpc_cbor_handler_t" title="nrf_rpc_cbor_handler_t">nrf_rpc_cbor_handler_t</a> <em>handler</em>, void *<em>handler_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416nrf_rpc_cbor_cmdPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx22nrf_rpc_cbor_handler_tPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a command and provide callback to handle response. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success or negative error code if a transport layer reported a sendig error. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Group that command belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmd</span></code>: Command id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ctx</span></code>: Context allocated by NRF_RPC_CBOR_ALLOC. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: Callback that handles the response. In case of error (e.g. malformed response packet was received) it is undefined if the handler will be called. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler_data</span></code>: Opaque pointer that will be passed to <code class="docutils literal notranslate"><span class="pre">handler</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv420nrf_rpc_cbor_cmd_rspPK13nrf_rpc_group7uint8_tP20nrf_rpc_cbor_rsp_ctx">
+<span id="_CPPv320nrf_rpc_cbor_cmd_rspPK13nrf_rpc_group7uint8_tP20nrf_rpc_cbor_rsp_ctx"></span><span id="_CPPv220nrf_rpc_cbor_cmd_rspPK13nrf_rpc_group7uint8_tP20nrf_rpc_cbor_rsp_ctx"></span><span id="nrf_rpc_cbor_cmd_rsp__nrf_rpc_groupCP.uint8_t.nrf_rpc_cbor_rsp_ctxP"></span><span class="target" id="group__nrf__rpc__cbor_1ga0037c9afd3166a3ecc27a4b2d44dcd9b"></span>int <code class="sig-name descname">nrf_rpc_cbor_cmd_rsp</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>cmd</em>, <em class="property">struct</em> <a class="reference internal" href="#_CPPv420nrf_rpc_cbor_rsp_ctx" title="nrf_rpc_cbor_rsp_ctx">nrf_rpc_cbor_rsp_ctx</a> *<em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420nrf_rpc_cbor_cmd_rspPK13nrf_rpc_group7uint8_tP20nrf_rpc_cbor_rsp_ctx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a command and get response as an output parameter. </p>
+<p>This variant of command send function outputs response as an output parameter. Caller is responsible to call nrf_rpc_cbor_decoding_done just after response packet was decoded and can be deallocated. <code class="docutils literal notranslate"><span class="pre">ctx-&gt;value</span></code> can be used to decode the response.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success or negative error code if a transport layer reported a sendig error. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Group that command belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmd</span></code>: Command id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ctx</span></code>: Context allocated by NRF_RPC_CBOR_ALLOC.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv423nrf_rpc_cbor_cmd_no_errPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx22nrf_rpc_cbor_handler_tPv">
+<span id="_CPPv323nrf_rpc_cbor_cmd_no_errPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx22nrf_rpc_cbor_handler_tPv"></span><span id="_CPPv223nrf_rpc_cbor_cmd_no_errPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx22nrf_rpc_cbor_handler_tPv"></span><span id="nrf_rpc_cbor_cmd_no_err__nrf_rpc_groupCP.uint8_t.nrf_rpc_cbor_ctxP.nrf_rpc_cbor_handler_t.voidP"></span><span class="target" id="group__nrf__rpc__cbor_1gace356d9332883b9ff1569efe1712266f"></span>void <code class="sig-name descname">nrf_rpc_cbor_cmd_no_err</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>cmd</em>, <em class="property">struct</em> <a class="reference internal" href="#_CPPv416nrf_rpc_cbor_ctx" title="nrf_rpc_cbor_ctx">nrf_rpc_cbor_ctx</a> *<em>ctx</em>, <a class="reference internal" href="#_CPPv422nrf_rpc_cbor_handler_t" title="nrf_rpc_cbor_handler_t">nrf_rpc_cbor_handler_t</a> <em>handler</em>, void *<em>handler_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423nrf_rpc_cbor_cmd_no_errPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx22nrf_rpc_cbor_handler_tPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a command, provide callback to handle response and pass any error to an error handler. </p>
+<p>This variant of command send function returns <code class="docutils literal notranslate"><span class="pre">void</span></code>, so sending error returned from the transport layer is passed to the error handler. Source of error is <a class="reference internal" href="#group__nrf__rpc_ga5d897f390cbbad4f9962815c1fd90e43_1gga5d897f390cbbad4f9962815c1fd90e43abc7b8b40d553b566ea7707df6f71af0f"><span class="std std-ref">NRF_RPC_ERR_SRC_SEND</span></a>.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Group that command belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmd</span></code>: Command id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ctx</span></code>: Context allocated by NRF_RPC_CBOR_ALLOC. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: Callback that handles the response. In case of error (e.g. malformed response packet was received) it is undefined if the handler will be called. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler_data</span></code>: Opaque pointer that will be passed to <code class="docutils literal notranslate"><span class="pre">handler</span></code>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv427nrf_rpc_cbor_cmd_rsp_no_errPK13nrf_rpc_group7uint8_tP20nrf_rpc_cbor_rsp_ctx">
+<span id="_CPPv327nrf_rpc_cbor_cmd_rsp_no_errPK13nrf_rpc_group7uint8_tP20nrf_rpc_cbor_rsp_ctx"></span><span id="_CPPv227nrf_rpc_cbor_cmd_rsp_no_errPK13nrf_rpc_group7uint8_tP20nrf_rpc_cbor_rsp_ctx"></span><span id="nrf_rpc_cbor_cmd_rsp_no_err__nrf_rpc_groupCP.uint8_t.nrf_rpc_cbor_rsp_ctxP"></span><span class="target" id="group__nrf__rpc__cbor_1gafbc1a57d0d51e04a5f97c2ff9d6d750a"></span>void <code class="sig-name descname">nrf_rpc_cbor_cmd_rsp_no_err</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>cmd</em>, <em class="property">struct</em> <a class="reference internal" href="#_CPPv420nrf_rpc_cbor_rsp_ctx" title="nrf_rpc_cbor_rsp_ctx">nrf_rpc_cbor_rsp_ctx</a> *<em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427nrf_rpc_cbor_cmd_rsp_no_errPK13nrf_rpc_group7uint8_tP20nrf_rpc_cbor_rsp_ctx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a command, get response as an output parameter and pass any error to an error handler. </p>
+<p>See both nrf_rpc_cbor_cmd_rsp and nrf_rpc_cbor_cmd_no_err for more details on this variant of command send function.</p>
+<p>TinyCBOR value will be initialized and invalid if function failed, so <code class="docutils literal notranslate"><span class="pre">cbor_value_is_valid</span></code> can be used to check failure.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Group that command belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmd</span></code>: Command id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ctx</span></code>: Context allocated by NRF_RPC_CBOR_ALLOC. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv416nrf_rpc_cbor_evtPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx">
+<span id="_CPPv316nrf_rpc_cbor_evtPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx"></span><span id="_CPPv216nrf_rpc_cbor_evtPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx"></span><span id="nrf_rpc_cbor_evt__nrf_rpc_groupCP.uint8_t.nrf_rpc_cbor_ctxP"></span><span class="target" id="group__nrf__rpc__cbor_1gab79cff5aa737bdc42e85a12b123ee0dd"></span>int <code class="sig-name descname">nrf_rpc_cbor_evt</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>evt</em>, <em class="property">struct</em> <a class="reference internal" href="#_CPPv416nrf_rpc_cbor_ctx" title="nrf_rpc_cbor_ctx">nrf_rpc_cbor_ctx</a> *<em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416nrf_rpc_cbor_evtPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send an event. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success or negative error code if a transport layer reported a sendig error. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Group that event belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evt</span></code>: Event id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ctx</span></code>: Context allocated by NRF_RPC_CBOR_ALLOC.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv423nrf_rpc_cbor_evt_no_errPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx">
+<span id="_CPPv323nrf_rpc_cbor_evt_no_errPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx"></span><span id="_CPPv223nrf_rpc_cbor_evt_no_errPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx"></span><span id="nrf_rpc_cbor_evt_no_err__nrf_rpc_groupCP.uint8_t.nrf_rpc_cbor_ctxP"></span><span class="target" id="group__nrf__rpc__cbor_1ga7989f4b288adbfce6a55373080061494"></span>void <code class="sig-name descname">nrf_rpc_cbor_evt_no_err</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">struct</em> <a class="reference internal" href="#_CPPv413nrf_rpc_group" title="nrf_rpc_group">nrf_rpc_group</a> *<em>group</em>, uint8_t <em>evt</em>, <em class="property">struct</em> <a class="reference internal" href="#_CPPv416nrf_rpc_cbor_ctx" title="nrf_rpc_cbor_ctx">nrf_rpc_cbor_ctx</a> *<em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423nrf_rpc_cbor_evt_no_errPK13nrf_rpc_group7uint8_tP16nrf_rpc_cbor_ctx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send an event and pass any error to an error handler. </p>
+<p>This variant of event send function returns <code class="docutils literal notranslate"><span class="pre">void</span></code>, so sending error returned from the transport layer is passed to the error handler. Source of error is <a class="reference internal" href="#group__nrf__rpc_ga5d897f390cbbad4f9962815c1fd90e43_1gga5d897f390cbbad4f9962815c1fd90e43abc7b8b40d553b566ea7707df6f71af0f"><span class="std std-ref">NRF_RPC_ERR_SRC_SEND</span></a>.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Group that event belongs to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evt</span></code>: Event id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ctx</span></code>: Context allocated by NRF_RPC_CBOR_ALLOC. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv416nrf_rpc_cbor_rspP16nrf_rpc_cbor_ctx">
+<span id="_CPPv316nrf_rpc_cbor_rspP16nrf_rpc_cbor_ctx"></span><span id="_CPPv216nrf_rpc_cbor_rspP16nrf_rpc_cbor_ctx"></span><span id="nrf_rpc_cbor_rsp__nrf_rpc_cbor_ctxP"></span><span class="target" id="group__nrf__rpc__cbor_1ga428aed4e9143d65935dbf889751af8ee"></span>int <code class="sig-name descname">nrf_rpc_cbor_rsp</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#_CPPv416nrf_rpc_cbor_ctx" title="nrf_rpc_cbor_ctx">nrf_rpc_cbor_ctx</a> *<em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416nrf_rpc_cbor_rspP16nrf_rpc_cbor_ctx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a response. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success or negative error code if a transport layer reported a sendig error. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ctx</span></code>: Context allocated by NRF_RPC_CBOR_ALLOC.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv423nrf_rpc_cbor_rsp_no_errP16nrf_rpc_cbor_ctx">
+<span id="_CPPv323nrf_rpc_cbor_rsp_no_errP16nrf_rpc_cbor_ctx"></span><span id="_CPPv223nrf_rpc_cbor_rsp_no_errP16nrf_rpc_cbor_ctx"></span><span id="nrf_rpc_cbor_rsp_no_err__nrf_rpc_cbor_ctxP"></span><span class="target" id="group__nrf__rpc__cbor_1gacca584072cb9b10c3a18f9569132b7b4"></span>void <code class="sig-name descname">nrf_rpc_cbor_rsp_no_err</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#_CPPv416nrf_rpc_cbor_ctx" title="nrf_rpc_cbor_ctx">nrf_rpc_cbor_ctx</a> *<em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423nrf_rpc_cbor_rsp_no_errP16nrf_rpc_cbor_ctx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a response and pass any error to an error handler. </p>
+<p>This variant of response send function returns <code class="docutils literal notranslate"><span class="pre">void</span></code>, so sending error returned from the transport layer is passed to the error handler. Source of error is <a class="reference internal" href="#group__nrf__rpc_ga5d897f390cbbad4f9962815c1fd90e43_1gga5d897f390cbbad4f9962815c1fd90e43abc7b8b40d553b566ea7707df6f71af0f"><span class="std std-ref">NRF_RPC_ERR_SRC_SEND</span></a>.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ctx</span></code>: Context allocated by NRF_RPC_CBOR_ALLOC. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv426nrf_rpc_cbor_decoding_doneP9CborValue">
+<span id="_CPPv326nrf_rpc_cbor_decoding_doneP9CborValue"></span><span id="_CPPv226nrf_rpc_cbor_decoding_doneP9CborValue"></span><span id="nrf_rpc_cbor_decoding_done__CborValueP"></span><span class="target" id="group__nrf__rpc__cbor_1gafadbc0af125b7220e92b5dada7293311"></span>void <code class="sig-name descname">nrf_rpc_cbor_decoding_done</code><span class="sig-paren">(</span>CborValue *<em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426nrf_rpc_cbor_decoding_doneP9CborValue" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Indicate that decoding of the input packet is done. </p>
+<p>This function must be called as soon as the input packet was parsed and can be deallocated. It must be called in command decoder, event decoder and after nrf_rpc_cbor_cmd_rsp or nrf_rpc_cbor_cmd_rsp_no_err. Packet is automatically deallocated after completetion of the response handler function, so this <code class="docutils literal notranslate"><span class="pre">nrf_rpc_cbor_decoding_done</span></code> is not needed in response handler. </p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv416nrf_rpc_cbor_ctx">
+<span id="_CPPv316nrf_rpc_cbor_ctx"></span><span id="_CPPv216nrf_rpc_cbor_ctx"></span><span id="nrf_rpc_cbor_ctx"></span><span class="target" id="structnrf__rpc__cbor__ctx"></span><em class="property">struct </em><code class="sig-name descname">nrf_rpc_cbor_ctx</code><a class="headerlink" href="#_CPPv416nrf_rpc_cbor_ctx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;nrf_rpc_cbor.h&gt;</em><p>Context for encoding and sending commands, events and responses. </p>
+<p>Initialize it with NRF_RPC_CBOR_ALLOC macro. Only <code class="docutils literal notranslate"><span class="pre">encoder</span></code> field is significant for the API, other fields are internal. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N16nrf_rpc_cbor_ctx7encoderE">
+<span id="_CPPv3N16nrf_rpc_cbor_ctx7encoderE"></span><span id="_CPPv2N16nrf_rpc_cbor_ctx7encoderE"></span><span id="nrf_rpc_cbor_ctx::encoder__CborEncoder"></span><span class="target" id="structnrf__rpc__cbor__ctx_a30cec235a55216b8f0bdc6c4c8b58039_1a30cec235a55216b8f0bdc6c4c8b58039"></span>CborEncoder <code class="sig-name descname">encoder</code><a class="headerlink" href="#_CPPv4N16nrf_rpc_cbor_ctx7encoderE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>TinyCBOR encoder. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv420nrf_rpc_cbor_rsp_ctx">
+<span id="_CPPv320nrf_rpc_cbor_rsp_ctx"></span><span id="_CPPv220nrf_rpc_cbor_rsp_ctx"></span><span id="nrf_rpc_cbor_rsp_ctx"></span><span class="target" id="structnrf__rpc__cbor__rsp__ctx"></span><em class="property">struct </em><code class="sig-name descname">nrf_rpc_cbor_rsp_ctx</code><a class="headerlink" href="#_CPPv420nrf_rpc_cbor_rsp_ctx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;nrf_rpc_cbor.h&gt;</em><p>Context for encoding commands, sending commands, receiving responses and parsing them. </p>
+<p>Initialize it with NRF_RPC_CBOR_ALLOC macro. Only <code class="docutils literal notranslate"><span class="pre">encoder</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> fields are significant for the API, other fields are internal. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N20nrf_rpc_cbor_rsp_ctx7encoderE">
+<span id="_CPPv3N20nrf_rpc_cbor_rsp_ctx7encoderE"></span><span id="_CPPv2N20nrf_rpc_cbor_rsp_ctx7encoderE"></span><span id="nrf_rpc_cbor_rsp_ctx::encoder__CborEncoder"></span><span class="target" id="structnrf__rpc__cbor__rsp__ctx_a9dbfce0ef349984f2cb04688e13dce16_1a9dbfce0ef349984f2cb04688e13dce16"></span>CborEncoder <code class="sig-name descname">encoder</code><a class="headerlink" href="#_CPPv4N20nrf_rpc_cbor_rsp_ctx7encoderE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>TinyCBOR encoder for encoding command. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N20nrf_rpc_cbor_rsp_ctx5valueE">
+<span id="_CPPv3N20nrf_rpc_cbor_rsp_ctx5valueE"></span><span id="_CPPv2N20nrf_rpc_cbor_rsp_ctx5valueE"></span><span id="nrf_rpc_cbor_rsp_ctx::value__CborValue"></span><span class="target" id="structnrf__rpc__cbor__rsp__ctx_a798686e67aa3fc25cbfee25c4ad48be6_1a798686e67aa3fc25cbfee25c4ad48be6"></span>CborValue <code class="sig-name descname">value</code><a class="headerlink" href="#_CPPv4N20nrf_rpc_cbor_rsp_ctx5valueE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>TinyCBOR value for parsing response. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="doc/architecture.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../zboss/README.html" class="btn btn-neutral" title="ZBOSS Zigbee stack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

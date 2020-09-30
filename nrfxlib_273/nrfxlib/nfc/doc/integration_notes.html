@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Integration notes &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Type 2 Tag" href="type_2_tag.html" />
+    <link rel="prev" title="Changelog" href="../CHANGELOG.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../bsdlib/README.html">BSD library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_security/README.html">Nordic Security Module</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">Near Field Communication (NFC)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Integration notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nfc-platform-module">NFC Platform module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ncs-implementation">nRF Connect SDK implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="type_2_tag.html">Type 2 Tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_4_tag.html">Type 4 Tag</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../README.html">Near Field Communication (NFC)</a> &raquo;</li>
+        
+      <li>Integration notes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/nfc/doc/integration_notes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="integration-notes">
+<span id="nfc-integration-notes"></span><h1>Integration notes<a class="headerlink" href="#integration-notes" title="Permalink to this headline">¶</a></h1>
+<p>When integrating the NFC libraries in your application, there are a few things to be aware of.
+See the following notes:</p>
+<ul>
+<li><p>The libraries require the NFCT driver that is a part of the <a class="reference external" href="https://github.com/NordicSemiconductor/nrfx/">nrfx</a> repository.</p>
+<p>The NFCT driver uses one Timer peripheral to work correctly.
+By default, it uses TIMER4 on nRF52 devices and TIMER2 on nRF5340.
+You can override the default configuration by changing <code class="docutils literal notranslate"><span class="pre">NRFX_NFCT_CONFIG_TIMER_INSTANCE_ID</span></code> in the <code class="file docutils literal notranslate"><span class="pre">nrfx_config.h</span></code> header.
+You cannot use this timer instance in other parts of your application.</p>
+</li>
+<li><p>To use the libraries in your runtime environment, you must implement an NFC Platform software module.
+See <a class="reference internal" href="#nfc-platform"><span class="std std-ref">NFC Platform module</span></a> for more information.</p>
+<p>The nRF Connect SDK provides an implementation of this module (see <a class="reference internal" href="#nfc-platform-ncs"><span class="std std-ref">nRF Connect SDK implementation</span></a>).</p>
+</li>
+<li><p>Each library must be the only user of each of the following peripherals:</p>
+<ul class="simple">
+<li><p>NFCT</p></li>
+<li><p>Chosen TIMER instance</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="nfc-platform-module">
+<span id="nfc-platform"></span><h2>NFC Platform module<a class="headerlink" href="#nfc-platform-module" title="Permalink to this headline">¶</a></h2>
+<p>The NFC Platform module allows the NFC libraries to operate in different runtime environments.</p>
+<p>This module is responsible for activating the NFCT driver when the following conditions are fulfilled:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>NFC field is present.</p></li>
+<li><p>HFCLK is running.</p></li>
+</ul>
+</div></blockquote>
+<p>The module must implement the following functions:</p>
+<dl>
+<dt>nfc_platform_setup()</dt><dd><p>This function is called by the NFC libraries at initialization.
+It sets up the clock interface and connects NFCT and the chosen TIMER IRQs with their respective IRQ handler functions from nrfx.</p>
+</dd>
+<dt>nfc_platform_nfcid1_default_bytes_get()</dt><dd><p>This function is used to fetch default bytes for NFCID1 that are stored in FICR registers.
+Access to FICR registers differs between secure and non-secure environments.</p>
+</dd>
+<dt>nfc_platform_event_handler()</dt><dd><p>This event handler is called by the NFC libraries to forward NFC events received from the NFCT driver.
+It is necessary to track this event flow in order to determine when HFCLK must be running and when it can be stopped.
+The NFCT peripheral can be activated only when HFCLK is running.</p>
+<p>It is recommended to request HFCLK asynchronously with a notification when the clock has been started, and activate the NFCT peripheral after receiving this notification.</p>
+</dd>
+</dl>
+<div class="section" id="ncs-implementation">
+<span id="nfc-platform-ncs"></span><h3>nRF Connect SDK implementation<a class="headerlink" href="#ncs-implementation" title="Permalink to this headline">¶</a></h3>
+<p>In the nRF Connect SDK, an implementation of the NFC Platform module for the Zephyr environment is provided in the <code class="file docutils literal notranslate"><span class="pre">subsys/nfc/lib/platform.c</span></code> file.</p>
+<p>The NFC Platform module for the Zephyr environment starts the HFCLK crystal oscillator when it has received the NFC field detect event, and stops it after receiving the field lost event.
+HFCLK is activated only for the time when NFC field is present.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="type_2_tag.html" class="btn btn-neutral float-right" title="Type 2 Tag" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../CHANGELOG.html" class="btn btn-neutral" title="Changelog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

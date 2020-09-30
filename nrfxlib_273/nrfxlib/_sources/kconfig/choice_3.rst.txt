@@ -1,0 +1,49 @@
+:orphan:
+
+.. title:: choice: Backend selection
+
+.. _choice_3:
+
+.. describe:: choice: Backend selection
+
+*Backend selection*
+
+Type: ``bool``
+
+Direct dependencies
+===================
+
+\ :option:`MBEDTLS_CHACHA20_C <CONFIG_MBEDTLS_CHACHA20_C>` && \ :option:`NRF_CRYPTO_BACKEND_COMBINATION_0 <CONFIG_NRF_CRYPTO_BACKEND_COMBINATION_0>` && (\ :option:`CC310_BACKEND <CONFIG_CC310_BACKEND>` || \ :option:`MBEDTLS_VANILLA_BACKEND <CONFIG_MBEDTLS_VANILLA_BACKEND>`) && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Default
+=======
+
+- \ :option:`CC310_MBEDTLS_CHACHA20_C <CONFIG_CC310_MBEDTLS_CHACHA20_C>`
+
+Choice options
+==============
+
+- \ :option:`CC310_MBEDTLS_CHACHA20_C <CONFIG_CC310_MBEDTLS_CHACHA20_C>`
+- \ :option:`VANILLA_MBEDTLS_CHACHA20_C <CONFIG_VANILLA_MBEDTLS_CHACHA20_C>`
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:432``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security → Use Nordic provided security backend → AEAD  - Authenticated Encryption with Associated Data → CHACHA20 stream cipher support
+
+.. parsed-literal::
+
+    choice
+    	bool "Backend selection"
+    	default \ :option:`CC310_MBEDTLS_CHACHA20_C <CONFIG_CC310_MBEDTLS_CHACHA20_C>`
+    	depends on \ :option:`MBEDTLS_CHACHA20_C <CONFIG_MBEDTLS_CHACHA20_C>` && \ :option:`NRF_CRYPTO_BACKEND_COMBINATION_0 <CONFIG_NRF_CRYPTO_BACKEND_COMBINATION_0>` && (\ :option:`CC310_BACKEND <CONFIG_CC310_BACKEND>` || \ :option:`MBEDTLS_VANILLA_BACKEND <CONFIG_MBEDTLS_VANILLA_BACKEND>`) && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

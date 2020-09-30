@@ -1,0 +1,54 @@
+:orphan:
+
+.. title:: BSD_LIB
+
+.. option:: CONFIG_BSD_LIB
+
+*(No prompt -- not directly user assignable.)*
+
+Type: ``bool``
+
+Help
+====
+
+Redefinition of BSD_LIBRARY inside nrfxlib.
+
+Direct dependencies
+===================
+
+BSD_LIBRARY
+
+*(Includes any dependencies from ifs and menus.)*
+
+Default
+=======
+
+- y
+
+Symbols selected by this symbol
+===============================
+
+- \ :option:`NRF_OBERON <CONFIG_NRF_OBERON>`
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\bsdlib/Kconfig:2``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:9``
+
+Menu path: (Top) → Nordic nrfxlib
+
+.. parsed-literal::
+
+    config BSD_LIB
+    	bool
+    	default y
+    	select \ :option:`NRF_OBERON <CONFIG_NRF_OBERON>`
+    	depends on BSD_LIBRARY
+    	help
+    	  Redefinition of BSD_LIBRARY inside nrfxlib.
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

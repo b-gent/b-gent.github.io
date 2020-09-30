@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Security tags &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="BSD socket extensions" href="extensions.html" />
+    <link rel="prev" title="Library architecture" href="architecture.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">BSD library</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="supported_features.html">Supported features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="limitations.html">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Library architecture</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Security tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html">BSD socket extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ug_bsdlib_porting_os.html">Porting the BSD library to your OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_security/README.html">Nordic Security Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../README.html">BSD library</a> &raquo;</li>
+        
+      <li>Security tags</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/bsdlib/doc/security_tags.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="security-tags">
+<span id="id1"></span><h1>Security tags<a class="headerlink" href="#security-tags" title="Permalink to this headline">¶</a></h1>
+<p>The modem on an nRF9160 device is equipped with a full IPv4/IPv6 stack with DTLS/TLS support.
+To use the cryptographic functions in the modem, the application must provision the security credentials to the modem.</p>
+<p>To be able to provision credentials, the modem must be in offline mode.
+The credentials are provisioned through AT commands (see <a class="reference external" href="https://infocenter.nordicsemi.com/topic/ref_at_commands/REF/at_commands/mob_termination_ctrl_status/cmng.html">Credential storage management %CMNG</a>).
+If you are using the nRF Connect SDK to build your application, you can use the <a class="reference external" href="../..\..\nrf\include/modem_key_mgmt.html#modem-key-mgmt" title="(in nRF Connect SDK v1.3.99)"><span>Modem key management</span></a> library to manage credentials.
+If you prefer a graphical tool, use <a class="reference external" href="https://infocenter.nordicsemi.com/topic/ug_link_monitor/UG/link_monitor/lm_certificate_manager.html">LTE Link Monitor</a> instead.
+To manage credentials with LTE Link Monitor, your device must be running an nRF Connect SDK application.</p>
+<p>The following figure shows how security tags are provisioned using AT commands:</p>
+<div class="figure align-default" id="id2">
+<img alt="Provisioning credentials with a security tag" src="../../_images/security_tags.svg" /><p class="caption"><span class="caption-text">Provisioning credentials with security tag <code class="docutils literal notranslate"><span class="pre">1</span></code></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>As you see, each set of credentials is identified by a security tag (<code class="docutils literal notranslate"><span class="pre">sec_tag</span></code>), which is referenced when a DTLS/TLS socket is created.</p>
+<p>The security tag must be attached to a socket using the <a class="reference internal" href="api.html#_CPPv414nrf_setsockoptiiiPKv13nrf_socklen_t" title="nrf_setsockopt"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_setsockopt()</span></code></a> function before connecting (through TCP) or transferring data (through UDP).
+The following code snippet shows how to set up strict peer verification for a socket and configure the socket to use the security tag <code class="docutils literal notranslate"><span class="pre">sec_tag</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Let &#39;fd&#39; be a valid UDP or TCP socket descriptor. */</span>
+
+<span class="kt">int</span> <span class="n">err</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">verify</span><span class="p">;</span>
+<span class="n">sec_tag_t</span> <span class="n">sec_tag_list</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">sec_tag</span> <span class="p">};</span>
+
+<span class="k">enum</span> <span class="p">{</span>
+        <span class="n">NONE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">OPTIONAL</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">REQUIRED</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="n">verify</span> <span class="o">=</span> <span class="n">REQUIRED</span><span class="p">;</span>
+
+<span class="n">err</span> <span class="o">=</span> <span class="n">nrf_setsockopt</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">NRF_SOL_TLS</span><span class="p">,</span> <span class="n">NRF_TLS_PEER_VERIFY</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">verify</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">verify</span><span class="p">));</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* Failed to set up peer verification. */</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">err</span> <span class="o">=</span> <span class="n">nrf_setsockopt</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">NRF_SOL_TLS</span><span class="p">,</span> <span class="n">NRF_TLS_SEC_TAG_LIST</span><span class="p">,</span> <span class="n">sec_tag_list</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">sec_tag_t</span><span class="p">)</span> <span class="o">*</span> <span class="n">ARRAY_SIZE</span><span class="p">(</span><span class="n">sec_tag_list</span><span class="p">));</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* Failed to set up socket security tag. */</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It is possible to use multiple security tags.
+If a list is provided, one of the matching tags is used when handshaking.
+For example, you could define the security tag list as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sec_tag_t</span> <span class="n">sec_tag_list</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
+</pre></div>
+</div>
+<p>In this case, either security tag 4 or security tag 5 can be used for operations on the socket.</p>
+<div class="figure align-default" id="id3">
+<img alt="Using multiple security tags" src="../../_images/security_tags2.svg" /><p class="caption"><span class="caption-text">Using multiple security tags</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="extensions.html" class="btn btn-neutral float-right" title="BSD socket extensions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="architecture.html" class="btn btn-neutral" title="Library architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

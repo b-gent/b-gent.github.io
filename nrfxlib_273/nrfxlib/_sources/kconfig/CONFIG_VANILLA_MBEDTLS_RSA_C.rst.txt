@@ -1,0 +1,35 @@
+:orphan:
+
+.. title:: VANILLA_MBEDTLS_RSA_C
+
+.. option:: CONFIG_VANILLA_MBEDTLS_RSA_C
+
+*mbed TLS vanilla*
+
+Type: ``bool``
+
+Direct dependencies
+===================
+
+\ :ref:`<choice: Backend selection> <choice_9>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:740``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security → Use Nordic provided security backend → RSA   - Rivest–Shamir–Adleman cryptosystem → Backend selection
+
+.. parsed-literal::
+
+    config VANILLA_MBEDTLS_RSA_C
+    	bool "mbed TLS vanilla" if \ :option:`MBEDTLS_VANILLA_BACKEND <CONFIG_MBEDTLS_VANILLA_BACKEND>`
+    	depends on \ :ref:`<choice: Backend selection> <choice_9>`
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

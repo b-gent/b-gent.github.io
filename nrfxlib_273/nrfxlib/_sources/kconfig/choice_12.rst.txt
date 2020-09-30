@@ -1,0 +1,48 @@
+:orphan:
+
+.. title:: choice: Serialization transport layer
+
+.. _choice_12:
+
+.. describe:: choice: Serialization transport layer
+
+*Serialization transport layer*
+
+Type: ``bool``
+
+Direct dependencies
+===================
+
+\ :option:`RP_SERIALIZATION <CONFIG_RP_SERIALIZATION>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Default
+=======
+
+- \ :option:`RPMSG_TRANSPORT <CONFIG_RPMSG_TRANSPORT>`
+
+Choice options
+==============
+
+- \ :option:`RPMSG_TRANSPORT <CONFIG_RPMSG_TRANSPORT>`
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\serialization/Kconfig:14``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:15``
+
+Menu path: (Top) → Nordic nrfxlib → Serialization library
+
+.. parsed-literal::
+
+    choice
+    	bool "Serialization transport layer"
+    	default \ :option:`RPMSG_TRANSPORT <CONFIG_RPMSG_TRANSPORT>`
+    	depends on \ :option:`RP_SERIALIZATION <CONFIG_RP_SERIALIZATION>`
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

@@ -1,0 +1,49 @@
+:orphan:
+
+.. title:: choice: Backend selection
+
+.. _choice_8:
+
+.. describe:: choice: Backend selection
+
+*Backend selection*
+
+Type: ``bool``
+
+Direct dependencies
+===================
+
+\ :option:`MBEDTLS_ECDSA_C <CONFIG_MBEDTLS_ECDSA_C>` && \ :option:`NRF_CRYPTO_BACKEND_COMBINATION_0 <CONFIG_NRF_CRYPTO_BACKEND_COMBINATION_0>` && \ :option:`MBEDTLS_ECP_C <CONFIG_MBEDTLS_ECP_C>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Default
+=======
+
+- \ :option:`CC310_MBEDTLS_ECDSA_C <CONFIG_CC310_MBEDTLS_ECDSA_C>`
+
+Choice options
+==============
+
+- \ :option:`CC310_MBEDTLS_ECDSA_C <CONFIG_CC310_MBEDTLS_ECDSA_C>`
+- \ :option:`VANILLA_MBEDTLS_ECDSA_C <CONFIG_VANILLA_MBEDTLS_ECDSA_C>`
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:599``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security → Use Nordic provided security backend → ECC - Eliptic Curve Cryptography → ECDSA - Elliptic Curve Digital Signature Algorithm
+
+.. parsed-literal::
+
+    choice
+    	bool "Backend selection"
+    	default \ :option:`CC310_MBEDTLS_ECDSA_C <CONFIG_CC310_MBEDTLS_ECDSA_C>`
+    	depends on \ :option:`MBEDTLS_ECDSA_C <CONFIG_MBEDTLS_ECDSA_C>` && \ :option:`NRF_CRYPTO_BACKEND_COMBINATION_0 <CONFIG_NRF_CRYPTO_BACKEND_COMBINATION_0>` && \ :option:`MBEDTLS_ECP_C <CONFIG_MBEDTLS_ECP_C>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

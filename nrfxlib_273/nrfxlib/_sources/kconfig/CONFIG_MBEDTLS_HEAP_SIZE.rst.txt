@@ -1,0 +1,56 @@
+:orphan:
+
+.. title:: MBEDTLS_HEAP_SIZE
+
+.. option:: CONFIG_MBEDTLS_HEAP_SIZE
+
+*Heap size for mbed TLS*
+
+Type: ``int``
+
+Help
+====
+
+The mbedtls routines will use this heap if enabled.
+For streaming communication with arbitrary (HTTPS) servers on the
+Internet, 32KB + overheads (up to another 20KB) may be needed.
+Ensure to adjust the heap size according to the need of the
+application.
+
+Direct dependencies
+===================
+
+\ :option:`MBEDTLS_ENABLE_HEAP <CONFIG_MBEDTLS_ENABLE_HEAP>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Default
+=======
+
+- 512
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:61``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security → Use Nordic provided security backend → mbed TLS memory configuration → Enable global heap for mbed TLS
+
+.. parsed-literal::
+
+    config MBEDTLS_HEAP_SIZE
+    	int "Heap size for mbed TLS"
+    	default 512
+    	depends on \ :option:`MBEDTLS_ENABLE_HEAP <CONFIG_MBEDTLS_ENABLE_HEAP>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+    	help
+    	  The mbedtls routines will use this heap if enabled.
+    	  For streaming communication with arbitrary (HTTPS) servers on the
+    	  Internet, 32KB + overheads (up to another 20KB) may be needed.
+    	  Ensure to adjust the heap size according to the need of the
+    	  application.
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

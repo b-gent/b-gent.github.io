@@ -1,0 +1,49 @@
+:orphan:
+
+.. title:: choice: Backend selection
+
+.. _choice_2:
+
+.. describe:: choice: Backend selection
+
+*Backend selection*
+
+Type: ``bool``
+
+Direct dependencies
+===================
+
+\ :option:`MBEDTLS_CMAC_C <CONFIG_MBEDTLS_CMAC_C>` && \ :option:`NRF_CRYPTO_BACKEND_COMBINATION_0 <CONFIG_NRF_CRYPTO_BACKEND_COMBINATION_0>` && \ :option:`MBEDTLS_AES_C <CONFIG_MBEDTLS_AES_C>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Default
+=======
+
+- \ :option:`CC310_MBEDTLS_CMAC_C <CONFIG_CC310_MBEDTLS_CMAC_C>`
+
+Choice options
+==============
+
+- \ :option:`CC310_MBEDTLS_CMAC_C <CONFIG_CC310_MBEDTLS_CMAC_C>`
+- \ :option:`VANILLA_MBEDTLS_CMAC_C <CONFIG_VANILLA_MBEDTLS_CMAC_C>`
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:346``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security → Use Nordic provided security backend → AES   - Advanced Encryption Standard → AES-CMAC - AES Cipher-based Message Authentication Code mode for block ciphers
+
+.. parsed-literal::
+
+    choice
+    	bool "Backend selection"
+    	default \ :option:`CC310_MBEDTLS_CMAC_C <CONFIG_CC310_MBEDTLS_CMAC_C>`
+    	depends on \ :option:`MBEDTLS_CMAC_C <CONFIG_MBEDTLS_CMAC_C>` && \ :option:`NRF_CRYPTO_BACKEND_COMBINATION_0 <CONFIG_NRF_CRYPTO_BACKEND_COMBINATION_0>` && \ :option:`MBEDTLS_AES_C <CONFIG_MBEDTLS_AES_C>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

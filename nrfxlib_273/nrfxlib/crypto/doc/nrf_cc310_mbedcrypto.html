@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nrf_cc310_mbedcrypto library &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="nrf_oberon crypto library" href="nrf_oberon.html" />
+    <link rel="prev" title="nrf_cc310_platform library" href="nrf_cc310_platform.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../bsdlib/README.html">BSD library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">Crypto Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../nrf_cc310_platform/CHANGELOG.html">Changelog - nrf_cc310_platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nrf_cc310_bl/CHANGELOG.html">Changelog - nRF cc310 bl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nrf_cc310_mbedcrypto/CHANGELOG.html">Changelog - nRF cc310 mbed crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nrf_oberon/CHANGELOG.html">Changelog - nRF Oberon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrf_cc310_bl.html">nrf_cc310_bl crypto library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrf_cc310_platform.html">nrf_cc310_platform library</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">nrf_cc310_mbedcrypto library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#integration-with-mbed-tls">Integration with mbed TLS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supported-cryptographic-algorithms">Supported cryptographic algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aes-advanced-encryption-standard">AES - Advanced Encryption Standard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aead-authenticated-encryption-with-associated-data">AEAD - Authenticated Encryption with Associated Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#diffie-hellman-merkel">Diffie-Hellman-Merkel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rsa">RSA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#secure-hash">Secure Hash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ecdsa-and-ecdh">ECDSA and ECDH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-items-in-mbedtls-extra">Additional items in mbedtls_extra</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-library">Using the library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#providing-platform-specific-calloc-free">Providing platform specific calloc/free</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initializing-the-library">Initializing the library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rng-initialization-memory-management">RNG initialization memory management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage-restrictions">Usage restrictions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nrf_oberon.html">nrf_oberon crypto library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_security/README.html">Nordic Security Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../README.html">Crypto Libraries</a> &raquo;</li>
+        
+      <li>nrf_cc310_mbedcrypto library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/crypto/doc/nrf_cc310_mbedcrypto.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nrf-cc310-mbedcrypto-library">
+<span id="nrf-cc310-mbedcrypto-readme"></span><h1>nrf_cc310_mbedcrypto library<a class="headerlink" href="#nrf-cc310-mbedcrypto-library" title="Permalink to this headline">¶</a></h1>
+<p>The nrf_cc310_mbedcrypto library is software library to interface with the Arm CryptoCell CC310 hardware accelerator that is available on the nRF52840 SoC and the nRF9160 SiP.
+The library adds hardware support for selected cryptographic algorithms.</p>
+<div class="section" id="integration-with-mbed-tls">
+<h2>Integration with mbed TLS<a class="headerlink" href="#integration-with-mbed-tls" title="Permalink to this headline">¶</a></h2>
+<p>The nrf_cc310_mbedcrypto library provides low-level integration towards selected versions of mbed TLS deliverables.
+The APIs expressed in this library use the alternative implementation abstraction layer inside mbed TLS for selected modules.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not recommended to link to this library directly. Use the <a class="reference internal" href="../../nrf_security/doc/nrf_security.html#nrf-security-readme"><span class="std std-ref">Nordic security module</span></a>.</p>
+</div>
+</div>
+<div class="section" id="supported-cryptographic-algorithms">
+<h2>Supported cryptographic algorithms<a class="headerlink" href="#supported-cryptographic-algorithms" title="Permalink to this headline">¶</a></h2>
+<p>The following tables show the supported cryptographic algorithms in the Arm CryptoCell CC310 hardware accelerator in nRF52840 and nRF9160, as well as the current state of support in the nrf_cc310_mbedcrypto library.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <cite>no mbed TLS support</cite> is listed in limitations, it indicates that the hardware supports it, but it is not exposed in an API that works with mbed TLS.</p>
+<p>If <cite>mbedtls_extra only</cite> is listed in limitations, it indicates that an API similar to recent versions of mbed TLS is made available with the library.</p>
+</div>
+<div class="section" id="aes-advanced-encryption-standard">
+<h3>AES - Advanced Encryption Standard<a class="headerlink" href="#aes-advanced-encryption-standard" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Cipher</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CTR</p></td>
+<td><p>128-bit</p></td>
+</tr>
+<tr class="row-odd"><td><p>CBC</p></td>
+<td><p>128-bit</p></td>
+</tr>
+<tr class="row-even"><td><p>OFB</p></td>
+<td><p>128-bit, no mbed TLS support</p></td>
+</tr>
+<tr class="row-odd"><td><p>CFB</p></td>
+<td><p>128-bit, no mbed TLS support</p></td>
+</tr>
+<tr class="row-even"><td><p>CMAC</p></td>
+<td><p>128-bit</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="aead-authenticated-encryption-with-associated-data">
+<h3>AEAD - Authenticated Encryption with Associated Data<a class="headerlink" href="#aead-authenticated-encryption-with-associated-data" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Cipher</p></th>
+<th class="head"><p>Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CCM/CCM*</p></td>
+<td><p>128-bit</p></td>
+</tr>
+<tr class="row-odd"><td><p>ChaCha-Poly</p></td>
+<td><p>128-bit, mbedtls_extra only</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>APIs currently in mbedtls_extra, as well as APIs with no current HW TLS support, will be supported in upcoming releases of the nrf_cc310_mbedcrypto library.</p>
+</div>
+</div>
+<div class="section" id="diffie-hellman-merkel">
+<h3>Diffie-Hellman-Merkel<a class="headerlink" href="#diffie-hellman-merkel" title="Permalink to this headline">¶</a></h3>
+<p>Supported for key sizes &lt;= 2048 bits.</p>
+</div>
+<div class="section" id="rsa">
+<h3>RSA<a class="headerlink" href="#rsa" title="Permalink to this headline">¶</a></h3>
+<p>PKCS#1 v1.5 and v2.1 is supported for signing and encryption including:</p>
+<ul class="simple">
+<li><p>RSASSA-PSS</p></li>
+<li><p>RSAES-OEAP</p></li>
+</ul>
+<p>Supported for key sizes &lt;= 2048 bits.</p>
+</div>
+<div class="section" id="secure-hash">
+<h3>Secure Hash<a class="headerlink" href="#secure-hash" title="Permalink to this headline">¶</a></h3>
+<p>SHA-1 and SHA-256 is supported.</p>
+</div>
+<div class="section" id="ecdsa-and-ecdh">
+<h3>ECDSA and ECDH<a class="headerlink" href="#ecdsa-and-ecdh" title="Permalink to this headline">¶</a></h3>
+<p>ECDSA and ECDH is supported for the following elliptic curves:</p>
+<p>SEC 2/NIST 186-4:</p>
+<ul class="simple">
+<li><p>secp160r1</p></li>
+<li><p>secp192r1</p></li>
+<li><p>secp224r1</p></li>
+<li><p>secp256r1</p></li>
+<li><p>secp384r1</p></li>
+<li><p>secp521r1</p></li>
+</ul>
+<p>Koblitz:</p>
+<ul class="simple">
+<li><p>secp160k1</p></li>
+<li><p>secp192k1</p></li>
+<li><p>secp224k1</p></li>
+<li><p>secp256k1</p></li>
+</ul>
+<p>Edwards/Montgommery:</p>
+<ul class="simple">
+<li><p>Ed25519</p></li>
+<li><p>Curve25519</p></li>
+</ul>
+</div>
+<div class="section" id="additional-items-in-mbedtls-extra">
+<h3>Additional items in mbedtls_extra<a class="headerlink" href="#additional-items-in-mbedtls-extra" title="Permalink to this headline">¶</a></h3>
+<p>The following is a list of features available in mbedtls_extra as non-standard mbed TLS APIs:</p>
+<ul class="simple">
+<li><p>AES key wrap functions</p></li>
+<li><p>ChaCha20 and Poly1305</p></li>
+<li><p>ECIES</p></li>
+<li><p>HKDF</p></li>
+<li><p>SRP, up to 3072 bits</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="using-the-library">
+<h2>Using the library<a class="headerlink" href="#using-the-library" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="providing-platform-specific-calloc-free">
+<h3>Providing platform specific calloc/free<a class="headerlink" href="#providing-platform-specific-calloc-free" title="Permalink to this headline">¶</a></h3>
+<p>This library facilitates the same type of memory management as regular mbed TLS deliverables.
+This includes using internal calls to calloc/free from the library code when memory is needed.</p>
+<p>The following API must be used to change the default <cite>calloc</cite>/<cite>free</cite> function:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Setting custom calloc/free</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">ret</span><span class="p">;</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">mbedtls_platform_set_calloc_free</span><span class="p">(</span><span class="n">alloc_fn</span><span class="p">,</span> <span class="n">free_fn</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* Failed to set the alternative calloc/free */</span>
+        <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This API must be called prior to calling <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">mbedtls_platform_setup()</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The library will default to use clib calloc/free functions if the <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">mbedtls_platform_set_calloc_free()</span></code> is not used.</p>
+</div>
+</div>
+<div class="section" id="initializing-the-library">
+<h3>Initializing the library<a class="headerlink" href="#initializing-the-library" title="Permalink to this headline">¶</a></h3>
+<p>The library requires initialization before use.
+You can initialize it by calling the <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">mbedtls_platform_setup()</span></code>/<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">mbedtls_platform_teardown()</span></code> functions.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Initializing the library</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">ret</span><span class="p">;</span>
+<span class="k">static</span> <span class="n">mbedtls_platform_context</span> <span class="n">platform_context</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">mbedtls_platform_setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">platform_context</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* Failed to initialize nrf_cc310_mbedcrypto platform */</span>
+        <span class="k">return</span> <span class="n">ret</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no need to enable/disable the CC310 hardware by writing to the <code class="docutils literal notranslate"><span class="pre">NRF_CRYPTOCELL-&gt;ENABLE</span></code> and <code class="docutils literal notranslate"><span class="pre">NRF_CRYPTOCELL_S-&gt;ENABLE</span></code> registers.
+This happens automatically when calling APIs in this library.</p>
+</div>
+</div>
+<div class="section" id="rng-initialization-memory-management">
+<h3>RNG initialization memory management<a class="headerlink" href="#rng-initialization-memory-management" title="Permalink to this headline">¶</a></h3>
+<p>The nrf_cc310_mbedcrypto library allocates a work buffer during RNG initialization using calloc/free.
+The size of this work buffer is 6112 bytes.
+An alternative to allocating this on the heap is to provide a reference to a static variable inside the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">mbedtls_platform_context</span></code> structure type.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Preventing heap-allocation for RNG initialization</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">ret</span><span class="p">;</span>
+<span class="k">static</span> <span class="n">mbedtls_rng_workbuf_internal</span> <span class="n">rng_workbuf</span><span class="p">;</span>
+<span class="k">static</span> <span class="n">mbedtls_platform_context</span> <span class="n">platform_context</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">platform_context</span><span class="p">.</span><span class="n">p_rnd_workbuf</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">rng_workbuf</span><span class="p">;</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">mbedtls_platform_setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">platform_context</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* Failed to initialize nrf_cc310_mbedcrypto platform */</span>
+        <span class="k">return</span> <span class="n">ret</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="usage-restrictions">
+<h3>Usage restrictions<a class="headerlink" href="#usage-restrictions" title="Permalink to this headline">¶</a></h3>
+<p>On the nRF9160 SiP, the nrf_cc310_mbedcrypto library is restricted to only work in secure processing environment.
+The library uses mutexes to ensure single usage of hardware modules.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nrf_oberon.html" class="btn btn-neutral float-right" title="nrf_oberon crypto library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nrf_cc310_platform.html" class="btn btn-neutral" title="nrf_cc310_platform library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+:orphan:
+
+.. title:: choice BT_LL_CHOICE: Bluetooth Link Layer Selection
+
+.. _choice_0:
+
+.. describe:: choice BT_LL_CHOICE: Bluetooth Link Layer Selection
+
+*Bluetooth Link Layer Selection*
+
+Type: ``bool``
+
+Direct dependencies
+===================
+
+BT_CTLR && BT && BT_HCI
+
+*(Includes any dependencies from ifs and menus.)*
+
+Default
+=======
+
+- \ :option:`BT_LL_NRFXLIB <CONFIG_BT_LL_NRFXLIB>` if \ :option:`BT_LL_NRFXLIB_DEFAULT <CONFIG_BT_LL_NRFXLIB_DEFAULT>`
+
+Choice options
+==============
+
+- \ :option:`BT_LL_NRFXLIB <CONFIG_BT_LL_NRFXLIB>`
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\ble_controller/Kconfig:26``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:11``
+
+Menu path: (Top) → Nordic nrfxlib
+
+.. parsed-literal::
+
+    choice BT_LL_CHOICE
+    	bool "Bluetooth Link Layer Selection"
+    	default \ :option:`BT_LL_NRFXLIB <CONFIG_BT_LL_NRFXLIB>` if \ :option:`BT_LL_NRFXLIB_DEFAULT <CONFIG_BT_LL_NRFXLIB_DEFAULT>`
+    	depends on BT_CTLR && BT && BT_HCI
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

@@ -1,0 +1,35 @@
+:orphan:
+
+.. title:: RPMSG_TRANSPORT
+
+.. option:: CONFIG_RPMSG_TRANSPORT
+
+*Serialization RPMsg transport*
+
+Type: ``bool``
+
+Direct dependencies
+===================
+
+\ :ref:`<choice: Serialization transport layer> <choice_12>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\serialization/Kconfig:18``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:15``
+
+Menu path: (Top) → Nordic nrfxlib → Serialization library → Serialization transport layer
+
+.. parsed-literal::
+
+    config RPMSG_TRANSPORT
+    	bool "Serialization RPMsg transport"
+    	depends on \ :ref:`<choice: Serialization transport layer> <choice_12>`
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

@@ -1,0 +1,905 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API documentation &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bsdlib/README.html">BSD library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_security/README.html">Nordic Security Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+      <li>API documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/nfc/doc/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-documentation">
+<span id="nfc-api"></span><h1>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nfc-tag-2-type-emulation-library">
+<span id="nfc-api-type2"></span><h2>NFC tag 2 type emulation library<a class="headerlink" href="#nfc-tag-2-type-emulation-library" title="Permalink to this headline">¶</a></h2>
+<dl class="group">
+<dt>
+<span class="target" id="group__nfc__t2t__lib"></span><em>group</em> <code class="sig-name descname">nfc_t2t_lib</code></dt>
+<dd><p>The T2T emulation library interface. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Defines</p>
+<dl class="macro">
+<dt id="c.NFC_T2T_SIZEOF_INTERNAL_BYTES">
+<span class="target" id="group__nfc__t2t__lib_1ga0fa4ee5ccc9e2d49af8b6ba027e19295"></span><code class="sig-name descname">NFC_T2T_SIZEOF_INTERNAL_BYTES</code><a class="headerlink" href="#c.NFC_T2T_SIZEOF_INTERNAL_BYTES" title="Permalink to this definition">¶</a></dt>
+<dd><p>T2T internal byte size. </p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.NFC_T2T_MAX_PAYLOAD_SIZE">
+<span class="target" id="group__nfc__t2t__lib_1ga2989f7ecc43f6247df1f80b806d525fb"></span><code class="sig-name descname">NFC_T2T_MAX_PAYLOAD_SIZE</code><a class="headerlink" href="#c.NFC_T2T_MAX_PAYLOAD_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum NDEF message size. No NDEF-TLV and no implicit lock bytes at the end. </p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.NFC_T2T_MAX_PAYLOAD_SIZE_RAW">
+<span class="target" id="group__nfc__t2t__lib_1gac4df25abb8e5ba7268ed618c83d6de39"></span><code class="sig-name descname">NFC_T2T_MAX_PAYLOAD_SIZE_RAW</code><a class="headerlink" href="#c.NFC_T2T_MAX_PAYLOAD_SIZE_RAW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Typedefs</p>
+<dl class="type">
+<dt id="_CPPv418nfc_t2t_callback_t">
+<span id="_CPPv318nfc_t2t_callback_t"></span><span id="_CPPv218nfc_t2t_callback_t"></span><span id="nfc_t2t_callback_t"></span><span class="target" id="group__nfc__t2t__lib_1ga0964b28fa729da7936a5bccf7d5dd432"></span><em class="property">typedef </em>void (*<code class="sig-name descname">nfc_t2t_callback_t</code>)<span class="sig-paren">(</span>void *context, <em class="property">enum</em> nfc_t2t_event event, <em class="property">const</em> uint8_t *data, size_t data_length<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418nfc_t2t_callback_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback to pass events from NFC T2T Library to application. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">context</span></code>: Application context for callback execution. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">event</span></code>: The event that occurred. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Data to send to the application (event specific). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_length</span></code>: Length of the data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Enums</p>
+<dl class="enum">
+<dt id="_CPPv4N11nfc_t2t_lib13nfc_t2t_eventE">
+<span id="_CPPv3N11nfc_t2t_lib13nfc_t2t_eventE"></span><span id="_CPPv2N11nfc_t2t_lib13nfc_t2t_eventE"></span><span class="target" id="group__nfc__t2t__lib_1gab07ae44dddc843a5420fde3c79dfc349"></span><em class="property">enum </em><code class="sig-name descname">nfc_t2t_event</code><a class="headerlink" href="#_CPPv4N11nfc_t2t_lib13nfc_t2t_eventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Events passed to the callback function. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t2t_lib18NFC_T2T_EVENT_NONEE">
+<span id="_CPPv3N11nfc_t2t_lib18NFC_T2T_EVENT_NONEE"></span><span id="_CPPv2N11nfc_t2t_lib18NFC_T2T_EVENT_NONEE"></span><span class="target" id="group__nfc__t2t__lib_gab07ae44dddc843a5420fde3c79dfc349_1ggab07ae44dddc843a5420fde3c79dfc349aad86b27594da9b26103ae6a1c7b87676"></span><code class="sig-name descname">NFC_T2T_EVENT_NONE</code><a class="headerlink" href="#_CPPv4N11nfc_t2t_lib18NFC_T2T_EVENT_NONEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Not used. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t2t_lib22NFC_T2T_EVENT_FIELD_ONE">
+<span id="_CPPv3N11nfc_t2t_lib22NFC_T2T_EVENT_FIELD_ONE"></span><span id="_CPPv2N11nfc_t2t_lib22NFC_T2T_EVENT_FIELD_ONE"></span><span class="target" id="group__nfc__t2t__lib_gab07ae44dddc843a5420fde3c79dfc349_1ggab07ae44dddc843a5420fde3c79dfc349a27893fa4969cf3402ab138b652923a01"></span><code class="sig-name descname">NFC_T2T_EVENT_FIELD_ON</code><a class="headerlink" href="#_CPPv4N11nfc_t2t_lib22NFC_T2T_EVENT_FIELD_ONE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>NFC tag has detected external NFC field and was selected by an NFC polling device. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t2t_lib23NFC_T2T_EVENT_FIELD_OFFE">
+<span id="_CPPv3N11nfc_t2t_lib23NFC_T2T_EVENT_FIELD_OFFE"></span><span id="_CPPv2N11nfc_t2t_lib23NFC_T2T_EVENT_FIELD_OFFE"></span><span class="target" id="group__nfc__t2t__lib_gab07ae44dddc843a5420fde3c79dfc349_1ggab07ae44dddc843a5420fde3c79dfc349a2c0011cd699e65067d6daa8b9e31afbf"></span><code class="sig-name descname">NFC_T2T_EVENT_FIELD_OFF</code><a class="headerlink" href="#_CPPv4N11nfc_t2t_lib23NFC_T2T_EVENT_FIELD_OFFE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>External NFC field has been removed. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t2t_lib23NFC_T2T_EVENT_DATA_READE">
+<span id="_CPPv3N11nfc_t2t_lib23NFC_T2T_EVENT_DATA_READE"></span><span id="_CPPv2N11nfc_t2t_lib23NFC_T2T_EVENT_DATA_READE"></span><span class="target" id="group__nfc__t2t__lib_gab07ae44dddc843a5420fde3c79dfc349_1ggab07ae44dddc843a5420fde3c79dfc349a213a35dc10db468350e09b060612854c"></span><code class="sig-name descname">NFC_T2T_EVENT_DATA_READ</code><a class="headerlink" href="#_CPPv4N11nfc_t2t_lib23NFC_T2T_EVENT_DATA_READE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>NFC polling device has read all tag data. Repeated reading in the same session i.e. before <a class="reference internal" href="type_2_tag.html#group__nfc__t2t__lib_gab07ae44dddc843a5420fde3c79dfc349_1ggab07ae44dddc843a5420fde3c79dfc349a2c0011cd699e65067d6daa8b9e31afbf"><span class="std std-ref">NFC_T2T_EVENT_FIELD_OFF</span></a> event, will not trigger another <a class="reference internal" href="type_2_tag.html#group__nfc__t2t__lib_gab07ae44dddc843a5420fde3c79dfc349_1ggab07ae44dddc843a5420fde3c79dfc349a213a35dc10db468350e09b060612854c"><span class="std std-ref">NFC_T2T_EVENT_DATA_READ</span></a> event. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t2t_lib21NFC_T2T_EVENT_STOPPEDE">
+<span id="_CPPv3N11nfc_t2t_lib21NFC_T2T_EVENT_STOPPEDE"></span><span id="_CPPv2N11nfc_t2t_lib21NFC_T2T_EVENT_STOPPEDE"></span><span class="target" id="group__nfc__t2t__lib_gab07ae44dddc843a5420fde3c79dfc349_1ggab07ae44dddc843a5420fde3c79dfc349a6ce996bfcf4c9375c7490f13309df157"></span><code class="sig-name descname">NFC_T2T_EVENT_STOPPED</code><a class="headerlink" href="#_CPPv4N11nfc_t2t_lib21NFC_T2T_EVENT_STOPPEDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reference to the application NFC callback has been released using nfc_t2t_done. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="enum">
+<dt id="_CPPv4N11nfc_t2t_lib16nfc_t2t_param_idE">
+<span id="_CPPv3N11nfc_t2t_lib16nfc_t2t_param_idE"></span><span id="_CPPv2N11nfc_t2t_lib16nfc_t2t_param_idE"></span><span class="target" id="group__nfc__t2t__lib_1gad63693d088fdebc1b3ea6de159def3e1"></span><em class="property">enum </em><code class="sig-name descname">nfc_t2t_param_id</code><a class="headerlink" href="#_CPPv4N11nfc_t2t_lib16nfc_t2t_param_idE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t2t_lib21NFC_T2T_PARAM_TESTINGE">
+<span id="_CPPv3N11nfc_t2t_lib21NFC_T2T_PARAM_TESTINGE"></span><span id="_CPPv2N11nfc_t2t_lib21NFC_T2T_PARAM_TESTINGE"></span><span class="target" id="group__nfc__t2t__lib_gad63693d088fdebc1b3ea6de159def3e1_1ggad63693d088fdebc1b3ea6de159def3e1a51542fb8738834aea1f84be09ae36ed7"></span><code class="sig-name descname">NFC_T2T_PARAM_TESTING</code><a class="headerlink" href="#_CPPv4N11nfc_t2t_lib21NFC_T2T_PARAM_TESTINGE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Used for unit tests. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t2t_lib20NFC_T2T_PARAM_NFCID1E">
+<span id="_CPPv3N11nfc_t2t_lib20NFC_T2T_PARAM_NFCID1E"></span><span id="_CPPv2N11nfc_t2t_lib20NFC_T2T_PARAM_NFCID1E"></span><span class="target" id="group__nfc__t2t__lib_gad63693d088fdebc1b3ea6de159def3e1_1ggad63693d088fdebc1b3ea6de159def3e1a0b48ed1abfe717204216f7a9ec5dd725"></span><code class="sig-name descname">NFC_T2T_PARAM_NFCID1</code><a class="headerlink" href="#_CPPv4N11nfc_t2t_lib20NFC_T2T_PARAM_NFCID1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>NFCID1 value, data can be 4, 7, or 10 bytes long (single, double, or triple size). To use default NFCID1 of specific length pass one byte containing requested length. Default 7-byte NFCID1 will be used if this parameter was not set. This parameter can be set before nfc_t2t_setup() to set initial NFCID1 and it can be changed later. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv413nfc_t2t_setup18nfc_t2t_callback_tPv">
+<span id="_CPPv313nfc_t2t_setup18nfc_t2t_callback_tPv"></span><span id="_CPPv213nfc_t2t_setup18nfc_t2t_callback_tPv"></span><span id="nfc_t2t_setup__nfc_t2t_callback_t.voidP"></span><span class="target" id="group__nfc__t2t__lib_1ga89274e84da408991ea1b61d1dad492a7"></span>int <code class="sig-name descname">nfc_t2t_setup</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv418nfc_t2t_callback_t" title="nfc_t2t_callback_t">nfc_t2t_callback_t</a> <em>callback</em>, void *<em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413nfc_t2t_setup18nfc_t2t_callback_tPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function for registering the application callback for event signaling. </p>
+<p>The callback will be called by NFC T2T Library to notify the application of relevant events. It will be called from the HAL_NFC callback context.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code>: Function pointer to the callback. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context</span></code>: Pointer to a memory area used by the callback for execution (optional).</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: If the application callback was registered successfully. If one of the arguments was invalid, an error code is returned. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv421nfc_t2t_parameter_set16nfc_t2t_param_idPv6size_t">
+<span id="_CPPv321nfc_t2t_parameter_set16nfc_t2t_param_idPv6size_t"></span><span id="_CPPv221nfc_t2t_parameter_set16nfc_t2t_param_idPv6size_t"></span><span id="nfc_t2t_parameter_set__nfc_t2t_param_id.voidP.s"></span><span class="target" id="group__nfc__t2t__lib_1ga68061ba2986a02e9000cb15d705a76b0"></span>int <code class="sig-name descname">nfc_t2t_parameter_set</code><span class="sig-paren">(</span><em class="property">enum</em> nfc_t2t_param_id <em>id</em>, void *<em>data</em>, size_t <em>data_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421nfc_t2t_parameter_set16nfc_t2t_param_idPv6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function for setting an NFC parameter. </p>
+<p>This function allows to set an NFC configuration parameter.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: ID of the parameter to set. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Pointer to a buffer containing the data to set. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_length</span></code>: Size of the buffer containing the data to set.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Zero</span></code>: on success or (negative) error code otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv421nfc_t2t_parameter_get16nfc_t2t_param_idPvP6size_t">
+<span id="_CPPv321nfc_t2t_parameter_get16nfc_t2t_param_idPvP6size_t"></span><span id="_CPPv221nfc_t2t_parameter_get16nfc_t2t_param_idPvP6size_t"></span><span id="nfc_t2t_parameter_get__nfc_t2t_param_id.voidP.sP"></span><span class="target" id="group__nfc__t2t__lib_1ga36d155629cd7374419431956d2b6cf3c"></span>int <code class="sig-name descname">nfc_t2t_parameter_get</code><span class="sig-paren">(</span><em class="property">enum</em> nfc_t2t_param_id <em>id</em>, void *<em>data</em>, size_t *<em>max_data_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421nfc_t2t_parameter_get16nfc_t2t_param_idPvP6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function for querying an NFC parameter value. </p>
+<p>The queried value will be placed into the passed data buffer. If the buffer is too small, max_data_length will contain the required buffer size. If the buffer is big enough, max_data_length will contain the actual size of the data.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: ID of the parameter to query. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Pointer to a buffer receiving the queried data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_data_length</span></code>: Size of the buffer, receives actual size of queried data.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Zero</span></code>: on success or (negative) error code otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv419nfc_t2t_payload_setPK7uint8_t6size_t">
+<span id="_CPPv319nfc_t2t_payload_setPK7uint8_t6size_t"></span><span id="_CPPv219nfc_t2t_payload_setPK7uint8_t6size_t"></span><span id="nfc_t2t_payload_set__uint8_tCP.s"></span><span class="target" id="group__nfc__t2t__lib_1gacb2b2e3dd09c169edb4d8333567b4706"></span>int <code class="sig-name descname">nfc_t2t_payload_set</code><span class="sig-paren">(</span><em class="property">const</em> uint8_t *<em>payload</em>, size_t <em>payload_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419nfc_t2t_payload_setPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function for registering the payload to send on reception of a READ request. </p>
+<p>The payload is considered to only contain the NDEF message to deliver to a reader. The required NDEF TLV will be created implicitly by NFC T2T Library.</p>
+<p>The pointer to the payload must stay valid for the duration of the library execution, or until it is explicitly released.</p>
+<p>If the pointer is not NULL, but the length is zero, the paypload is considered to be an empty NDEF message.</p>
+<p>If a new payload is registered, the previously registered one is considered released.</p>
+<p>Passing a NULL pointer releases the current payload without registering a new one.</p>
+<p>If an invalid size is given (too big), the function returns with an error and the currently registered payload is left unchanged.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Provided pointer must point to RAM region.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">payload</span></code>: Pointer to the memory area in RAM containing the payload to send. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payload_length</span></code>: Size of the payload in bytes.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Zero</span></code>: on success or (negative) error code otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv423nfc_t2t_payload_raw_setPK7uint8_t6size_t">
+<span id="_CPPv323nfc_t2t_payload_raw_setPK7uint8_t6size_t"></span><span id="_CPPv223nfc_t2t_payload_raw_setPK7uint8_t6size_t"></span><span id="nfc_t2t_payload_raw_set__uint8_tCP.s"></span><span class="target" id="group__nfc__t2t__lib_1ga1f2541b2307751e4cd030a6b47497178"></span>int <code class="sig-name descname">nfc_t2t_payload_raw_set</code><span class="sig-paren">(</span><em class="property">const</em> uint8_t *<em>payload</em>, size_t <em>payload_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423nfc_t2t_payload_raw_setPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function for registering the raw payload to send on reception of a READ request. </p>
+<p>The payload will be delivered directly as-is to the reader, without implicitly adding an NDEF TLV container. This can be used if the application wants to define the TLVs itself, for example, to provide a different memory layout.</p>
+<p>The pointer to the payload must stay valid for the duration of the library execution, or until it is explicitly released.</p>
+<p>If a new payload is registered, the previously registered one is considered released.</p>
+<p>Passing a NULL pointer releases the current payload, without registering a new one.</p>
+<p>If an invalid size is given (too big), the function returns with an error and the currently registered payload is left unchanged.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Provided pointer must points to RAM region.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">payload</span></code>: Pointer to the memory area in RAM containing the payload to send. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payload_length</span></code>: Size of the payload in bytes.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: If the operation was successful. If one of the arguments was invalid, an error code is returned. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv420nfc_t2t_internal_setPK7uint8_t6size_t">
+<span id="_CPPv320nfc_t2t_internal_setPK7uint8_t6size_t"></span><span id="_CPPv220nfc_t2t_internal_setPK7uint8_t6size_t"></span><span id="nfc_t2t_internal_set__uint8_tCP.s"></span><span class="target" id="group__nfc__t2t__lib_1gab63f30a97a07cd5f1c3bb264fac6b7ab"></span>int <code class="sig-name descname">nfc_t2t_internal_set</code><span class="sig-paren">(</span><em class="property">const</em> uint8_t *<em>data</em>, size_t <em>data_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420nfc_t2t_internal_setPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function for registering the sequence of internal bytes. </p>
+<p>This refers to the first 10 bytes of the tag memory. The library will set a sensible default for these bytes. The application can use this function to override the default.</p>
+<p>Passing a NULL pointer reverts back to the default sequence. The data will be copied by NFC T2T Library, so the memory does not have to remain valid after the function returns.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>When modifying the internal bytes, remember that they must be consistent with the NFC hardware register settings</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Pointer to the memory area containing the data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_length</span></code>: Size of the data in bytes.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: If the operation was successful. If the data was not NULL and the data length was not 10, an error code is returned. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv423nfc_t2t_emulation_startv">
+<span id="_CPPv323nfc_t2t_emulation_startv"></span><span id="_CPPv223nfc_t2t_emulation_startv"></span><span id="nfc_t2t_emulation_start__void"></span><span class="target" id="group__nfc__t2t__lib_1gac5d21b7acb24e53fc2d6096a37085180"></span>int <code class="sig-name descname">nfc_t2t_emulation_start</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423nfc_t2t_emulation_startv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function for activating the NFC frontend. </p>
+<p>You must call this function so that events are posted to the application callback.</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: If the NFC frontend was activated successfully. If the lower layer could not be started, an error code is returned. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv422nfc_t2t_emulation_stopv">
+<span id="_CPPv322nfc_t2t_emulation_stopv"></span><span id="_CPPv222nfc_t2t_emulation_stopv"></span><span id="nfc_t2t_emulation_stop__void"></span><span class="target" id="group__nfc__t2t__lib_1ga91b8f960fbe0540928ef49d21764ffb6"></span>int <code class="sig-name descname">nfc_t2t_emulation_stop</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422nfc_t2t_emulation_stopv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function for deactivating the NFC frontend. </p>
+<p>After calling this function, no more events will be posted to the application callback.</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: If the NFC frontend was deactivated successfully. If the lower layer could not be stopped, an error code is returned. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv412nfc_t2t_donev">
+<span id="_CPPv312nfc_t2t_donev"></span><span id="_CPPv212nfc_t2t_donev"></span><span id="nfc_t2t_done__void"></span><span class="target" id="group__nfc__t2t__lib_1gafcd5dd2548086ac88a8b96260e81d869"></span>int <code class="sig-name descname">nfc_t2t_done</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412nfc_t2t_donev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function for releasing the reference to the application callback. </p>
+<p>After calling this function, the passed callback pointer is no longer considered valid.</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: This function always succeeds. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="nfc-tag-4-type-emulation-library">
+<span id="nfc-api-type4"></span><h2>NFC tag 4 type emulation library<a class="headerlink" href="#nfc-tag-4-type-emulation-library" title="Permalink to this headline">¶</a></h2>
+<dl class="group">
+<dt>
+<span class="target" id="group__nfc__t4t__lib"></span><em>group</em> <code class="sig-name descname">nfc_t4t_lib</code></dt>
+<dd><p>The T4T emulation library interface. </p>
+<p>This is the NFC Forum NDEF tag 4 type emulation library. It implements the ISO14443-4A protocol (ISO-DEP) and additionally can emulate a read-writable NDEF content. If the emulation of the NDEF content is not needed, the library works in a raw mode where all APDUs are delivered to the user, who is then responsible to generate a timely RPDU as a response.</p>
+<p>The sequence of initializing functions determines whether the NDEF emulation will run or whether the raw mode is used.</p>
+<p><ul class="simple">
+<li><p>E.g. NDEF emulation<ul>
+<li><p>nfc_t4t_setup</p></li>
+<li><p>nfc_t4t_ndef_rwpayload_set or nfc_t4t_ndef_staticpayload_set</p></li>
+<li><p>nfc_t4t_emulation_start</p></li>
+<li><p>… running in NDEF emulation mode</p></li>
+</ul>
+</p></li>
+<li><p>E.g. RAW mode<ul>
+<li><p>nfc_t4t_setup</p></li>
+<li><p>nfc_t4t_emulation_start</p></li>
+<li><p>… running in RAW emulation mode</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>If you are using nRF52832 chip (in IC rev. Engineering B or Engineering C) or if You are using nRF52840 chip (in IC rev. Engineering A, B or C) library will use TIMER 4 to apply workarounds for the anomalies. </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Defines</p>
+<dl class="macro">
+<dt id="c.NFC_T4T_MAX_PAYLOAD_SIZE">
+<span class="target" id="group__nfc__t4t__lib_1ga4dab2365750405587f3a0475834a735d"></span><code class="sig-name descname">NFC_T4T_MAX_PAYLOAD_SIZE</code><a class="headerlink" href="#c.NFC_T4T_MAX_PAYLOAD_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emulation mode. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Typedefs</p>
+<dl class="type">
+<dt id="_CPPv418nfc_t4t_callback_t">
+<span id="_CPPv318nfc_t4t_callback_t"></span><span id="_CPPv218nfc_t4t_callback_t"></span><span id="nfc_t4t_callback_t"></span><span class="target" id="group__nfc__t4t__lib_1ga38b03c985eb6abe77d718f7c02f3f33b"></span><em class="property">typedef </em>void (*<code class="sig-name descname">nfc_t4t_callback_t</code>)<span class="sig-paren">(</span>void *context, <em class="property">enum</em> nfc_t4t_event event, <em class="property">const</em> uint8_t *data, size_t data_length, uint32_t flags<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418nfc_t4t_callback_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback to pass events from NFCLib to application. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">context</span></code>: Application context for callback execution. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">event</span></code>: The event that occurred. see nfc_t4t_event. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Data to send to the application (event specific). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_length</span></code>: Length of the data. In case of <a class="reference internal" href="type_4_tag.html#group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76ea1e00245277cd309839e91117fcb725db"><span class="std std-ref">NFC_T4T_EVENT_NDEF_UPDATED</span></a>, this parameter contains the value of the ‘NLEN’ field of the NDEF File; if the value is non-zero, it corresponds to the new size of the NDEF Message in the updated NDEF File. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flags</span></code>: Some events deliver flags. see nfc_t4t_event for details. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Enums</p>
+<dl class="enum">
+<dt id="_CPPv4N11nfc_t4t_lib16nfc_t4t_emu_modeE">
+<span id="_CPPv3N11nfc_t4t_lib16nfc_t4t_emu_modeE"></span><span id="_CPPv2N11nfc_t4t_lib16nfc_t4t_emu_modeE"></span><span class="target" id="group__nfc__t4t__lib_1ga9e201391c0b83c8ef054883a031e6237"></span><em class="property">enum </em><code class="sig-name descname">nfc_t4t_emu_mode</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib16nfc_t4t_emu_modeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib20NFC_T4T_EMUMODE_NDEFE">
+<span id="_CPPv3N11nfc_t4t_lib20NFC_T4T_EMUMODE_NDEFE"></span><span id="_CPPv2N11nfc_t4t_lib20NFC_T4T_EMUMODE_NDEFE"></span><span class="target" id="group__nfc__t4t__lib_ga9e201391c0b83c8ef054883a031e6237_1gga9e201391c0b83c8ef054883a031e6237a22e306e03dc1936f95a77c03c515facf"></span><code class="sig-name descname">NFC_T4T_EMUMODE_NDEF</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib20NFC_T4T_EMUMODE_NDEFE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Emulated NDEF AID and EF-Files. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib20NFC_T4T_EMUMODE_PICCE">
+<span id="_CPPv3N11nfc_t4t_lib20NFC_T4T_EMUMODE_PICCE"></span><span id="_CPPv2N11nfc_t4t_lib20NFC_T4T_EMUMODE_PICCE"></span><span class="target" id="group__nfc__t4t__lib_ga9e201391c0b83c8ef054883a031e6237_1gga9e201391c0b83c8ef054883a031e6237ae849a7e2af798cdff807887e59261fd4"></span><code class="sig-name descname">NFC_T4T_EMUMODE_PICC</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib20NFC_T4T_EMUMODE_PICCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run just ISO-DEP, deliver I-Frames up. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="enum">
+<dt id="_CPPv4N11nfc_t4t_lib13nfc_t4t_eventE">
+<span id="_CPPv3N11nfc_t4t_lib13nfc_t4t_eventE"></span><span id="_CPPv2N11nfc_t4t_lib13nfc_t4t_eventE"></span><span class="target" id="group__nfc__t4t__lib_1ga628cde3df74c4bb9205915591d7dd76e"></span><em class="property">enum </em><code class="sig-name descname">nfc_t4t_event</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib13nfc_t4t_eventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib18NFC_T4T_EVENT_NONEE">
+<span id="_CPPv3N11nfc_t4t_lib18NFC_T4T_EVENT_NONEE"></span><span id="_CPPv2N11nfc_t4t_lib18NFC_T4T_EVENT_NONEE"></span><span class="target" id="group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76ea61c366ca5facee9eea9b73eebff07815"></span><code class="sig-name descname">NFC_T4T_EVENT_NONE</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib18NFC_T4T_EVENT_NONEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This ID is never used. Dummy value for completeness. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib22NFC_T4T_EVENT_FIELD_ONE">
+<span id="_CPPv3N11nfc_t4t_lib22NFC_T4T_EVENT_FIELD_ONE"></span><span id="_CPPv2N11nfc_t4t_lib22NFC_T4T_EVENT_FIELD_ONE"></span><span class="target" id="group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76ea608bbe277b9553ce98054d1c5210faac"></span><code class="sig-name descname">NFC_T4T_EVENT_FIELD_ON</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib22NFC_T4T_EVENT_FIELD_ONE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>External Reader polling detected. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib23NFC_T4T_EVENT_FIELD_OFFE">
+<span id="_CPPv3N11nfc_t4t_lib23NFC_T4T_EVENT_FIELD_OFFE"></span><span id="_CPPv2N11nfc_t4t_lib23NFC_T4T_EVENT_FIELD_OFFE"></span><span class="target" id="group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76ea430bb54b0ce522010dcf4d6cb2aeade0"></span><code class="sig-name descname">NFC_T4T_EVENT_FIELD_OFF</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib23NFC_T4T_EVENT_FIELD_OFFE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>External Reader polling ended. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib23NFC_T4T_EVENT_NDEF_READE">
+<span id="_CPPv3N11nfc_t4t_lib23NFC_T4T_EVENT_NDEF_READE"></span><span id="_CPPv2N11nfc_t4t_lib23NFC_T4T_EVENT_NDEF_READE"></span><span class="target" id="group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76ea83281487e9256fa8e11e357ae5fd2c0d"></span><code class="sig-name descname">NFC_T4T_EVENT_NDEF_READ</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib23NFC_T4T_EVENT_NDEF_READE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>External Reader has read static NDEF-Data from Emulation. A Read operation happened on last byte of NDEF-Data. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib26NFC_T4T_EVENT_NDEF_UPDATEDE">
+<span id="_CPPv3N11nfc_t4t_lib26NFC_T4T_EVENT_NDEF_UPDATEDE"></span><span id="_CPPv2N11nfc_t4t_lib26NFC_T4T_EVENT_NDEF_UPDATEDE"></span><span class="target" id="group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76ea1e00245277cd309839e91117fcb725db"></span><code class="sig-name descname">NFC_T4T_EVENT_NDEF_UPDATED</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib26NFC_T4T_EVENT_NDEF_UPDATEDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>External Reader has written to length information of NDEF-Data from Emulation. The usual behavior of a Reader-Writer that accesses NDEF information for update is to set the length to zero at the beginning of the update process. It then writes the content of NDEF-Data. When all content is written it will update the length information inside the NDEF file. This event will be generated every time an update to the length is happening. This length information is residing in the first 2 bytes of the NDEF-Content container and is called ‘NLEN’. Since this callback is triggered on any access to these bytes the returned data_length information might not be consistent (e.g. in case of only a single byte write to the length).</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Pointer to current data of NDEF message </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_length</span></code>: Current value of NDEF content length information i.e. ‘NLEN’ field. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib30NFC_T4T_EVENT_DATA_TRANSMITTEDE">
+<span id="_CPPv3N11nfc_t4t_lib30NFC_T4T_EVENT_DATA_TRANSMITTEDE"></span><span id="_CPPv2N11nfc_t4t_lib30NFC_T4T_EVENT_DATA_TRANSMITTEDE"></span><span class="target" id="group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76eae59b484bfd0c1aaabb494b89707fe2b4"></span><code class="sig-name descname">NFC_T4T_EVENT_DATA_TRANSMITTED</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib30NFC_T4T_EVENT_DATA_TRANSMITTEDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>In Raw mode it signals that the data from nfc_t4t_response_pdu_send have been sent out. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib22NFC_T4T_EVENT_DATA_INDE">
+<span id="_CPPv3N11nfc_t4t_lib22NFC_T4T_EVENT_DATA_INDE"></span><span id="_CPPv2N11nfc_t4t_lib22NFC_T4T_EVENT_DATA_INDE"></span><span class="target" id="group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76ea5d75d12707044420c37c06e442c7e783"></span><code class="sig-name descname">NFC_T4T_EVENT_DATA_IND</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib22NFC_T4T_EVENT_DATA_INDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>In Raw mode delivers the APDU fragments All <a class="reference internal" href="type_4_tag.html#group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76ea5d75d12707044420c37c06e442c7e783"><span class="std std-ref">NFC_T4T_EVENT_DATA_IND</span></a> events that have the <a class="reference internal" href="type_4_tag.html#group__nfc__t4t__lib_ga0c19a019ffb1b8ee2e71c16415039a4e_1gga0c19a019ffb1b8ee2e71c16415039a4ea83c440079b7e916d1c9cb53281baba56"><span class="std std-ref">NFC_T4T_DI_FLAG_MORE</span></a> flag set belong to the same APDU. The first <a class="reference internal" href="type_4_tag.html#group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76ea5d75d12707044420c37c06e442c7e783"><span class="std std-ref">NFC_T4T_EVENT_DATA_IND</span></a> without <a class="reference internal" href="type_4_tag.html#group__nfc__t4t__lib_ga0c19a019ffb1b8ee2e71c16415039a4e_1gga0c19a019ffb1b8ee2e71c16415039a4ea83c440079b7e916d1c9cb53281baba56"><span class="std std-ref">NFC_T4T_DI_FLAG_MORE</span></a> flag signals the completeness of the APDU. The Application then has to reply with a call to nfc_t4t_response_pdu_send. The library will handle internally the fragmentation of the response towards the Reader-Writer. The data of the response PDU must be kept valid until the next callback from the library happens (e.g. next <a class="reference internal" href="type_4_tag.html#group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76ea5d75d12707044420c37c06e442c7e783"><span class="std std-ref">NFC_T4T_EVENT_DATA_IND</span></a> or <a class="reference internal" href="type_4_tag.html#group__nfc__t4t__lib_ga628cde3df74c4bb9205915591d7dd76e_1gga628cde3df74c4bb9205915591d7dd76ea430bb54b0ce522010dcf4d6cb2aeade0"><span class="std std-ref">NFC_T4T_EVENT_FIELD_OFF</span></a>).</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Pointer to the fragment of APDU. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_length</span></code>: Length of data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flags</span></code>: nfc_t4t_data_ind_flags. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="enum">
+<dt id="_CPPv4N11nfc_t4t_lib22nfc_t4t_data_ind_flagsE">
+<span id="_CPPv3N11nfc_t4t_lib22nfc_t4t_data_ind_flagsE"></span><span id="_CPPv2N11nfc_t4t_lib22nfc_t4t_data_ind_flagsE"></span><span class="target" id="group__nfc__t4t__lib_1ga0c19a019ffb1b8ee2e71c16415039a4e"></span><em class="property">enum </em><code class="sig-name descname">nfc_t4t_data_ind_flags</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib22nfc_t4t_data_ind_flagsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib20NFC_T4T_DI_FLAG_NONEE">
+<span id="_CPPv3N11nfc_t4t_lib20NFC_T4T_DI_FLAG_NONEE"></span><span id="_CPPv2N11nfc_t4t_lib20NFC_T4T_DI_FLAG_NONEE"></span><span class="target" id="group__nfc__t4t__lib_ga0c19a019ffb1b8ee2e71c16415039a4e_1gga0c19a019ffb1b8ee2e71c16415039a4ea74a1f117d7e473f82a6f92afbb16954a"></span><code class="sig-name descname">NFC_T4T_DI_FLAG_NONE</code> = 0x00<a class="headerlink" href="#_CPPv4N11nfc_t4t_lib20NFC_T4T_DI_FLAG_NONEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Dummy value. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib20NFC_T4T_DI_FLAG_MOREE">
+<span id="_CPPv3N11nfc_t4t_lib20NFC_T4T_DI_FLAG_MOREE"></span><span id="_CPPv2N11nfc_t4t_lib20NFC_T4T_DI_FLAG_MOREE"></span><span class="target" id="group__nfc__t4t__lib_ga0c19a019ffb1b8ee2e71c16415039a4e_1gga0c19a019ffb1b8ee2e71c16415039a4ea83c440079b7e916d1c9cb53281baba56"></span><code class="sig-name descname">NFC_T4T_DI_FLAG_MORE</code> = 0x01<a class="headerlink" href="#_CPPv4N11nfc_t4t_lib20NFC_T4T_DI_FLAG_MOREE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This signals that more data is expected to be received. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="enum">
+<dt id="_CPPv4N11nfc_t4t_lib16nfc_t4t_param_idE">
+<span id="_CPPv3N11nfc_t4t_lib16nfc_t4t_param_idE"></span><span id="_CPPv2N11nfc_t4t_lib16nfc_t4t_param_idE"></span><span class="target" id="group__nfc__t4t__lib_1gab399d9ba0047b508bda2025cfc1da4cd"></span><em class="property">enum </em><code class="sig-name descname">nfc_t4t_param_id</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib16nfc_t4t_param_idE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib21NFC_T4T_PARAM_TESTINGE">
+<span id="_CPPv3N11nfc_t4t_lib21NFC_T4T_PARAM_TESTINGE"></span><span id="_CPPv2N11nfc_t4t_lib21NFC_T4T_PARAM_TESTINGE"></span><span class="target" id="group__nfc__t4t__lib_gab399d9ba0047b508bda2025cfc1da4cd_1ggab399d9ba0047b508bda2025cfc1da4cda927bac55c538a9cca684204de369e2e2"></span><code class="sig-name descname">NFC_T4T_PARAM_TESTING</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib21NFC_T4T_PARAM_TESTINGE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Internal usage only for Unit-Testing. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib17NFC_T4T_PARAM_FWIE">
+<span id="_CPPv3N11nfc_t4t_lib17NFC_T4T_PARAM_FWIE"></span><span id="_CPPv2N11nfc_t4t_lib17NFC_T4T_PARAM_FWIE"></span><span class="target" id="group__nfc__t4t__lib_gab399d9ba0047b508bda2025cfc1da4cd_1ggab399d9ba0047b508bda2025cfc1da4cdab34873e865a518ed0d95e0c3e17cb370"></span><code class="sig-name descname">NFC_T4T_PARAM_FWI</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib17NFC_T4T_PARAM_FWIE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Frame Wait Time parameter </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib20NFC_T4T_PARAM_SELRESE">
+<span id="_CPPv3N11nfc_t4t_lib20NFC_T4T_PARAM_SELRESE"></span><span id="_CPPv2N11nfc_t4t_lib20NFC_T4T_PARAM_SELRESE"></span><span class="target" id="group__nfc__t4t__lib_gab399d9ba0047b508bda2025cfc1da4cd_1ggab399d9ba0047b508bda2025cfc1da4cda7824a5367599348dac7a192b2c45ba0f"></span><code class="sig-name descname">NFC_T4T_PARAM_SELRES</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib20NFC_T4T_PARAM_SELRESE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parameter for setting ‘Protocol’ bits for SEL_RES packet </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N11nfc_t4t_lib20NFC_T4T_PARAM_NFCID1E">
+<span id="_CPPv3N11nfc_t4t_lib20NFC_T4T_PARAM_NFCID1E"></span><span id="_CPPv2N11nfc_t4t_lib20NFC_T4T_PARAM_NFCID1E"></span><span class="target" id="group__nfc__t4t__lib_gab399d9ba0047b508bda2025cfc1da4cd_1ggab399d9ba0047b508bda2025cfc1da4cda86fe66b8ba1096805336c8837b51ce2e"></span><code class="sig-name descname">NFC_T4T_PARAM_NFCID1</code><a class="headerlink" href="#_CPPv4N11nfc_t4t_lib20NFC_T4T_PARAM_NFCID1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>NFCID1 value, data can be 4, 7, or 10 bytes long (single, double, or triple size). To use default NFCID1 of specific length pass one byte containing requested length. Default 7-byte NFCID1 will be used if this parameter was not set. This parameter can be set before nfc_t2t_setup() to set initial NFCID1 and it can be changed later. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv413nfc_t4t_setup18nfc_t4t_callback_tPv">
+<span id="_CPPv313nfc_t4t_setup18nfc_t4t_callback_tPv"></span><span id="_CPPv213nfc_t4t_setup18nfc_t4t_callback_tPv"></span><span id="nfc_t4t_setup__nfc_t4t_callback_t.voidP"></span><span class="target" id="group__nfc__t4t__lib_1ga8dfe29777f380fbafdbf7472fe7eab6a"></span>int <code class="sig-name descname">nfc_t4t_setup</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv418nfc_t4t_callback_t" title="nfc_t4t_callback_t">nfc_t4t_callback_t</a> <em>callback</em>, void *<em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413nfc_t4t_setup18nfc_t4t_callback_tPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Register the application callback for event signaling. </p>
+<p>The callback will be called by NFCLib to notify the application of relevant events. It will be called from the HAL_NFC callback context. The library support 3 different Modes of Emulation:<ul class="simple">
+<li><p>Raw ISO-Dep exchanges. All PDUs are signaled through the callback.</p></li>
+<li><p>Read-Only T4T NDEF-Tag. A static buffer is served. Only Field-Status callbacks.</p></li>
+<li><p>Read-Write T4T NDEF-Tag. A mutable buffer is used. Only Field-Status callbacks.</p></li>
+</ul>
+</p>
+<p>The default mode is Raw ISO-Dep mode. The two other NDEF T4T modes are activated through the corresponding nfc_t4t_ndef_rwpayload_set/ nfc_t4t_ndef_staticpayload_set functions. The mode is locked in with a call to nfc_t4t_emulation_start.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code>: Function pointer to the callback. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context</span></code>: Pointer to a memory area used by the callback for execution (optional).</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Success. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-ENOTSUP</span></code>: If emulation is in running state. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv426nfc_t4t_ndef_rwpayload_setP7uint8_t6size_t">
+<span id="_CPPv326nfc_t4t_ndef_rwpayload_setP7uint8_t6size_t"></span><span id="_CPPv226nfc_t4t_ndef_rwpayload_setP7uint8_t6size_t"></span><span id="nfc_t4t_ndef_rwpayload_set__uint8_tP.s"></span><span class="target" id="group__nfc__t4t__lib_1ga5abbfe33efe1399831f1c3b8dbb9be6d"></span>int <code class="sig-name descname">nfc_t4t_ndef_rwpayload_set</code><span class="sig-paren">(</span>uint8_t *<em>emulation_buffer</em>, size_t <em>buffer_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426nfc_t4t_ndef_rwpayload_setP7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set emulation buffer and content for a NDEF Tag emulation that is Read/Writable. </p>
+<p>The buffer needs to be kept accessible for the lifetime of the emulation. If an external Reader-Writer changes the NDEF content it is signaled through the app-callback. Buffer can be changed during the lifetime of the emulation, when NDEF READ or UPDATE procedure is pending, and it will be changed after this procedure is finished. To perform this procedure safely use critical sections or disable the interrupts.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">emulation_buffer</span></code>: Buffer pointer </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buffer_length</span></code>: Length of buffer (maximum writable NDEF size)</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Success. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code>: Invalid argument (e.g. wrong data length). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code>: Invalid argument (e.g. NULL pointer). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-ENOTSUP</span></code>: If the new buffer has a different length than the first one. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-EFAULT</span></code>: If the provided buffer is the currently used buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv430nfc_t4t_ndef_staticpayload_setPK7uint8_t6size_t">
+<span id="_CPPv330nfc_t4t_ndef_staticpayload_setPK7uint8_t6size_t"></span><span id="_CPPv230nfc_t4t_ndef_staticpayload_setPK7uint8_t6size_t"></span><span id="nfc_t4t_ndef_staticpayload_set__uint8_tCP.s"></span><span class="target" id="group__nfc__t4t__lib_1ga28e3f6109dcda16a0cf8a9967791b964"></span>int <code class="sig-name descname">nfc_t4t_ndef_staticpayload_set</code><span class="sig-paren">(</span><em class="property">const</em> uint8_t *<em>emulation_buffer</em>, size_t <em>buffer_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv430nfc_t4t_ndef_staticpayload_setPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set emulationBuffer and Content for a NDEF Tag emulation that is Read-Only. </p>
+<p>The buffer needs to be kept accessible for the lifetime of the emulation. Since no write access is done to the buffer, the content could reside in flash memory.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">emulation_buffer</span></code>: Const buffer pointer </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buffer_length</span></code>: Length of contained NDEF payload message</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Success. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code>: Invalid argument (e.g. wrong data length). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code>: Invalid argument (e.g. NULL pointer). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-ENOTSUP</span></code>: Emulation is in running stated. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv425nfc_t4t_response_pdu_sendPK7uint8_t6size_t">
+<span id="_CPPv325nfc_t4t_response_pdu_sendPK7uint8_t6size_t"></span><span id="_CPPv225nfc_t4t_response_pdu_sendPK7uint8_t6size_t"></span><span id="nfc_t4t_response_pdu_send__uint8_tCP.s"></span><span class="target" id="group__nfc__t4t__lib_1ga1a3a745c7d100d7925c9a5c6965185c4"></span>int <code class="sig-name descname">nfc_t4t_response_pdu_send</code><span class="sig-paren">(</span><em class="property">const</em> uint8_t *<em>pdu</em>, size_t <em>pdu_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425nfc_t4t_response_pdu_sendPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a raw response PDU after getting a Request PDU callback. </p>
+<p>When the library works in raw ISO-DEP mode it will signal request PDUs through the callback. The application then has to answer with a response PDU. It will use this function to send back the response PDU. This function can not be used in T4T NDEF (RW / STATIC) emulation modes.</p>
+<p>The lower ISODEP layer will handle the defragmentation of a long response PDU into smalleR pieces that the PCD can understand.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pdu</span></code>: Const PDU pointer. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pdu_length</span></code>: Length of PDU.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Success. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code>: Invalid argument (e.g. wrong data length). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code>: Invalid argument (e.g. NULL pointer). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-ENOTSUP</span></code>: Emulation is in running state. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv421nfc_t4t_parameter_set16nfc_t4t_param_idPv6size_t">
+<span id="_CPPv321nfc_t4t_parameter_set16nfc_t4t_param_idPv6size_t"></span><span id="_CPPv221nfc_t4t_parameter_set16nfc_t4t_param_idPv6size_t"></span><span id="nfc_t4t_parameter_set__nfc_t4t_param_id.voidP.s"></span><span class="target" id="group__nfc__t4t__lib_1ga455574b8f770e5abeef95ba88f8fad99"></span>int <code class="sig-name descname">nfc_t4t_parameter_set</code><span class="sig-paren">(</span><em class="property">enum</em> nfc_t4t_param_id <em>id</em>, void *<em>data</em>, size_t <em>data_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421nfc_t4t_parameter_set16nfc_t4t_param_idPv6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set an NFC parameter. </p>
+<p>Allows to set an NFC configuration parameter.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: ID of the parameter to set. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Pointer to a buffer containing the data to set. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_length</span></code>: Size of the buffer containing the data to set.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Success. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code>: Invalid argument (e.g. wrong data length). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code>: Invalid argument (e.g. NULL pointer). </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv421nfc_t4t_parameter_get16nfc_t4t_param_idPvP6size_t">
+<span id="_CPPv321nfc_t4t_parameter_get16nfc_t4t_param_idPvP6size_t"></span><span id="_CPPv221nfc_t4t_parameter_get16nfc_t4t_param_idPvP6size_t"></span><span id="nfc_t4t_parameter_get__nfc_t4t_param_id.voidP.sP"></span><span class="target" id="group__nfc__t4t__lib_1ga50a91c565099636aa137875dfdd71b8b"></span>int <code class="sig-name descname">nfc_t4t_parameter_get</code><span class="sig-paren">(</span><em class="property">enum</em> nfc_t4t_param_id <em>id</em>, void *<em>data</em>, size_t *<em>max_data_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421nfc_t4t_parameter_get16nfc_t4t_param_idPvP6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Query an NFC parameter value. </p>
+<p>The queried value will be placed into the passed data buffer. If the buffer is too small, max_data_length will contain the required buffer size. If the buffer is big enough, max_data_length will contain the actual size of the data.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: ID of the parameter to query. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Pointer to a buffer receiving the queried data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_data_length</span></code>: Size of the buffer, receives actual size of queried data.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Success. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code>: Invalid argument (e.g. wrong data length). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code>: Invalid argument (e.g. NULL pointer). </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv423nfc_t4t_emulation_startv">
+<span id="_CPPv323nfc_t4t_emulation_startv"></span><span id="_CPPv223nfc_t4t_emulation_startv"></span><span id="nfc_t4t_emulation_start__void"></span><span class="target" id="group__nfc__t4t__lib_1ga9ae99b642c97f150fa4bb3fb47825b61"></span>int <code class="sig-name descname">nfc_t4t_emulation_start</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423nfc_t4t_emulation_startv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Activate the NFC frontend. </p>
+<p>Only after calling this function, events will be posted to the application callback.</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Success. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-ENOTSUP</span></code>: Already started. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv422nfc_t4t_emulation_stopv">
+<span id="_CPPv322nfc_t4t_emulation_stopv"></span><span id="_CPPv222nfc_t4t_emulation_stopv"></span><span id="nfc_t4t_emulation_stop__void"></span><span class="target" id="group__nfc__t4t__lib_1ga64a7b29fcef718349e00a8458f73ce05"></span>int <code class="sig-name descname">nfc_t4t_emulation_stop</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422nfc_t4t_emulation_stopv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Deactivate the NFC frontend. </p>
+<p>After calling this function, no more events will be posted to the application callback.</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Success. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-ENOTSUP</span></code>: Emulation was already stopped </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv412nfc_t4t_donev">
+<span id="_CPPv312nfc_t4t_donev"></span><span id="_CPPv212nfc_t4t_donev"></span><span id="nfc_t4t_done__void"></span><span class="target" id="group__nfc__t4t__lib_1gaa2088b59724471ded262c0dfd7e2266d"></span>int <code class="sig-name descname">nfc_t4t_done</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412nfc_t4t_donev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Release reference to application callback. </p>
+<p>After calling this function, the passed callback pointer is no longer considered valid. After calling this function, the passed ndef pointer is no longer considered valid.</p>
+<p>You need to restart with nfc_t4t_setup to run a new Emulation.</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Always succeeds. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

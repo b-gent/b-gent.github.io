@@ -1,0 +1,61 @@
+:orphan:
+
+.. title:: NORDIC_SECURITY_BACKEND
+
+.. option:: CONFIG_NORDIC_SECURITY_BACKEND
+
+*Use Nordic provided security backend*
+
+Type: ``bool``
+
+Help
+====
+
+nRF Connect SDK Security provides crypto functionality through
+different backends.
+Some HW platforms supports the used of HW accelerated crypto
+features.
+
+Direct dependencies
+===================
+
+SOC_FAMILY_NRF
+
+*(Includes any dependencies from ifs and menus.)*
+
+Defaults
+========
+
+No defaults. Implicitly defaults to ``n``.
+
+Symbols selected by this symbol
+===============================
+
+- \ :option:`NRFXLIB_CRYPTO <CONFIG_NRFXLIB_CRYPTO>`
+- ENTROPY_GENERATOR if SOC_NRF52810 || SOC_NRF52832
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:3``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security
+
+.. parsed-literal::
+
+    config NORDIC_SECURITY_BACKEND
+    	bool "Use Nordic provided security backend"
+    	select \ :option:`NRFXLIB_CRYPTO <CONFIG_NRFXLIB_CRYPTO>`
+    	select ENTROPY_GENERATOR if SOC_NRF52810 || SOC_NRF52832
+    	depends on SOC_FAMILY_NRF
+    	help
+    	  nRF Connect SDK Security provides crypto functionality through
+    	  different backends.
+    	  Some HW platforms supports the used of HW accelerated crypto
+    	  features.
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

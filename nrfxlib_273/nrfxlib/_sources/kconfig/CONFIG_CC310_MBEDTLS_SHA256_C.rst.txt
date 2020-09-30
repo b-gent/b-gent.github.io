@@ -1,0 +1,35 @@
+:orphan:
+
+.. title:: CC310_MBEDTLS_SHA256_C
+
+.. option:: CONFIG_CC310_MBEDTLS_SHA256_C
+
+*cc310*
+
+Type: ``bool``
+
+Direct dependencies
+===================
+
+\ :ref:`<choice: Backend selection> <choice_11>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:799``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security → Use Nordic provided security backend → SHA   - Secure Hash Algorithm → SHA-256 hash functionality → Backend selection
+
+.. parsed-literal::
+
+    config CC310_MBEDTLS_SHA256_C
+    	bool "cc310" if \ :option:`CC310_BACKEND <CONFIG_CC310_BACKEND>`
+    	depends on \ :ref:`<choice: Backend selection> <choice_11>`
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Changelog &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API documentation" href="api.html" />
+    <link rel="prev" title="Porting the BSD library to your OS" href="ug_bsdlib_porting_os.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">BSD library</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="supported_features.html">Supported features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="limitations.html">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Library architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_tags.html">Security tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html">BSD socket extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ug_bsdlib_porting_os.html">Porting the BSD library to your OS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-7-9">bsdlib 0.7.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-7-8">bsdlib 0.7.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-7-7">bsdlib 0.7.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-7-6">bsdlib 0.7.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-7-5">bsdlib 0.7.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-7-4">bsdlib 0.7.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-7-3">bsdlib 0.7.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-7-2">bsdlib 0.7.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-7-1">bsdlib 0.7.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-7-0">bsdlib 0.7.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-6-2">bsdlib 0.6.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-6-1">bsdlib 0.6.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-6-0">bsdlib 0.6.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-5-1">bsdlib 0.5.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-5-0">bsdlib 0.5.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-4-3">bsdlib 0.4.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-4-2">bsdlib 0.4.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-4-1">bsdlib 0.4.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-4-0">bsdlib 0.4.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-3-4">bsdlib 0.3.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-3-3">bsdlib 0.3.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-3-2">bsdlib 0.3.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-3-1">bsdlib 0.3.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-3-0">bsdlib 0.3.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-2-4">bsdlib 0.2.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-2-3">bsdlib 0.2.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-2-2">bsdlib 0.2.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-2-1">bsdlib 0.2.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-2-0">bsdlib 0.2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsdlib-0-1-0">bsdlib 0.1.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#added">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_security/README.html">Nordic Security Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../README.html">BSD library</a> &raquo;</li>
+        
+      <li>Changelog</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/bsdlib/doc/CHANGELOG.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="changelog">
+<span id="bsdlib-changelog"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<p>All notable changes to this project are documented in this file.</p>
+<div class="section" id="bsdlib-0-7-9">
+<h2>bsdlib 0.7.9<a class="headerlink" href="#bsdlib-0-7-9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed an issue introduced with the TLS server support that made <a class="reference internal" href="api.html#_CPPv411nrf_connectiPKv13nrf_socklen_t" title="nrf_connect"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_connect()</span></code></a> hang forever.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-7-8">
+<h2>bsdlib 0.7.8<a class="headerlink" href="#bsdlib-0-7-8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed the issue where the modem communication would not work after a shutdown-init sequence.</p></li>
+<li><p>Added TLS server support</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-7-7">
+<h2>bsdlib 0.7.7<a class="headerlink" href="#bsdlib-0-7-7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed a bug in bsd_init() (introduced in the version 0.7.5) that caused the library to be in an inconsistent state when updating the modem firmware.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-7-6">
+<h2>bsdlib 0.7.6<a class="headerlink" href="#bsdlib-0-7-6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added bsdlib support for <code class="docutils literal notranslate"><span class="pre">TLS_CIPHERSUITE_LIST</span></code>.
+<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">getsockopt()</span></code> lists the supported cipher suites and <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">setsockopt()</span></code>
+selects a supported cipher suite.</p></li>
+<li><p>Support for sending packets sized more than 2048 bytes in TLS socket.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-7-5">
+<h2>bsdlib 0.7.5<a class="headerlink" href="#bsdlib-0-7-5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Updated <cite>bsd_shutdown()</cite> to perform a proper shutdown of the modem and the library.</p></li>
+<li><p>Updated <cite>bsd_init()</cite> to properly support multiple initializations of the modem and the library.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-7-4">
+<h2>bsdlib 0.7.4<a class="headerlink" href="#bsdlib-0-7-4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>New socket options added:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">SILENCE_ALL</span></code>, <code class="docutils literal notranslate"><span class="pre">SILENCE_IP_ECHO_REPLY</span></code>, <code class="docutils literal notranslate"><span class="pre">SILENCE_IPV6_ECHO_REPLY</span></code> and <code class="docutils literal notranslate"><span class="pre">REUSEADDR</span></code></p>
+</dd>
+</dl>
+</li>
+<li><p>Fix to fidoless trace disable</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-7-3">
+<h2>bsdlib 0.7.3<a class="headerlink" href="#bsdlib-0-7-3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Aligned the naming of <code class="docutils literal notranslate"><span class="pre">nrf_pollfd</span></code> structure elements with <code class="docutils literal notranslate"><span class="pre">pollfd</span></code>.</p></li>
+<li><p>Fixed IP socket state after <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">accept()</span></code> call.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-7-2">
+<h2>bsdlib 0.7.2<a class="headerlink" href="#bsdlib-0-7-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added support in bsd_init() to disable fidoless traces and define the memory location and amount reserved for bsdlib.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-7-1">
+<h2>bsdlib 0.7.1<a class="headerlink" href="#bsdlib-0-7-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Updated GNSS documentation.</p></li>
+<li><p>Changing socket mode from non-blocking to blocking when there is a pending connection will now give an error.</p></li>
+<li><p>Fixed an issue where FOTA would hang after reboot.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-7-0">
+<h2>bsdlib 0.7.0<a class="headerlink" href="#bsdlib-0-7-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Major rewrite of the lower transport layer to fix an issue where packages were lost in a high bandwidth application.</p></li>
+<li><p>Added support for GPS priority setting to give the GPS module priority over LTE to generate a fix.</p></li>
+<li><p>Added parameter checking and only return -1 on error for the PDN set socket option function.</p></li>
+<li><p>Added support for send timeout on TCP, UDP (including secure sockets), and AT sockets.</p></li>
+<li><p>Added support for MSG_TRUNC on AT, GNSS, TCP, and UDP sockets.</p></li>
+<li><p>Allocating more sockets than available will now return ENOBUFS instead of ENOMEM.</p></li>
+<li><p>Delete mask can now be applied in stopped mode, without the need to transition to started mode first.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ai_canonname</span></code> in the <code class="docutils literal notranslate"><span class="pre">addrinfo</span></code> structure is now properly allocated and null-terminated.</p></li>
+<li><p>Fixed a bug where <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bsdlib_shutdown()</span></code> did not work correctly.</p></li>
+<li><p>PDN is now disconnected properly if <a class="reference internal" href="api.html#_CPPv411nrf_connectiPKv13nrf_socklen_t" title="nrf_connect"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_connect()</span></code></a> fails.</p></li>
+<li><p>Fixed a bug in the GPS socket driver where it would try to free the same memory twice.</p></li>
+<li><p>Fixed a bug where TCP/IP session would hang when the transfer is completed.</p></li>
+<li><p>Fixed various GNSS documentation issues.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-6-2">
+<h2>bsdlib 0.6.2<a class="headerlink" href="#bsdlib-0-6-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>TLS session cache is now disabled by default due to missing support in modem firmware version 1.1.1 and older.</p></li>
+<li><p>When passing an address, the function <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">sendto()</span></code> now sets the errno to <code class="docutils literal notranslate"><span class="pre">NRF_EISCONN</span></code> instead of``NRF_EINVAL`` if the socket type is <code class="docutils literal notranslate"><span class="pre">NRF_SOCK_STREAM</span></code>.</p></li>
+<li><p>Calling <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">connect()</span></code> on an already connected socket now properly returns <code class="docutils literal notranslate"><span class="pre">NRF_EISCONN</span></code> instead of <code class="docutils literal notranslate"><span class="pre">NRF_EBADF</span></code>.</p></li>
+<li><p>Sockets with family <code class="docutils literal notranslate"><span class="pre">NRF_AF_LTE</span></code> must now be created with type <code class="docutils literal notranslate"><span class="pre">NRF_SOCK_DGRAM</span></code>.</p></li>
+<li><p>Setting the timeout in <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">recv()</span></code> to a larger than the maximum supported value now properly returns <code class="docutils literal notranslate"><span class="pre">NRF_EDOM</span></code> instead of <code class="docutils literal notranslate"><span class="pre">NRF_EINVAL</span></code>.</p></li>
+<li><p>Fixed an overflow in timeout computation.</p></li>
+<li><p>Operations on sockets that do not match the socket family now return <code class="docutils literal notranslate"><span class="pre">NRF_EAFNOSUPPORT</span></code> instead of <code class="docutils literal notranslate"><span class="pre">NRF_EINVAL</span></code>.</p></li>
+<li><p>Creating a socket when no sockets are available now returns <code class="docutils literal notranslate"><span class="pre">NRF_ENOBUFS</span></code> instead of <code class="docutils literal notranslate"><span class="pre">NRF_ENOMEM</span></code>.</p></li>
+<li><p>Improved validation of family, type, and protocol arguments in <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">socket()</span></code>.</p></li>
+<li><p>Improved validation of supported flags on <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">send()</span></code> and <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">recv()</span></code> for protocols.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-6-1">
+<h2>bsdlib 0.6.1<a class="headerlink" href="#bsdlib-0-6-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Implemented TLS host name verification.</p></li>
+<li><p>Implemented TLS session caching, enabled by default.</p></li>
+<li><p>Added the <a class="reference internal" href="api.html#_CPPv414nrf_setdnsaddriPKv" title="nrf_setdnsaddr"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_setdnsaddr()</span></code></a> function to set the secondary DNS address.</p></li>
+<li><p>Removed unused <code class="docutils literal notranslate"><span class="pre">BSD_MAX_IP_SOCKET_COUNT</span></code> and <code class="docutils literal notranslate"><span class="pre">BSD_MAX_AT_SOCKET_COUNT</span></code> macros.</p></li>
+<li><p>Fixed a bug that prevented the application from detecting AGPS notifications.</p></li>
+<li><p>Fixed a bug where the application could not allocate the 8th socket.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-6-0">
+<h2>bsdlib 0.6.0<a class="headerlink" href="#bsdlib-0-6-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Removed the <code class="docutils literal notranslate"><span class="pre">nrf_inbuilt_key</span></code> API.
+From now on, the application is responsible for provisioning keys using the AT command <strong>%CMNG</strong>.</p></li>
+<li><p>Removed the <code class="docutils literal notranslate"><span class="pre">nrf_apn_class</span></code> API.
+From now on, the application is responsible for handling the Access Point Name (APN) class.</p></li>
+<li><p>Removed the crypto dependency towards <code class="docutils literal notranslate"><span class="pre">nrf_oberon</span></code> from the library.
+The library does not need any special cryptography functions anymore, because the application is now responsible for signing AT commands.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-5-1">
+<h2>bsdlib 0.5.1<a class="headerlink" href="#bsdlib-0-5-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed internal memory issue in GNSS which lead to crash when running for hours.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-5-0">
+<h2>bsdlib 0.5.0<a class="headerlink" href="#bsdlib-0-5-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bsd_irrecoverable_handler()</span></code> has been removed.
+The application no longer needs to implement it to receive errors during initialization, which are instead reported via <a class="reference internal" href="api.html#_CPPv48bsd_initPK17bsd_init_params_t" title="bsd_init"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bsd_init()</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="api.html#_CPPv412bsd_shutdownv" title="bsd_shutdown"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bsd_shutdown()</span></code></a> now returns an integer.</p></li>
+<li><p>Added RAW socket support.</p></li>
+<li><p>Added missing AGPS data models.</p></li>
+<li><p>Added APGS notification support.</p></li>
+<li><p>Fixed an issue where AGPS data could not be written when the GPS socket was in stopped state.</p></li>
+<li><p>Fixed a memory leak in GPS socket.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-4-3">
+<h2>bsdlib 0.4.3<a class="headerlink" href="#bsdlib-0-4-3" title="Permalink to this headline">¶</a></h2>
+<p>Updated the library with the following changes:</p>
+<ul class="simple">
+<li><p>Added support for signaling if a peer sends larger TLS fragments than receive buffers can handle.
+If this scenario is triggered, <code class="docutils literal notranslate"><span class="pre">NRF_ENOBUFS</span></code> is reported in <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">recv()</span></code>.
+The link is also disconnected on TLS level by issuing an <code class="docutils literal notranslate"><span class="pre">Encryption</span> <span class="pre">Alert</span></code>, and TCP is reset from the device side.
+Subsequent calls to <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">send()</span></code> or <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">recv()</span></code> report <code class="docutils literal notranslate"><span class="pre">NRF_ENOTCONN</span></code>.
+The feature will be supported in an upcoming modem firmware version.</p></li>
+<li><p>Resolved an issue where sending large TLS messages very close to each other in time would result in a blocking <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">send()</span></code> that did not return.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-4-2">
+<h2>bsdlib 0.4.2<a class="headerlink" href="#bsdlib-0-4-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Reduced ROM footprint.</p></li>
+<li><p>Miscellaneous improvements to PDN sockets.</p></li>
+<li><p>Fixed an issue when linking with mbedTLS.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-4-1">
+<h2>bsdlib 0.4.1<a class="headerlink" href="#bsdlib-0-4-1" title="Permalink to this headline">¶</a></h2>
+<p>Updated the library with the following changes:</p>
+<ul class="simple">
+<li><p>Added socket option <code class="docutils literal notranslate"><span class="pre">NRF_SO_PDN_CONTEXT_ID</span></code> for PDN protocol sockets to retrieve the Context ID of the created PDN.</p></li>
+<li><p>Added socket option <code class="docutils literal notranslate"><span class="pre">NRF_SO_PDN_STATE</span></code> for PDN protocol socket to check the active state of the PDN.</p></li>
+<li><p>Fixed a TCP stream empty packet indication when a blocking receive got the peer closed notification while waiting for data to arrive.</p></li>
+<li><p>Fixed an issue where IP sockets did not propagate a fine-grained error reason, and all disconnect events resulted in <code class="docutils literal notranslate"><span class="pre">NRF_ENOTCONN</span></code>.
+Now the error reasons could be one of the following: <code class="docutils literal notranslate"><span class="pre">NRF_ENOTCONN</span></code>, <code class="docutils literal notranslate"><span class="pre">NRF_ECONNRESET</span></code>, <code class="docutils literal notranslate"><span class="pre">NRF_ENETDOWN</span></code>, <code class="docutils literal notranslate"><span class="pre">NRF_ENETUNREACH</span></code>.</p></li>
+<li><p>Fixed an issue with a blocking <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">send()</span></code> operation on IP sockets that was not really blocking but returning immediately in case of insufficient memory to perform the operation.
+The new behavior is that blocking sockets will block until the message is sent.
+Also, because of internal limitations, a non-blocking socket might block for a short while until shortage of memory has been detected internally, and then return with errno set to <code class="docutils literal notranslate"><span class="pre">NRF_EAGAIN</span></code>.</p></li>
+<li><p>Corrected errno that is set by <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">send()</span></code> from <code class="docutils literal notranslate"><span class="pre">NRF_ENOMEM</span></code> to <code class="docutils literal notranslate"><span class="pre">NRF_EMSGSIZE</span></code> in case of attempts on sending larger messages than supported by the library.</p></li>
+<li><p>Added a define <code class="docutils literal notranslate"><span class="pre">BSD_IP_MAX_MESSAGE_SIZE</span></code> in <code class="file docutils literal notranslate"><span class="pre">bsd_limits.h</span></code> to hint what size is used to report <code class="docutils literal notranslate"><span class="pre">NRF_EMSGSIZE</span></code> in the updated <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">send()</span></code> function.</p></li>
+<li><p>Fixed an issue with <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_inbuilt_key_read()</span></code> not respecting the <code class="docutils literal notranslate"><span class="pre">p_buffer_len</span></code> input parameter, making it possible for the library to write out-of-bounds on the buffer provided.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-4-0">
+<h2>bsdlib 0.4.0<a class="headerlink" href="#bsdlib-0-4-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added AGPS support to GNSS socket driver.</p></li>
+<li><p>Added support for GNSS power save modes.</p></li>
+<li><p>Added support for deleting stored GPS data.</p></li>
+<li><p>Changed NRF_CONFIG_NMEA* define names to NRF_GNSS_NMEA* for alignment.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-3-4">
+<h2>bsdlib 0.3.4<a class="headerlink" href="#bsdlib-0-3-4" title="Permalink to this headline">¶</a></h2>
+<p>Updated library with various changes:</p>
+<ul class="simple">
+<li><p>Improved error handling when running out of memory.</p></li>
+<li><p>Modified <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_inbuilt_key_exists()</span></code> so that it does not return an error if a key does not exist. <cite>p_exists</cite> will be updated correctly in this case.</p></li>
+<li><p>Fixed a memory leak in <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_inbuilt_key_exists()</span></code> on error.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-3-3">
+<h2>bsdlib 0.3.3<a class="headerlink" href="#bsdlib-0-3-3" title="Permalink to this headline">¶</a></h2>
+<p>Updated library with various changes:</p>
+<ul class="simple">
+<li><p>Bugfix internal to the library solving issue with unresponsive sockets.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-3-2">
+<h2>bsdlib 0.3.2<a class="headerlink" href="#bsdlib-0-3-2" title="Permalink to this headline">¶</a></h2>
+<p>Updated library with various changes:</p>
+<ul class="simple">
+<li><p>Changed socket option <code class="docutils literal notranslate"><span class="pre">NRF_SO_RCVTIMEO</span></code> to use nrf_timeval struct instead of uint32_t.</p></li>
+<li><p>Improved the PDN socket close (<code class="docutils literal notranslate"><span class="pre">NRF_PROTO_PDN</span></code>) function.</p></li>
+<li><p>Added new errno values <code class="docutils literal notranslate"><span class="pre">NRF_ENOEXEC</span></code>, <code class="docutils literal notranslate"><span class="pre">NRF_ENOSPC</span></code>, and <code class="docutils literal notranslate"><span class="pre">NRF_ENETRESET</span></code>.</p></li>
+<li><p>Added a return value on <a class="reference internal" href="api.html#_CPPv48bsd_initPK17bsd_init_params_t" title="bsd_init"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bsd_init()</span></code></a> to indicate MODEM_DFU result codes or initialization result.</p></li>
+<li><p>Corrected GNSS struct <code class="xref c c-type docutils literal notranslate"><span class="pre">nrf_gnss_datetime_t</span></code> to use correct size on the ms member.</p></li>
+<li><p>Updated modem DFU interface.</p></li>
+<li><p>Improved error reporting on network or connection loss.</p></li>
+<li><p>Corrected the value of <code class="docutils literal notranslate"><span class="pre">NRF_POLLNVAL</span></code>.</p></li>
+<li><p>Improved TCP peer stream closed notification and empty packet indication.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-3-1">
+<h2>bsdlib 0.3.1<a class="headerlink" href="#bsdlib-0-3-1" title="Permalink to this headline">¶</a></h2>
+<p>Updated library with various changes:</p>
+<ul class="simple">
+<li><p>Corrected GNSS API to not fault if not read fast enough.</p></li>
+<li><p>Improved length reporting on GNSS NMEA strings to report length until zero-termination.</p></li>
+<li><p>Improved closing of GNSS socket. If closed, it will now also stop the GNSS from running.</p></li>
+<li><p>Corrected bitmask value of NRF_GNSS_SV_FLAG_UNHEALTHY.</p></li>
+<li><p>Added side API for APN Class management.</p></li>
+<li><p>Removed NRF_SO_PDN_CLASS from nrf_socket.h as it is replaced by side API for APN class management.</p></li>
+<li><p>Improved nrf_poll() error return on non-timeout errors to be NRF_EAGAIN, to align with standard return codes from poll().</p></li>
+<li><p>Added implementation of inet_pton() and inet_ntop().</p></li>
+<li><p>Added empty packet to indicate EOF when TCP peer has closed the connection.</p></li>
+<li><p>Added NRF_POLLHUP to poll() bitmask to indicate sockets that peer has closed the connection (EOF).</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-3-0">
+<h2>bsdlib 0.3.0<a class="headerlink" href="#bsdlib-0-3-0" title="Permalink to this headline">¶</a></h2>
+<p>Updated library with experimental GNSS support.</p>
+</div>
+<div class="section" id="bsdlib-0-2-4">
+<h2>bsdlib 0.2.4<a class="headerlink" href="#bsdlib-0-2-4" title="Permalink to this headline">¶</a></h2>
+<p>Updated library with bug fixes:</p>
+<ul class="simple">
+<li><p>Fix issue of reporting NRF_POLLIN on a socket handle using nrf_poll, even if no new data has arrived.</p></li>
+<li><p>Fix issue of sockets not blocking on recv/recvfrom when no data is available.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-2-3">
+<h2>bsdlib 0.2.3<a class="headerlink" href="#bsdlib-0-2-3" title="Permalink to this headline">¶</a></h2>
+<p>Updated library with various changes:</p>
+<ul class="simple">
+<li><p>Updated library to use nrf_oberon v3.0.0.</p></li>
+<li><p>Updated the library to be deployed without inbuilt libc or libgcc symbols
+(-nostdlib -nodefaultlibs -nostartfiles -lnosys).</p></li>
+<li><p>Fixed issues with some unresolved symbols internal to the library.</p></li>
+<li><p>Updated API towards bsd_os_timedwait function.
+The time-out parameter is now an in and out parameter.
+The bsd_os implementation is now expected to set the remaining time left of the time-out value in return.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-2-2">
+<h2>bsdlib 0.2.2<a class="headerlink" href="#bsdlib-0-2-2" title="Permalink to this headline">¶</a></h2>
+<p>Updated library with API for setting APN name when doing getaddrinfo request.</p>
+<ul class="simple">
+<li><p>Providing API through nrf_getaddrinfo, ai_next to set a second hint that defines the APN name to use for getaddrinfo query.
+The hint must be using NRF_AF_LTE, NRF_SOCK_MGMT, and NRF_PROTO_PDN as family, type, and protocol.
+The APN is set through the ai_canonname field.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-2-1">
+<h2>bsdlib 0.2.1<a class="headerlink" href="#bsdlib-0-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Updated library with bugfixes:</p>
+<ul class="simple">
+<li><p>Updated <code class="docutils literal notranslate"><span class="pre">nrf_inbuilt_key.h</span></code> with smaller documentation fixes.</p></li>
+<li><p>Bugfix in the <code class="docutils literal notranslate"><span class="pre">nrf_inbuilt_key</span></code> API to allow PSK and Identity to be provisioned successfully.</p></li>
+<li><p>Bugfix in the <code class="docutils literal notranslate"><span class="pre">nrf_inbuilt_key</span></code> API to allow security tags in the range of 65535 to 2147483647 to be deleted, read, and listed.</p></li>
+<li><p>Bugfix in proprietary trace log.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-2-0">
+<h2>bsdlib 0.2.0<a class="headerlink" href="#bsdlib-0-2-0" title="Permalink to this headline">¶</a></h2>
+<p>Updated library and header files:</p>
+<ul class="simple">
+<li><p>Enabled Nordic Semiconductor proprietary trace log. Increased consumption of the dedicated library RAM, indicated in bsd_platform.h.</p></li>
+<li><p>Resolved include of <code class="docutils literal notranslate"><span class="pre">stdint.h</span></code> in <code class="docutils literal notranslate"><span class="pre">bsd.h</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="bsdlib-0-1-0">
+<h2>bsdlib 0.1.0<a class="headerlink" href="#bsdlib-0-1-0" title="Permalink to this headline">¶</a></h2>
+<p>Initial release.</p>
+<div class="section" id="added">
+<h3>Added<a class="headerlink" href="#added" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added the following BSD Socket library variants for nrf9160, for soft-float and hard-float builds:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">libbsd_nrf9160_xxaa.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">liboberon_2.0.5.a</span></code> (dependency of libbsd)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="API documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ug_bsdlib_porting_os.html" class="btn btn-neutral" title="Porting the BSD library to your OS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

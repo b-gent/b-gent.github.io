@@ -1,0 +1,42 @@
+:orphan:
+
+.. title:: VANILLA_MBEDTLS_CHACHA20_C
+
+.. option:: CONFIG_VANILLA_MBEDTLS_CHACHA20_C
+
+*mbed TLS vanilla*
+
+Type: ``bool``
+
+Help
+====
+
+SW implemented chacha20 support
+
+Direct dependencies
+===================
+
+\ :ref:`<choice: Backend selection> <choice_3>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:443``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security → Use Nordic provided security backend → AEAD  - Authenticated Encryption with Associated Data → CHACHA20 stream cipher support → Backend selection
+
+.. parsed-literal::
+
+    config VANILLA_MBEDTLS_CHACHA20_C
+    	bool "mbed TLS vanilla" if \ :option:`MBEDTLS_VANILLA_BACKEND <CONFIG_MBEDTLS_VANILLA_BACKEND>`
+    	depends on \ :ref:`<choice: Backend selection> <choice_3>`
+    	help
+    	  SW implemented chacha20 support
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

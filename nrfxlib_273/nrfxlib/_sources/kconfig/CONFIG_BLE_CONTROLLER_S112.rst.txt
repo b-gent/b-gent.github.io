@@ -1,0 +1,35 @@
+:orphan:
+
+.. title:: BLE_CONTROLLER_S112
+
+.. option:: CONFIG_BLE_CONTROLLER_S112
+
+*s112*
+
+Type: ``bool``
+
+Direct dependencies
+===================
+
+(SOC_NRF52810 || SOC_NRF52811 || SOC_NRF52832) && \ :ref:`<choice BLE_CONTROLLER_VARIANT: BLE Controller variant> <choice_1>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\ble_controller/Kconfig:63``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:11``
+
+Menu path: (Top) → Nordic nrfxlib → BLE Controller variant
+
+.. parsed-literal::
+
+    config BLE_CONTROLLER_S112
+    	bool "s112"
+    	depends on (SOC_NRF52810 || SOC_NRF52811 || SOC_NRF52832) && \ :ref:`<choice BLE_CONTROLLER_VARIANT: BLE Controller variant> <choice_1>`
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

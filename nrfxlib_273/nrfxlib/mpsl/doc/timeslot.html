@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Timeslot &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Radio notifications" href="radio_notification.html" />
+    <link rel="prev" title="Integration notes" href="mpsl.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../bsdlib/README.html">BSD library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">Multiprotocol Service Layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpsl.html">Integration notes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Timeslot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#request-types">Request types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#request-priorities">Request priorities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeslot-length">Timeslot length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scheduling">Scheduling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#high-frequency-clock-configuration">High-frequency clock configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-considerations">Performance considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ending-a-timeslot-in-time">Ending a timeslot in time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signal-handler-considerations">Signal handler considerations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#api-usage-scenarios">API usage scenarios</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-session-example">Complete session example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blocked-scenario">Blocked scenario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canceled-scenario">Canceled scenario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extension-example">Extension example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="radio_notification.html">Radio notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tx_power_control.html">TX Power Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_security/README.html">Nordic Security Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../README.html">Multiprotocol Service Layer</a> &raquo;</li>
+        
+      <li>Timeslot</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/mpsl/doc/timeslot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="timeslot">
+<span id="mpsl-timeslot"></span><h1>Timeslot<a class="headerlink" href="#timeslot" title="Permalink to this headline">¶</a></h1>
+<p>The Timeslot interface allows developers to implement their own 2.4 GHz proprietary protocol that can be run concurrently with other protocols using the MPSL.
+The Timeslot feature gives the application access to the radio and other restricted peripherals during defined time intervals, denoted as timeslots.
+It can also be used to suppress radio activity and to reserve guaranteed time for application activities with hard timing requirements.</p>
+<p>The feature works by having the MPSL time-multiplex access to peripherals between the application and itself.
+MPSL exposes APIs to open a Timeslot session and request timeslots.
+When a Timeslot request is granted, the application has exclusive and real-time access to the following peripherals:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>TIMER0</p></li>
+<li><p>RADIO</p></li>
+<li><p>TEMP</p></li>
+<li><p>PPI channel 19 for the nRF52 Series</p></li>
+<li><p>Other peripherals used by protocol stacks using the MPSL</p></li>
+</ul>
+</div></blockquote>
+<p>These peripherals can be used freely for the duration (length) of the timeslot.</p>
+<div class="section" id="request-types">
+<h2>Request types<a class="headerlink" href="#request-types" title="Permalink to this headline">¶</a></h2>
+<p>There are two types of Timeslot requests, <em>earliest possible</em> and <em>normal</em> Timeslot requests.</p>
+<p>Timeslots may be requested as <em>earliest possible</em>, in which case the timeslot occurs at the first available opportunity.
+In the request, the application can limit how far into the future the start of the timeslot can be placed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first request in a session must always be <em>earliest possible</em> to create the timing reference point for later timeslots.</p>
+</div>
+<p>Timeslots may also be requested at a given time (<em>normal</em>).
+In this case, the application specifies in the request when the timeslot starts and the time is measured from the start of the previous timeslot.</p>
+<p>The application may also request to extend an ongoing timeslot.
+Extension requests may be repeated, prolonging the timeslot even further.</p>
+<p>Timeslots requested as <em>earliest possible</em> are useful for single timeslots and for non-periodic or non-timed activity.
+Timeslots requested at a given time relative to the previous timeslot are useful for periodic and timed activities, for example, a periodic proprietary radio protocol.
+Timeslot extension can be used to secure as much continuous radio time as possible for the application, for example, running an “always on” radio listener.</p>
+</div>
+<div class="section" id="request-priorities">
+<h2>Request priorities<a class="headerlink" href="#request-priorities" title="Permalink to this headline">¶</a></h2>
+<p>Timeslots can be requested at either high or normal priority, indicating how important it is for the application to access the specified peripherals.
+A timeslot request can only be blocked or canceled due to an overlapping activity that has a higher scheduling priority.</p>
+</div>
+<div class="section" id="timeslot-length">
+<h2>Timeslot length<a class="headerlink" href="#timeslot-length" title="Permalink to this headline">¶</a></h2>
+<p>A timeslot is requested for a given length.
+Ongoing timeslots have the possibility to be extended.</p>
+<p>The length of the timeslot is specified by the application.
+Longer continuous timeslots can be achieved by requesting to extend the current timeslot.
+A timeslot can be extended multiple times.
+However, if there are other concurrent protocol activities, the extension might fail.
+The maximum timeslot length is 128 seconds.</p>
+</div>
+<div class="section" id="scheduling">
+<h2>Scheduling<a class="headerlink" href="#scheduling" title="Permalink to this headline">¶</a></h2>
+<p>The MPSL includes a scheduler that manages timeslots and priorities and sets up timers to grant timeslots.</p>
+<p>Whether a timeslot request is granted and access to the peripherals is given is determined by the following factors:</p>
+<ul class="simple">
+<li><p>The time the request is made</p></li>
+<li><p>The exact time in the future the timeslot is requested for</p></li>
+<li><p>The desired priority level of the request</p></li>
+<li><p>The length of the requested timeslot</p></li>
+</ul>
+<p>Timeslot API timing-activities are scheduled independently of any other timing activities.
+Therefore, they can collide with any other timing-activities of other protocols.
+If a later arriving timeslot of higher priority causes a collision, the request will be canceled.
+However, a timeslot that has already started cannot be interrupted or canceled.</p>
+<p>If the timeslot is requested as earliest possible, it is scheduled at any available free time.
+Therefore, there is less probability of collision with the earliest possible request.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Radio Notification signals behave the same way for timeslots requested through the timeslot interface as for other activities.
+See <a class="reference internal" href="radio_notification.html#mpsl-radio-notification"><span class="std std-ref">Radio notifications</span></a> for more information.
+If radio notifications are enabled, timeslots will be notified.</p>
+</div>
+</div>
+<div class="section" id="high-frequency-clock-configuration">
+<h2>High-frequency clock configuration<a class="headerlink" href="#high-frequency-clock-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The application can request the MPSL to guarantee that the HFCLK source is set to the external crystal and that it is ramped up and stable before the start of the timeslot.
+If the application requests the MPSL to have the external high-frequency crystal ready by the start of the timeslot, the MPSL handles the enabling and disabling of the crystal.
+The application does not need to disable the crystal at the end of the timeslot.
+The MPSL disables the crystal after the end of the timeslot unless the MPSL needs to use it within a short period of time after the end of the timeslot.
+In such case, the MPSL leaves the crystal running.</p>
+<p>If the application does not request the MPSL to have the external high-frequency crystal ready by the start of the timeslot,
+then the high-frequency clock might or might not be running during the timeslot.</p>
+</div>
+<div class="section" id="performance-considerations">
+<h2>Performance considerations<a class="headerlink" href="#performance-considerations" title="Permalink to this headline">¶</a></h2>
+<p>The Timeslot API shares core peripherals with the MPSL, and application-requested timeslots are scheduled along with other MPSL activities.
+Therefore, the use of the timeslot feature might influence the performance of other users of MPSL.
+Configurations of other MPSL users, like the <a class="reference internal" href="../../softdevice_controller/README.html#softdevice-controller"><span class="std std-ref">SoftDevice Controller</span></a>, should be considered when using the timeslot feature.</p>
+<p>All timeslot requests should use the lowest priority to minimize disturbances to other activities.
+The high priority should only be used when required, such as for running a radio protocol with certain timing requirements that are not met by using normal priority.
+By using the highest priority available to the Timeslot API, other non-critical radio protocol traffic might be affected.
+Other users of MPSL, like the SoftDevice Controller might have access to higher priority levels than the application.
+These levels will be used for important radio activity, for instance when the device is about to lose a connection.</p>
+<p>Timeslots should be kept as short as possible in order to minimize the impact on the overall performance of the device.
+Requesting a short timeslot makes it easier for the scheduler to fit in between other scheduled activities.
+The timeslot can be later extended.
+This does not affect other sessions, as it is only possible to extend a timeslot if the extended time is unreserved.</p>
+<p>It is important to ensure that a timeslot has completed its outstanding operations before the time it is scheduled to end (based on its starting time and requested length).
+Otherwise, the MPSL behavior is undefined and might result in an unrecoverable fault.</p>
+</div>
+<div class="section" id="ending-a-timeslot-in-time">
+<h2>Ending a timeslot in time<a class="headerlink" href="#ending-a-timeslot-in-time" title="Permalink to this headline">¶</a></h2>
+<p>The application is responsible for keeping track of timing within the timeslot and for ensuring that the application’s use of the peripherals does not last for longer than the granted timeslot length.</p>
+<p>For these purposes, the application is granted access to the TIMER0 peripheral for the length of the timeslot.
+This timer is started from zero at the start of the timeslot and is configured to run at 1 MHz.
+The recommended practice is to set up a timer interrupt that expires before the timeslot expires, with enough time left for the timeslot to do any clean-up actions before the timeslot ends.
+Such a timer interrupt can also be used to request an extension of the timeslot, but there must still be enough time to clean up if the extension is not granted.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The scheduler uses the LFCLK source for time calculations when scheduling events.
+If the application uses a TIMER (sourced from the current HFCLK source) to calculate and signal the end of a timeslot, it must account for the possible clock drift between the HFCLK source and the LFCLK source.</p>
+</div>
+</div>
+<div class="section" id="signal-handler-considerations">
+<h2>Signal handler considerations<a class="headerlink" href="#signal-handler-considerations" title="Permalink to this headline">¶</a></h2>
+<p>Depending on the signal type, a signal arrives at interrupt priority level 0, or at the interrupt priority of <code class="docutils literal notranslate"><span class="pre">low_prio_irq</span></code>.
+Therefore, in order to invoke MPSL APIs inside the signal handler, thread safety must be taken into account.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Processing of high priority signals cannot exceed the granted time of the timeslot.
+If it does, the behavior is undefined and the MPSL might malfunction.</p>
+</div>
+<div class="section" id="api-usage-scenarios">
+<h3>API usage scenarios<a class="headerlink" href="#api-usage-scenarios" title="Permalink to this headline">¶</a></h3>
+<p>In this section, several Timeslot API usage scenarios are provided with descriptions of the sequence of events within them.</p>
+</div>
+</div>
+<div class="section" id="complete-session-example">
+<h2>Complete session example<a class="headerlink" href="#complete-session-example" title="Permalink to this headline">¶</a></h2>
+<p>The following figure shows a complete timeslot session.
+In this case, only timeslot requests from the application are being scheduled, and there is no other protocol activity.</p>
+<ol class="arabic simple">
+<li><p>At start, the application opens a session and requests a first timeslot (which must be of type earliest possible).</p></li>
+<li><p>The MPSL schedules the timeslot.</p></li>
+<li><p>At the start of the timeslot, the MPSL calls the application signal handler with the <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">MPSL_TIMESLOT_SIGNAL_START</span></code> signal.
+After this, the application is in control and has access to the peripherals.</p></li>
+<li><p>The application will then typically set up <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">MPSL_TIMESLOT_SIGNAL_TIMER0</span></code> to expire before the end of the timeslot to get a signal indicating that the timeslot is about to end.</p></li>
+<li><p>In the last signal in the timeslot, the application uses the signal handler return action to request a new timeslot 100 ms after the first.</p></li>
+</ol>
+<p>All subsequent timeslots are similar.
+The signal handler is called with the <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">MPSL_TIMESLOT_SIGNAL_START</span></code> signal at the start of the timeslot.
+The application then has control, but must arrange for a signal to come towards the end of the timeslot.
+As the return value for the last signal in the timeslot, the signal handler requests a new timeslot using the <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">MPSL_TIMESLOT_SIGNAL_ACTION_REQUEST</span></code> action.</p>
+<p>Eventually, the application does not require more timeslot events.
+Therefore, at the last signal in the last timeslot, the application returns END from the signal handler.
+The MPSL then sends an <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">MPSL_TIMESLOT_SIGNAL_SESSION_IDLE</span></code> signal to the application signal handler.
+The application calls <a class="reference internal" href="api.html#_CPPv427mpsl_timeslot_session_close26mpsl_timeslot_session_id_t" title="mpsl_timeslot_session_close"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">mpsl_timeslot_session_close()</span></code></a>, and the MPSL sends the <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">MPSL_TIMESLOT_SIGNAL_SESSION_CLOSED</span></code> signal. The session has now ended.</p>
+<div class="figure align-default" id="id1">
+<img alt="Complete timeslot session" src="../../_images/timeslot_normal.svg" /><p class="caption"><span class="caption-text">Complete timeslot session</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="blocked-scenario">
+<h2>Blocked scenario<a class="headerlink" href="#blocked-scenario" title="Permalink to this headline">¶</a></h2>
+<p>Timeslot requests might be blocked due to an overlap with activities already scheduled by the MPSL.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is possible to issue a timeslot request when getting blocked.
+However, it is likely that the new request will get blocked as well.
+This may cause the CPU to become less available for other processing.</p>
+</div>
+<p>The following figure shows a situation in the middle of a session where a requested timeslot cannot be scheduled.</p>
+<ol class="arabic simple">
+<li><p>At the end of the first timeslot illustrated here, the application signal handler returns a <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">MPSL_TIMESLOT_SIGNAL_ACTION_REQUEST</span></code> action to request a new timeslot.</p></li>
+<li><p>The new timeslot cannot be scheduled as requested because of a collision with an already scheduled activity.</p></li>
+<li><p>The application is notified about this by an <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">MPSL_TIMESLOT_SIGNAL_BLOCKED</span></code> signal to the application signal handler.</p></li>
+<li><p>The application then makes a new request for a later point in time.</p></li>
+<li><p>This request succeeds (it does not collide with anything), and a new timeslot is eventually scheduled.</p></li>
+</ol>
+<div class="figure align-default" id="id2">
+<img alt="Blocked timeslot example" src="../../_images/timeslot_blocked.svg" /><p class="caption"><span class="caption-text">Blocked timeslot example</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="canceled-scenario">
+<h2>Canceled scenario<a class="headerlink" href="#canceled-scenario" title="Permalink to this headline">¶</a></h2>
+<p>In certain situations, a requested and scheduled application timeslot might be revoked in the middle of a session.</p>
+<p>The following figure shows a situation where a requested and scheduled application timeslot is being revoked.</p>
+<ol class="arabic simple">
+<li><p>The upper part of the figure shows that the application has ended a timeslot by returning the <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">MPSL_TIMESLOT_SIGNAL_ACTION_REQUEST</span></code> action, and that the new timeslot has been scheduled.</p></li>
+<li><p>The new scheduled timeslot has not started yet, as its starting time is in the future.
+The lower part of the figure shows the situation some time later.</p></li>
+<li><p>In the meantime, another higher priority activity has requested time that overlaps with the scheduled application timeslot.</p></li>
+<li><p>To accommodate the higher priority request, the application timeslot is removed from the schedule and, instead, the higher priority activity is scheduled.</p></li>
+<li><p>The application is notified about this by an <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">MPSL_TIMESLOT_SIGNAL_CANCELED</span></code> event to the application signal handler.</p></li>
+<li><p>The application then makes a new request at a later point in time.</p></li>
+<li><p>That request succeeds (it does not collide with anything), and a new timeslot is eventually scheduled.</p></li>
+</ol>
+<div class="figure align-default" id="id3">
+<img alt="Revoked timeslot example" src="../../_images/timeslot_canceled.svg" /><p class="caption"><span class="caption-text">Revoked timeslot example</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="extension-example">
+<h2>Extension example<a class="headerlink" href="#extension-example" title="Permalink to this headline">¶</a></h2>
+<p>An application can use timeslot extension to create long continuous timeslots that give the application as much time as possible while disturbing other activities as little as possible.</p>
+<ol class="arabic simple">
+<li><p>In the following figure, the application uses the signal handler return action to request an extension of the timeslot.</p></li>
+<li><p>The extension is granted, and the timeslot is seamlessly prolonged.</p></li>
+<li><p>The second attempt to extend the timeslot fails, as a further extension would cause a collision with another scheduled activity.</p></li>
+<li><p>Therefore, the application makes a new earliest possible request.</p></li>
+<li><p>This results in a new timeslot being scheduled immediately after the other activity.
+This new timeslot can be extended a number of times.</p></li>
+</ol>
+<div class="figure align-default" id="id4">
+<img alt="Extended timeslot example" src="../../_images/timeslot_extend.svg" /><p class="caption"><span class="caption-text">Extended timeslot example</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="radio_notification.html" class="btn btn-neutral float-right" title="Radio notifications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mpsl.html" class="btn btn-neutral" title="Integration notes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

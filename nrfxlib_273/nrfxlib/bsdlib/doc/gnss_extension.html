@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GNSS socket &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Porting the BSD library to your OS" href="ug_bsdlib_porting_os.html" />
+    <link rel="prev" title="AT commands" href="at_commands.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">BSD library</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="supported_features.html">Supported features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="limitations.html">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Library architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_tags.html">Security tags</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="extensions.html">BSD socket extensions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pdn_extension.html">PDN management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="at_commands.html">AT commands</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GNSS socket</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-gnss-socket">Creating a GNSS socket</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#starting-the-gps">Starting the GPS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stopping-the-gps">Stopping the GPS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-the-gps">Configuring the GPS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reading-a-fix">Reading a fix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#a-gps-data">A-GPS data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#closing-a-gnss-socket">Closing a GNSS socket</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ug_bsdlib_porting_os.html">Porting the BSD library to your OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_security/README.html">Nordic Security Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../README.html">BSD library</a> &raquo;</li>
+        
+          <li><a href="extensions.html">BSD socket extensions</a> &raquo;</li>
+        
+      <li>GNSS socket</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/bsdlib/doc/gnss_extension.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gnss-socket">
+<span id="gnss-extension"></span><h1>GNSS socket<a class="headerlink" href="#gnss-socket" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Satellite_navigation">Global navigation satellite system (GNSS)</a> socket is one of the socket types supported by the BSD library.
+This socket type is used to configure and fetch GPS position fix data from the GPS module, and to write <a class="reference external" href="https://en.wikipedia.org/wiki/Assisted_GPS">A-GPS</a> data to the GPS module.</p>
+<div class="section" id="creating-a-gnss-socket">
+<h2>Creating a GNSS socket<a class="headerlink" href="#creating-a-gnss-socket" title="Permalink to this headline">¶</a></h2>
+<p>The following code shows how to create a GNSS socket with the <a class="reference internal" href="api.html#c.NRF_PROTO_GNSS" title="NRF_PROTO_GNSS"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_PROTO_GNSS</span></code></a> protocol family and the
+<a class="reference internal" href="api.html#c.NRF_AF_LOCAL" title="NRF_AF_LOCAL"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_AF_LOCAL</span></code></a> proprietary address family.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">gnss_fd</span> <span class="o">=</span> <span class="n">nrf_socket</span><span class="p">(</span><span class="n">NRF_AF_LOCAL</span><span class="p">,</span> <span class="n">NRF_SOCK_DGRAM</span><span class="p">,</span> <span class="n">NRF_PROTO_GNSS</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The socket type is <a class="reference internal" href="api.html#c.NRF_SOCK_DGRAM" title="NRF_SOCK_DGRAM"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SOCK_DGRAM</span></code></a>.
+The code above creates a socket that can be used to communicate with the GPS module.
+After the function call, the GPS module will be in the stopped mode (i.e. the module does not generate GPS fixes).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only one instance of the GNSS socket is supported.</p>
+</div>
+</div>
+<div class="section" id="starting-the-gps">
+<h2>Starting the GPS<a class="headerlink" href="#starting-the-gps" title="Permalink to this headline">¶</a></h2>
+<p>After the GNSS socket is created, the GPS module must be started for the module to start generating GPS fixes.
+This is done using the <a class="reference internal" href="api.html#_CPPv414nrf_setsockoptiiiPKv13nrf_socklen_t" title="nrf_setsockopt"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_setsockopt()</span></code></a> function with the <code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SOL_GNSS</span></code> socket option level and the <a class="reference internal" href="api.html#c.NRF_SO_GNSS_START" title="NRF_SO_GNSS_START"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_START</span></code></a> socket option.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">nrf_gnss_delete_mask_t</span>  <span class="n">delete_mask</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">nrf_setsockopt</span><span class="p">(</span><span class="n">gnss_fd</span><span class="p">,</span> <span class="n">NRF_SOL_GNSS</span><span class="p">,</span> <span class="n">NRF_SO_GNSS_START</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">delete_mask</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">delete_mask</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>During a session (when the GPS is running), the socket stores the information to the non-volatile memory.
+This is done to generate a quick fix in a subsequent session and is termed as a hot or warm start (depending on the data that is used from the last session).
+Such session data can be deleted using the delete mask that is supplied to the <a class="reference internal" href="api.html#_CPPv414nrf_setsockoptiiiPKv13nrf_socklen_t" title="nrf_setsockopt"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_setsockopt()</span></code></a> function call while starting the GPS module.
+A value of 0 in the delete mask is an indication to keep all the previous data.
+The bit masks for the different types of data that can be deleted is defined in the GNSS socket API documentation of <a class="reference internal" href="api.html#_CPPv422nrf_gnss_delete_mask_t" title="nrf_gnss_delete_mask_t"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">nrf_gnss_delete_mask_t</span></code></a>.</p>
+</div>
+<div class="section" id="stopping-the-gps">
+<h2>Stopping the GPS<a class="headerlink" href="#stopping-the-gps" title="Permalink to this headline">¶</a></h2>
+<p>The GPS module can be stopped through the GNSS socket by using the <a class="reference internal" href="api.html#c.NRF_SO_GNSS_STOP" title="NRF_SO_GNSS_STOP"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_STOP</span></code></a> socket option.
+A delete mask must also be supplied when stopping the GPS module as shown in the following code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">nrf_gnss_delete_mask_t</span>  <span class="n">delete_mask</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">nrf_setsockopt</span><span class="p">(</span><span class="n">gnss_fd</span><span class="p">,</span> <span class="n">NRF_SOL_GNSS</span><span class="p">,</span> <span class="n">NRF_SO_GNSS_STOP</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">delete_mask</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">delete_mask</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-the-gps">
+<h2>Configuring the GPS<a class="headerlink" href="#configuring-the-gps" title="Permalink to this headline">¶</a></h2>
+<p>There are various configuration parameters that can be sent to the GPS module.
+Configuration parameters can only be sent to the GPS module when it is in the stopped state.
+A configuration parameter is written to the GPS module through the <a class="reference internal" href="api.html#_CPPv414nrf_setsockoptiiiPKv13nrf_socklen_t" title="nrf_setsockopt"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_setsockopt()</span></code></a> function call.</p>
+<p>Below example code shows how to set the fix interval:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">nrf_gnss_fix_interval_t</span> <span class="n">fix_interval</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="n">nrf_setsockopt</span><span class="p">(</span><span class="n">gnss_fd</span><span class="p">,</span> <span class="n">NRF_SOL_GNSS</span><span class="p">,</span> <span class="n">NRF_SO_GNSS_FIX_INTERVAL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fix_interval</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">fix_interval</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>A configuration can also be read by the application by using the <a class="reference internal" href="api.html#_CPPv414nrf_getsockoptiiiPvP13nrf_socklen_t" title="nrf_getsockopt"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_getsockopt()</span></code></a> function call as shown in the following code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint32_t</span>   <span class="n">fix_interval_len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">fix_interval</span><span class="p">);</span>
+
+<span class="n">nrf_getsockopt</span><span class="p">(</span><span class="n">gnss_fd</span><span class="p">,</span> <span class="n">NRF_SOL_GNSS</span><span class="p">,</span> <span class="n">NRF_SO_GNSS_FIX_INTERVAL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fix_interval</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fix_interval_len</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="configuration-parameters">
+<h3>Configuration parameters<a class="headerlink" href="#configuration-parameters" title="Permalink to this headline">¶</a></h3>
+<dl>
+<dt>Fix interval</dt><dd><div class="line-block">
+<div class="line">Socket option:  <a class="reference internal" href="api.html#c.NRF_SO_GNSS_FIX_INTERVAL" title="NRF_SO_GNSS_FIX_INTERVAL"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_FIX_INTERVAL</span></code></a></div>
+<div class="line">Datatype:       <a class="reference internal" href="api.html#_CPPv423nrf_gnss_fix_interval_t" title="nrf_gnss_fix_interval_t"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">nrf_gnss_fix_interval_t</span></code></a></div>
+<div class="line">Default:        1</div>
+<div class="line">Allowed values: 0, 1, 10..1800</div>
+</div>
+</dd>
+</dl>
+<p>The fix interval parameter controls the time between GNSS receiver-starts.
+It also controls the stopping of the GNSS receiver after a valid PVT
+estimate.
+The fix interval parameter determines the mode of navigation.
+There are three different navigation modes available: single-fix,
+continuous, and periodic.</p>
+<p>Single-fix navigation mode is engaged by setting the fix interval to 0.
+In this mode, once a valid PVT estimate is produced, the GNSS receiver is turned off indefinitely.
+It does not resume navigation without explicit actions by the application processor.
+To do another single-fix, the application processor must first stop the GNSS module and then start the GNSS module again.</p>
+<p>Continuous navigation mode is engaged by setting the fix interval to 1.
+In this mode, the GNSS receiver continues to produce fixes at 1 Hz rate without any time limit.</p>
+<p>Periodic navigation mode is engaged by setting the fix interval to a value other than 0 or 1.
+In this mode the GNSS receiver is turned off after each valid PVT estimate, and turned back on periodically after each fix interval has passed.</p>
+<dl>
+<dt>Fix retry</dt><dd><div class="line-block">
+<div class="line">Socket option:  <a class="reference internal" href="api.html#c.NRF_SO_GNSS_FIX_RETRY" title="NRF_SO_GNSS_FIX_RETRY"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_FIX_RETRY</span></code></a></div>
+<div class="line">Datatype:       <a class="reference internal" href="api.html#_CPPv420nrf_gnss_fix_retry_t" title="nrf_gnss_fix_retry_t"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">nrf_gnss_fix_retry_t</span></code></a></div>
+<div class="line">Default:        60</div>
+<div class="line">Allowed values: 0..65535</div>
+</div>
+</dd>
+</dl>
+<p>The fix retry parameter controls the maximum time the GNSS receiver can run while trying to produce a valid PVT estimate.
+If the fix retry time is non-zero, the GNSS receiver is turned off after the fix retry time is up regardless of whether a valid PVT estimate was produced or not.
+If the fix retry parameter is set to 0, the GNSS receiver can run indefinitely until a valid PVT estimate is produced.</p>
+<dl>
+<dt>NMEA mask</dt><dd><div class="line-block">
+<div class="line">Socket option: <a class="reference internal" href="api.html#c.NRF_SO_GNSS_NMEA_MASK" title="NRF_SO_GNSS_NMEA_MASK"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_NMEA_MASK</span></code></a></div>
+<div class="line">Datatype:      <a class="reference internal" href="api.html#_CPPv420nrf_gnss_nmea_mask_t" title="nrf_gnss_nmea_mask_t"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">nrf_gnss_nmea_mask_t</span></code></a></div>
+<div class="line">Default:       0x0000</div>
+<div class="line">Allowed values:</div>
+</div>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="api.html#c.NRF_GNSS_NMEA_GGA_MASK" title="NRF_GNSS_NMEA_GGA_MASK"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_NMEA_GGA_MASK</span></code></a></div>
+<div class="line"><a class="reference internal" href="api.html#c.NRF_GNSS_NMEA_GLL_MASK" title="NRF_GNSS_NMEA_GLL_MASK"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_NMEA_GLL_MASK</span></code></a></div>
+<div class="line"><a class="reference internal" href="api.html#c.NRF_GNSS_NMEA_GSA_MASK" title="NRF_GNSS_NMEA_GSA_MASK"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_NMEA_GSA_MASK</span></code></a></div>
+<div class="line"><a class="reference internal" href="api.html#c.NRF_GNSS_NMEA_GSV_MASK" title="NRF_GNSS_NMEA_GSV_MASK"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_NMEA_GSV_MASK</span></code></a></div>
+<div class="line"><a class="reference internal" href="api.html#c.NRF_GNSS_NMEA_RMC_MASK" title="NRF_GNSS_NMEA_RMC_MASK"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_NMEA_RMC_MASK</span></code></a></div>
+</div>
+</dd>
+</dl>
+<p>This mask is used to enable different <a class="reference external" href="https://www.gpsinformation.org/dale/nmea.htm">NMEA</a> string types.
+Multiple NMEA string types can be enabled at the same time.</p>
+<dl>
+<dt>Elevation mask</dt><dd><div class="line-block">
+<div class="line">Socket option:  <a class="reference internal" href="api.html#c.NRF_SO_GNSS_ELEVATION_MASK" title="NRF_SO_GNSS_ELEVATION_MASK"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_ELEVATION_MASK</span></code></a></div>
+<div class="line">Datatype:       <a class="reference internal" href="api.html#_CPPv425nrf_gnss_elevation_mask_t" title="nrf_gnss_elevation_mask_t"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">nrf_gnss_elevation_mask_t</span></code></a></div>
+<div class="line">Default         5</div>
+<div class="line">Allowed values: 0 (horizontal)..90</div>
+</div>
+</dd>
+</dl>
+<p>The elevation mask parameter controls the elevation threshold angle (in degrees).
+Satellites with elevation angle less than the threshold are automatically excluded from the PVT estimation.</p>
+<dl>
+<dt>Use case</dt><dd><div class="line-block">
+<div class="line">Socket option:  <a class="reference internal" href="api.html#c.NRF_SO_GNSS_USE_CASE" title="NRF_SO_GNSS_USE_CASE"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_USE_CASE</span></code></a></div>
+<div class="line">Datatype:       <code class="xref c c-type docutils literal notranslate"><span class="pre">uint8_t</span></code></div>
+<div class="line">Default         1</div>
+<div class="line">Allowed values: 0, 1</div>
+</div>
+</dd>
+</dl>
+<p>The use case parameter determines the target performance.
+A value of 0 indicates single cold start and one indicates multiple hot starts.</p>
+<dl>
+<dt>Start GPS module</dt><dd><div class="line-block">
+<div class="line">Socket option: <a class="reference internal" href="api.html#c.NRF_SO_GNSS_START" title="NRF_SO_GNSS_START"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_START</span></code></a></div>
+<div class="line">Datatype:      <a class="reference internal" href="api.html#_CPPv422nrf_gnss_delete_mask_t" title="nrf_gnss_delete_mask_t"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">nrf_gnss_delete_mask_t</span></code></a></div>
+<div class="line">Default:       NA</div>
+</div>
+</dd>
+</dl>
+<p>This parameter makes the GPS module start generating fixes.
+The delete mask is used to delete the data that the GPS module has stored for any previous session.</p>
+<dl>
+<dt>Stop GPS module</dt><dd><div class="line-block">
+<div class="line">Socket option: <a class="reference internal" href="api.html#c.NRF_SO_GNSS_STOP" title="NRF_SO_GNSS_STOP"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_STOP</span></code></a></div>
+<div class="line">Datatype:      <code class="xref c c-type docutils literal notranslate"><span class="pre">nrf_gnss_delete_mask_t</span></code></div>
+<div class="line">Default        NA</div>
+</div>
+</dd>
+</dl>
+<p>This parameter makes the GPS module stop generating fixes.
+The delete mask is used to delete data that the GPS module has stored from any previous session.</p>
+<dl>
+<dt>Power save modes</dt><dd><div class="line-block">
+<div class="line">Socket option: <a class="reference internal" href="api.html#c.NRF_SO_GNSS_POWER_SAVE_MODE" title="NRF_SO_GNSS_POWER_SAVE_MODE"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_POWER_SAVE_MODE</span></code></a></div>
+<div class="line">Datatype:      <a class="reference internal" href="api.html#_CPPv426nrf_gnss_power_save_mode_t" title="nrf_gnss_power_save_mode_t"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">nrf_gnss_power_save_mode_t</span></code></a></div>
+<div class="line">Default:       <a class="reference internal" href="api.html#c.NRF_GNSS_PSM_DISABLED" title="NRF_GNSS_PSM_DISABLED"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_PSM_DISABLED</span></code></a></div>
+<div class="line">Allowed values:</div>
+</div>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="api.html#c.NRF_GNSS_PSM_DISABLED" title="NRF_GNSS_PSM_DISABLED"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_PSM_DISABLED</span></code></a></div>
+<div class="line"><a class="reference internal" href="api.html#c.NRF_GNSS_PSM_DUTY_CYCLING_PERFORMANCE" title="NRF_GNSS_PSM_DUTY_CYCLING_PERFORMANCE"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_PSM_DUTY_CYCLING_PERFORMANCE</span></code></a></div>
+<div class="line"><a class="reference internal" href="api.html#c.NRF_GNSS_PSM_DUTY_CYCLING_POWER" title="NRF_GNSS_PSM_DUTY_CYCLING_POWER"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_PSM_DUTY_CYCLING_POWER</span></code></a></div>
+</div>
+</dd>
+</dl>
+<p>The GNSS receiver may track signals (i.e. run) either continuously or in duty cycles.</p>
+<p>In continuous tracking, the received GNSS signal has no gaps.
+Best performance is achieved with continuous tracking.</p>
+<p>In duty-cycled tracking, the GNSS receiver operates in on-and-off cycles consisting of tracking and sleeping.
+The received GNSS signal has therefore short gaps during the sleep periods.
+This type of tracking reduces the power consumption at the expense of performance.</p>
+<p>A duty cycle denotes the fraction of one cycle in which the GNSS receiver is tracking.
+In duty-cycled tracking the tracking period is fixed to 100 ms, and the sleeping period is fixed to 400 ms.
+Consequently, the total time needed to complete an on-and-off cycle is 500 ms.
+These values give 20% duty cycle.
+Since the GPS data bit length is 20 ms, and the smallest meaningful data primitive is 30-bit word (i.e. 600 ms), it is impossible to decode any data during duty-cycled tracking.
+This has significant impact on the performance.
+It means that any new GNSS signal cannot be utilized before any of the following conditions occur:</p>
+<ul class="simple">
+<li><p>Continuous tracking is resumed to enable the decoding of the navigation data</p></li>
+<li><p>A-GPS is used to provide relevant navigation data</p></li>
+</ul>
+<p>The available power modes determine whether duty-cycled tracking is allowed.
+If it is allowed, the target performance is determined.</p>
+<p>In the performance duty-cycled power mode, duty-cycled tracking is engaged and run when conditions allow it without significant performance degradation.
+In the power duty-cycled power mode, duty-cycled tracking is engaged and run whenever it is possible with acceptable performance degradation.</p>
+<p>The GNSS receiver continues to produce PVT estimates at the configured rate regardless of whether the tracking is continuous or in duty cycles.
+However, a failure to produce a valid PVT estimate during duty-cycled tracking may cause the GNSS receiver to resume continuous tracking.</p>
+<dl>
+<dt>Enable priority</dt><dd><div class="line-block">
+<div class="line">Socket option: <a class="reference internal" href="api.html#c.NRF_SO_GNSS_ENABLE_PRIORITY" title="NRF_SO_GNSS_ENABLE_PRIORITY"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_ENABLE_PRIORITY</span></code></a></div>
+<div class="line">Datatype:      NA (<code class="xref c c-type docutils literal notranslate"><span class="pre">void</span></code>)</div>
+<div class="line">Default:       NA</div>
+</div>
+</dd>
+<dt>Disable priority</dt><dd><div class="line-block">
+<div class="line">Socket option: <a class="reference internal" href="api.html#c.NRF_SO_GNSS_DISABLE_PRIORITY" title="NRF_SO_GNSS_DISABLE_PRIORITY"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_SO_GNSS_DISABLE_PRIORITY</span></code></a></div>
+<div class="line">Datatype:      NA (<code class="xref c c-type docutils literal notranslate"><span class="pre">void</span></code>)</div>
+<div class="line">Default:       NA</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="reading-a-fix">
+<h2>Reading a fix<a class="headerlink" href="#reading-a-fix" title="Permalink to this headline">¶</a></h2>
+<p>To read a data fix, the socket read function <a class="reference internal" href="api.html#_CPPv48nrf_recviPv6size_ti" title="nrf_recv"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_recv()</span></code></a> is used with the GNSS socket descriptor as the function argument.
+This is shown in the following code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">nrf_gnss_data_frame_t</span> <span class="n">gps_data</span><span class="p">;</span>
+<span class="kt">int</span>                   <span class="n">ret</span><span class="p">;</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">nrf_recv</span><span class="p">(</span><span class="n">gnss_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">gps_data</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">nrf_gnss_data_frame_t</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As this is a datagram socket, each successful read contains a complete frame of data.
+The <a class="reference internal" href="api.html#_CPPv48nrf_recviPv6size_ti" title="nrf_recv"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_recv()</span></code></a> read function can return three types of data frames.
+The data type is identified by the <code class="docutils literal notranslate"><span class="pre">data_id</span></code> parameter in the received frame.
+The three datatypes that are currently supported are <a class="reference internal" href="api.html#c.NRF_GNSS_PVT_DATA_ID" title="NRF_GNSS_PVT_DATA_ID"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_PVT_DATA_ID</span></code></a>, <a class="reference internal" href="api.html#c.NRF_GNSS_AGPS_DATA_ID" title="NRF_GNSS_AGPS_DATA_ID"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_AGPS_DATA_ID</span></code></a> and <a class="reference internal" href="api.html#c.NRF_GNSS_NMEA_DATA_ID" title="NRF_GNSS_NMEA_DATA_ID"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_NMEA_DATA_ID</span></code></a>.
+The following code shows how the the position data is displayed based on the <a class="reference internal" href="api.html#c.NRF_GNSS_PVT_DATA_ID" title="NRF_GNSS_PVT_DATA_ID"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_PVT_DATA_ID</span></code></a> and <a class="reference internal" href="api.html#c.NRF_GNSS_NMEA_DATA_ID" title="NRF_GNSS_NMEA_DATA_ID"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_NMEA_DATA_ID</span></code></a> datatypes:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">gps_data</span><span class="p">.</span><span class="n">data_id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">case</span> <span class="nl">NRF_GNSS_PVT_DATA_ID</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">gps_data</span><span class="p">.</span><span class="n">pvt</span><span class="p">.</span><span class="n">flags</span> <span class="o">&amp;</span>
+                    <span class="n">NRF_GNSS_PVT_FLAG_FIX_VALID_BIT</span><span class="p">)</span>
+                    <span class="o">==</span> <span class="n">NRF_GNSS_PVT_FLAG_FIX_VALID_BIT</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Longitude: %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">gps_data</span><span class="p">.</span><span class="n">pvt</span><span class="p">.</span><span class="n">longitude</span><span class="p">);</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Latitude:  %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">gps_data</span><span class="p">.</span><span class="n">pvt</span><span class="p">.</span><span class="n">latitude</span><span class="p">);</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Alitude:   %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">gps_data</span><span class="p">.</span><span class="n">pvt</span><span class="p">.</span><span class="n">altitude</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">NRF_GNSS_NMEA_DATA_ID</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;NMEA string: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">gps_data</span><span class="p">.</span><span class="n">nmea</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Fixes are always received in the <code class="docutils literal notranslate"><span class="pre">pvt</span></code> format.
+The format of this frame is defined in the GNSS API documentation of <a class="reference internal" href="api.html#_CPPv425nrf_gnss_pvt_data_frame_t" title="nrf_gnss_pvt_data_frame_t"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">nrf_gnss_pvt_data_frame_t</span></code></a>.
+If NMEA strings are enabled, NMEA strings are always sent after the corresponding PVT notification.
+For example, if a PVT notification indicates a good fix, this applies to all the subsequent NMEA strings that are sent in between the current PVT notification and the next PVT notification.</p>
+</div>
+<div class="section" id="a-gps-data">
+<h2>A-GPS data<a class="headerlink" href="#a-gps-data" title="Permalink to this headline">¶</a></h2>
+<p>The GPS module automatically requests A-GPS data when the module determines that the existing data is outdated.
+The A-GPS data frame is described in GNSS API documentation of <a class="reference internal" href="api.html#_CPPv426nrf_gnss_agps_data_frame_t" title="nrf_gnss_agps_data_frame_t"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">nrf_gnss_agps_data_frame_t</span></code></a>.
+This request data frame type can be read with the <a class="reference internal" href="api.html#_CPPv48nrf_recviPv6size_ti" title="nrf_recv"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_recv()</span></code></a> function with the <a class="reference internal" href="api.html#c.NRF_GNSS_AGPS_DATA_ID" title="NRF_GNSS_AGPS_DATA_ID"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_GNSS_AGPS_DATA_ID</span></code></a> id as shown in the following code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">nrf_gnss_data_frame_t</span> <span class="n">gps_data</span><span class="p">;</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">nrf_recv</span><span class="p">(</span><span class="n">gnss_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">gps_data</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">nrf_gnss_data_frame_t</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">((</span><span class="n">ret</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">gps_data</span><span class="p">.</span><span class="n">data_id</span> <span class="o">==</span> <span class="n">NRF_GNSS_AGPS_DATA_ID</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="c1">// Process APGS request</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When the A-GPS data is downloaded, it can be written to the GPS module using the <a class="reference internal" href="api.html#_CPPv410nrf_sendtoiPKv6size_tiPKv13nrf_socklen_t" title="nrf_sendto"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_sendto()</span></code></a> function.
+The <code class="docutils literal notranslate"><span class="pre">servaddr</span></code> parameter is used to select the A-GPS data model to which the data should be written to.
+The available A-GPS data models are listed in the API documentation for <a class="reference internal" href="api.html#gnss-socket-agps-df"><span class="std std-ref">GNSS socket AGPS data frames</span></a>.</p>
+<p>The following code shows how the A-GPS data is written to the GPS module.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">nrf_gnss_agps_data_utc_t</span>  <span class="n">utc_data</span><span class="p">;</span>
+<span class="n">nrf_gnss_agps_data_type_t</span> <span class="n">apgs_data_id</span> <span class="o">=</span> <span class="n">NRF_GNSS_AGPS_UTC_PARAMETERS</span><span class="p">;</span>
+
+<span class="n">nrf_sendto</span><span class="p">(</span><span class="n">gnss_fd</span><span class="p">,</span> <span class="n">utc_data</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">utc_data</span><span class="p">),</span> <span class="n">agps_data_id</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">agps_data_id</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="closing-a-gnss-socket">
+<h2>Closing a GNSS socket<a class="headerlink" href="#closing-a-gnss-socket" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="api.html#_CPPv49nrf_closei" title="nrf_close"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_close()</span></code></a> function is used to close a GNSS socket.
+This function is called with the file descriptor associated with the GNSS socket that was created.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">nrf_close</span><span class="p">(</span><span class="n">gnss_fd</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ug_bsdlib_porting_os.html" class="btn btn-neutral float-right" title="Porting the BSD library to your OS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="at_commands.html" class="btn btn-neutral" title="AT commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

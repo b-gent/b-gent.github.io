@@ -1,0 +1,49 @@
+:orphan:
+
+.. title:: BT_LL_NRFXLIB_DEFAULT
+
+.. option:: CONFIG_BT_LL_NRFXLIB_DEFAULT
+
+*Select BT_LL_NRFXLIB as default BT_LL_CHOICE*
+
+Type: ``bool``
+
+Help
+====
+
+Helper variable used to change the default link layer if
+BT_CTLR is supported for the platform.
+
+Direct dependencies
+===================
+
+BT && BT_HCI
+
+*(Includes any dependencies from ifs and menus.)*
+
+Defaults
+========
+
+No defaults. Implicitly defaults to ``n``.
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\ble_controller/Kconfig:18``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:11``
+
+Menu path: (Top) → Nordic nrfxlib
+
+.. parsed-literal::
+
+    config BT_LL_NRFXLIB_DEFAULT
+    	bool "Select BT_LL_NRFXLIB as default BT_LL_CHOICE"
+    	depends on BT && BT_HCI
+    	help
+    	  Helper variable used to change the default link layer if
+    	  BT_CTLR is supported for the platform.
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

@@ -1,0 +1,1569 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Nordic security module &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bsdlib/README.html">BSD library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Nordic Security Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+      <li>Nordic security module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/nrf_security/doc/nrf_security.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nordic-security-module">
+<span id="nrf-security-readme"></span><h1>Nordic security module<a class="headerlink" href="#nordic-security-module" title="Permalink to this headline">¶</a></h1>
+<p>The nrf_security module provides an integration between mbed TLS and software libraries that provide hardware-accelerated cryptographic functionality on selected Nordic Semiconductor SoCs as well as alternate software-based implementations of the mbed TLS APIs.
+This module includes an mbed TLS glue layer to enable both hardware-accelerated and software-based mbed TLS implementation at the same time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The nrf_security module interfaces with the <a class="reference internal" href="../../crypto/doc/nrf_cc310_mbedcrypto.html#nrf-cc310-mbedcrypto-readme"><span class="std std-ref">nrf_cc310_mbedcrypto library</span></a>.
+This library conforms to a specific version of mbed TLS.</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>The nrf_security module requires mbed TLS. It checks for the presence of mbed TLS in the following ways:</p>
+<ul class="simple">
+<li><p>CMake uses west as part of the build process to locate mbed TLS.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ARM_MBEDTLS_PATH</span></code> can be set to enforce a specific path to mbed TLS or in case west is not available</p></li>
+</ul>
+<p>If west is not installed and mbed TLS is not located, CMake reports the following error:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west not installed, please provide ARM_MBEDTLS_PATH to CMake to support security libraries</span>
+</pre></div>
+</div>
+<p>If west is installed and mbed TLS is not located, CMake reports the following error:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Failed to find mbed TLS, cannot build security libraries</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Use Kconfig to configure the nrf_security module.
+To enable the module, set the <a class="reference internal" href="../../kconfig/CONFIG_NORDIC_SECURITY_BACKEND.html#cmdoption-arg-config-nordic-security-backend"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_NORDIC_SECURITY_BACKEND</span></code></a> Kconfig variable in the <cite>Nordic Security</cite> menu.</p>
+<p>Setting this variable allows for additional Kconfig variables, depending on the number of features requested.
+These configurations are then used to generate an mbed TLS configuration file used during compilation.</p>
+<p>It is possible to provide your own custom mbed TLS configuration file by deselecting the <a class="reference internal" href="../../kconfig/CONFIG_GENERATE_MBEDTLS_CFG_FILE.html#cmdoption-arg-config-generate-mbedtls-cfg-file"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_GENERATE_MBEDTLS_CFG_FILE</span></code></a> Kconfig variable.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Deselecting the <a class="reference internal" href="../../kconfig/CONFIG_GENERATE_MBEDTLS_CFG_FILE.html#cmdoption-arg-config-generate-mbedtls-cfg-file"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_GENERATE_MBEDTLS_CFG_FILE</span></code></a> Kconfig variable is not recommended.
+If you decide to do so, see <a class="reference internal" href="#user-provided-mbed-tls-config-header">user-provided mbed TLS config header</a>.</p>
+</div>
+</div>
+<div class="section" id="nrf-security-backends">
+<h2>nrf_security backends<a class="headerlink" href="#nrf-security-backends" title="Permalink to this headline">¶</a></h2>
+<p>The nrf_security module supports multiple enabled backends at the same time.
+This mechanism is intended to extend the available feature set of hardware-accelerated cryptography or to provide alternative implementations of the mbed TLS APIs.
+Enabling one or more backends adds more configuration options grouped into classes of cryptographic algorithms.</p>
+<p>Note that some cryptographic features are provided as an option regardless of the backend enabled.
+In such cases, the feature is compiled using open-source software from the original Arm mbed TLS project.
+An example of this is <cite>SHA-512</cite>, which is only accessible using open-source software from the Arm mbed TLS project.</p>
+<p>The configuration options added after enabling one or more backends will change based on the number of enabled backends.
+Some configuration options allow for adding support from multiple backends by utilizing the mbed TLS glue layer, while other provide a selection between the enabled backends (as radio buttons).</p>
+<p>The nrf_security module supports the following backends:</p>
+<ul class="simple">
+<li><p>Arm CryptoCell cc310 (in nRF52840 and nRF9160)</p></li>
+<li><p>nrf_oberon binary library</p></li>
+<li><p>Original mbed TLS</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that whenever this documentation mentions ‘original’ mbed TLS, it refers to the open-source <a class="reference external" href="https://github.com/ARMmbed/mbedtls">Arm mbed TLS project</a>, not the customized version available in Zephyr.
+KConfig options used to configure this backend include the term <code class="docutils literal notranslate"><span class="pre">VANILLA</span></code>.</p>
+</div>
+<div class="section" id="arm-cryptocell-cc310-backend">
+<h3>Arm CryptoCell cc310 backend<a class="headerlink" href="#arm-cryptocell-cc310-backend" title="Permalink to this headline">¶</a></h3>
+<p>The Arm CryptoCell cc310 backend is a runtime library that provides hardware-accelerated cryptography using the Arm CryptoCell cc310 hardware.</p>
+<p>The Arm CryptoCell cc310 backend is only available on the following devices:</p>
+<ul class="simple">
+<li><p>nRF52840</p></li>
+<li><p>nRF9160</p></li>
+</ul>
+<div class="section" id="enabling-the-arm-cryptocell-cc310-backend">
+<h4>Enabling the Arm CryptoCell cc310 backend<a class="headerlink" href="#enabling-the-arm-cryptocell-cc310-backend" title="Permalink to this headline">¶</a></h4>
+<p>The Arm CryptoCell cc310 backend can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_CC310_BACKEND.html#cmdoption-arg-config-cc310-backend"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CC310_BACKEND</span></code></a> Kconfig variable.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This backend is only available in nRF52840 and nRF9160.</p>
+</div>
+</div>
+</div>
+<div class="section" id="nrf-oberon-backend">
+<h3>nrf_oberon backend<a class="headerlink" href="#nrf-oberon-backend" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../../crypto/doc/nrf_oberon.html#nrf-oberon-readme"><span class="std std-ref">nrf_oberon crypto library</span></a> library is a binary library that provides select cryptographic algorithms optimized for use in nRF devices.
+This provides faster execution than the original mbed TLS implementation.</p>
+<p>The nrf_oberon backend provides support for AES ciphers, SHA-1, SHA-256, and ECC (ECDH, ECDSA, and ECJPAKE) using NIST curve secp256r1.</p>
+<div class="section" id="enabling-the-nrf-oberon-backend">
+<h4>Enabling the nrf_oberon backend<a class="headerlink" href="#enabling-the-nrf-oberon-backend" title="Permalink to this headline">¶</a></h4>
+<p>To use the <a class="reference internal" href="../../crypto/doc/nrf_oberon.html#nrf-oberon-readme"><span class="std std-ref">nrf_oberon crypto library</span></a> as a backend, set the <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_OBERON_BACKEND</span></code> Kconfig variable to true.</p>
+</div>
+</div>
+<div class="section" id="original-mbed-tls-backend">
+<h3>Original mbed TLS backend<a class="headerlink" href="#original-mbed-tls-backend" title="Permalink to this headline">¶</a></h3>
+<p>The original mbed TLS backend uses the open-source software from the <a class="reference external" href="https://github.com/ARMmbed/mbedtls">Arm mbed TLS project</a>.</p>
+<p>The software is unaltered from the Arm mbed TLS project source distribution, meaning it is in its <cite>vanilla</cite> form.</p>
+<p>You can use the original mbed TLS backend to add support for features not available in the <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a>, for example AES-256 or ECC Brainpool curve types.</p>
+<p>Similarly, you can use the original mbed TLS backend to add support for features not available in the <a class="reference internal" href="#nrf-oberon-backend">nrf_oberon backend</a>, for example to support more ECC curve types.</p>
+<div class="section" id="enabling-the-original-mbed-tls-backend">
+<h4>Enabling the original mbed TLS backend<a class="headerlink" href="#enabling-the-original-mbed-tls-backend" title="Permalink to this headline">¶</a></h4>
+<p>To enable the original mbed TLS backend, set the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_VANILLA_BACKEND.html#cmdoption-arg-config-mbedtls-vanilla-backend"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_VANILLA_BACKEND</span></code></a> Kconfig variable to true.</p>
+</div>
+</div>
+<div class="section" id="using-the-nrf-cc310-mbedcrypto-as-backend">
+<h3>Using the nrf_cc310_mbedcrypto as backend<a class="headerlink" href="#using-the-nrf-cc310-mbedcrypto-as-backend" title="Permalink to this headline">¶</a></h3>
+<p>To use the <a class="reference internal" href="../../crypto/doc/nrf_cc310_mbedcrypto.html#nrf-cc310-mbedcrypto-readme"><span class="std std-ref">nrf_cc310_mbedcrypto library</span></a> as a backend, the Arm CryptoCell cc310 hardware must be first initialized.</p>
+<p>The Arm CryptoCell cc310 hardware is initialized in <code class="file docutils literal notranslate"><span class="pre">&lt;NCS&gt;/nrf/drivers/hw_cc310/hw_cc310.c</span></code> and is controlled with the <a class="reference external" href="../..\..\nrf\reference/kconfig/CONFIG_HW_CC310.html#cmdoption-arg-config-hw-cc310" title="(in nRF Connect SDK v1.3.99)"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_HW_CC310</span></code></a> Kconfig variable.
+The Kconfig variable has a default value of ‘y’ when cc310 is available in the SoC.</p>
+</div>
+</div>
+<div class="section" id="mbed-tls-glue-layer">
+<h2>mbed TLS glue layer<a class="headerlink" href="#mbed-tls-glue-layer" title="Permalink to this headline">¶</a></h2>
+<p>The mbed TLS glue layer allows for using both the hardware-accelerated and software implementation of cryptography at the same time.
+A typical use case is if the cryptographic algorithm is limited in hardware support (for example, the AES key size or supported ciphers).
+In this case, the mbed TLS glue layer enables a dynamic check to verify whether the cryptographic algorithm is supported in hardware.
+If it is not supported, the glue layer calls into a different enabled backend as a fallback.</p>
+<p>The mbed TLS glue layer is written by Nordic Semiconductor ASA and is a part of the nrf_security module.
+The mbed TLS glue layer is dependent on Kconfig variables in the nRF Connect SDK build system.</p>
+<div class="section" id="mbed-tls-glue-layer-support-and-priority">
+<h3>mbed TLS glue layer - support and priority<a class="headerlink" href="#mbed-tls-glue-layer-support-and-priority" title="Permalink to this headline">¶</a></h3>
+<p>To select the backend, the mbed TLS glue layer implements a functionality check with priority reporting.
+The check is performed using a <cite>check function</cite>.
+This function is called from the API which provides configuration changes that determine the selection between the enabled backends.</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Example: cc310 backend AES CCM support and priority check</span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">int</span> <span class="nf">mbedtls_ccm_check</span><span class="p">(</span><span class="n">mbedtls_cipher_id_t</span> <span class="n">cipher</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">keybits</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">keybits</span> <span class="o">==</span> <span class="mi">128</span><span class="p">)</span> <span class="o">?</span> <span class="mi">3</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In this example, the AES CCM support in the backend will report priority level 3 if the key size is 128, or 0 if the key size is different.
+The <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a> does not support a larger key size.
+If the key size is larger than 128 bits, then another enabled backend is used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The check function can be called from multiple APIs in the mbed TLS glue layer.
+An example of a location that determines backend selection is an API to set an encryption key, in which case the key size may change, demanding a new selection of available and prioritized backends.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Hardware-accelerated cryptography through the <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a> is prioritized if it is supported.</p>
+</div>
+</div>
+<div class="section" id="enabling-the-mbed-tls-glue-layer">
+<h3>Enabling the mbed TLS glue layer<a class="headerlink" href="#enabling-the-mbed-tls-glue-layer" title="Permalink to this headline">¶</a></h3>
+<p>The mbed TLS glue layer is automatically enabled when two backends are enabled for one or more of the following groups of algorithms:</p>
+<ul class="simple">
+<li><p>AES (ECB, CBC, CTR, and CCM/CCM*)</p></li>
+<li><p>CMAC</p></li>
+<li><p>DHM</p></li>
+</ul>
+</div>
+<div class="section" id="mbed-tls-glue-layer-mechanisms">
+<h3>mbed TLS glue layer mechanisms<a class="headerlink" href="#mbed-tls-glue-layer-mechanisms" title="Permalink to this headline">¶</a></h3>
+<p>The mbed TLS glue layer relies on symbol renaming of known APIs in mbed TLS to prevent collisions of identically named functions in multiple backends.
+The backend implementation is reached using a table of function pointers corresponding to the renamed symbols.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Example: cc310 backend ECDH function table</span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">mbedtls_ecdh_funcs</span> <span class="n">mbedtls_ecdh_cc310_backend_funcs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">.</span><span class="n">check</span> <span class="o">=</span> <span class="n">mbedtls_ecdh_check</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">gen_public</span> <span class="o">=</span> <span class="n">mbedtls_ecdh_gen_public</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">compute_shared</span> <span class="o">=</span> <span class="n">mbedtls_ecdh_compute_shared</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">mbedtls_ecdh_cc310_backend_funcs()</span></code> points to mbed TLS APIs in <a class="reference internal" href="../../crypto/doc/nrf_cc310_mbedcrypto.html#nrf-cc310-mbedcrypto-readme"><span class="std std-ref">nrf_cc310_mbedcrypto library</span></a> which is renamed if mbed TLS glue layer is enabled.
+The function pointers <cite>gen_public</cite> and <cite>compute_shared</cite> have signatures equal to the corresponding mbed TLS APIs.</p>
+<p>The complete list of APIs that can be renamed in the mbed TLS glue layer can be found in <code class="file docutils literal notranslate"><span class="pre">nrfxlib/nrf_security/src/mbedcrypto_glue/symbol_rename.template.txt</span></code></p>
+</div>
+</div>
+<div class="section" id="nrf-security-backend-configurations">
+<h2>nrf_security backend configurations<a class="headerlink" href="#nrf-security-backend-configurations" title="Permalink to this headline">¶</a></h2>
+<p>This section covers the configurations available when one or more nrf_security backends are enabled.
+This includes linking directly to the backend library or utilizing the mbed TLS glue layer.</p>
+<div class="section" id="configuring-multiple-backends">
+<h3>Configuring multiple backends<a class="headerlink" href="#configuring-multiple-backends" title="Permalink to this headline">¶</a></h3>
+<p>Different backends can support different cryptographic algorithms.
+The configuration options listed in subsequent sections are either <a class="reference internal" href="#glue">Glue</a>, <a class="reference internal" href="#shared">Shared</a>, or <a class="reference internal" href="#choice">Choice</a>.
+Additionaly, if only a subset of the backends supports a given feature, this information is provided in the tables.</p>
+<div class="section" id="glue">
+<h4>Glue<a class="headerlink" href="#glue" title="Permalink to this headline">¶</a></h4>
+<p>The configuration options will list <cite>Glue</cite> for the cryptographic algorithms that can be enabled in multiple backends at the same time.</p>
+</div>
+<div class="section" id="shared">
+<h4>Shared<a class="headerlink" href="#shared" title="Permalink to this headline">¶</a></h4>
+<p>For some cryptographic features, the implementation is only available in the <a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a>.
+For convenience, this is made available in any backend, although the implementation will always use open-source code from the Arm mbed TLS project.</p>
+</div>
+<div class="section" id="choice">
+<h4>Choice<a class="headerlink" href="#choice" title="Permalink to this headline">¶</a></h4>
+<p>The configuration options will list <cite>Choice</cite> for the cryptographic algorithms that are supported by multiple backends, but only one of them can be enabled at the same time.
+To enable the cryptographic algorithm, a <cite>base</cite> configuration must be enabled, and then the backend can be selected using a setting prefixed with <cite>CONFIG_CHOICE_</cite>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first ordered item in the list of available choices is selected by default.</p>
+</div>
+</div>
+</div>
+<div class="section" id="aes-configuration">
+<h3>AES configuration<a class="headerlink" href="#aes-configuration" title="Permalink to this headline">¶</a></h3>
+<p>AES core support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_AES_C.html#cmdoption-arg-config-mbedtls-aes-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_AES_C</span></code></a> Kconfig variable.
+Enabling AES core support enables AES ECB cipher mode and allows for the following ciphers to be configured: CTR, OFB, CFB, CBC, XTS, CMAC, CCM/CCM*, and GCM.</p>
+<div class="section" id="single-backend">
+<h4>Single backend<a class="headerlink" href="#single-backend" title="Permalink to this headline">¶</a></h4>
+<p>AES core support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_AES_C.html#cmdoption-arg-config-mbedtls-aes-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_AES_C</span></code></a> Kconfig variable.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Cipher mode</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ECB</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_AES_C.html#cmdoption-arg-config-mbedtls-aes-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_AES_C</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a> is limited to key sizes of 128 bits.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="multiple-backends">
+<h4>Multiple backends<a class="headerlink" href="#multiple-backends" title="Permalink to this headline">¶</a></h4>
+<p>AES core support can be enabled by setting setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_AES_C.html#cmdoption-arg-config-mbedtls-aes-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_AES_C</span></code></a> Kconfig variable, and one or more of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Cipher mode</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ECB</p></td>
+<td><p>Glue</p></td>
+<td><p>cc310: <a class="reference internal" href="../../kconfig/CONFIG_CC310_MBEDTLS_AES_C.html#cmdoption-arg-config-cc310-mbedtls-aes-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CC310_MBEDTLS_AES_C</span></code></a></p>
+<p>nrf_oberon: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_OBERON_MBEDTLS_AES_C</span></code></p>
+<p>Original mbed TLS: <a class="reference internal" href="../../kconfig/CONFIG_VANILLA_MBEDTLS_AES_C.html#cmdoption-arg-config-vanilla-mbedtls-aes-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_VANILLA_MBEDTLS_AES_C</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a> is limited to key sizes of 128 bits.</p></li>
+<li><p>Enabling the <a class="reference internal" href="#nrf-oberon-backend">nrf_oberon backend</a> replaces select internal APIs for AES block encrypt/decrypt and set key operations for encrypt/decrypt.</p></li>
+<li><p>If both nrf_oberon backend and <a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a> are enabled, the implementation from
+nrf_oberon backend will provide support for AES ECB.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="aes-cipher-configuration">
+<h3>AES cipher configuration<a class="headerlink" href="#aes-cipher-configuration" title="Permalink to this headline">¶</a></h3>
+<p>AES cipher mode configuration is dependent on AES core support according to <a class="reference internal" href="#aes-configuration">AES configuration</a>.
+Configure the AES cipher mode support according to single or multiple enabled backends.</p>
+<div class="section" id="single-or-multiple-backends">
+<h4>Single or multiple backends<a class="headerlink" href="#single-or-multiple-backends" title="Permalink to this headline">¶</a></h4>
+<p>AES cipher modes can be enabled by setting one or more of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 15%" />
+<col style="width: 39%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Cipher mode</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Configurations</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CTR</p></td>
+<td><p>Glue</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CIPHER_MODE_CTR.html#cmdoption-arg-config-mbedtls-cipher-mode-ctr"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CIPHER_MODE_CTR</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CBC</p></td>
+<td><p>Glue</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CIPHER_MODE_CBC.html#cmdoption-arg-config-mbedtls-cipher-mode-cbc"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CIPHER_MODE_CBC</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CFB</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CIPHER_MODE_CFB.html#cmdoption-arg-config-mbedtls-cipher-mode-cfb"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CIPHER_MODE_CFB</span></code></a></p></td>
+<td><p>Original mbed TLS and nrf_oberon only</p></td>
+</tr>
+<tr class="row-odd"><td><p>OFB</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CIPHER_MODE_OFB.html#cmdoption-arg-config-mbedtls-cipher-mode-ofb"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CIPHER_MODE_OFB</span></code></a></p></td>
+<td><p>Original mbed TLS and nrf_oberon only</p></td>
+</tr>
+<tr class="row-even"><td><p>XTS</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CIPHER_MODE_XTS.html#cmdoption-arg-config-mbedtls-cipher-mode-xts"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CIPHER_MODE_XTS</span></code></a></p></td>
+<td><p>Original mbed TLS and nrf_oberon only</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>AES cipher modes are dependent on enabling AES core support according to <a class="reference internal" href="#aes-configuration">AES configuration</a>.</p></li>
+<li><p>The <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a> is limited to key sizes of 128 bits.</p></li>
+<li><p>Currently, AES cipher modes CFB, OFB, and XTS are not supported by the Arm CryptoCell cc310 backend.</p></li>
+<li><p>XTS will not be available if multiple backends are enabled for AES.</p></li>
+<li><p>If both <a class="reference internal" href="#nrf-oberon-backend">nrf_oberon backend</a> and <a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a> is enabled, the implementation from
+nrf_oberon backend will provide support for AES cipher modes.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="cmac-configuration">
+<h3>CMAC configuration<a class="headerlink" href="#cmac-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Cipher-based Message Authentication Code (CMAC) support can be enabled by setting Kconfig variables according to single or multiple enabled backends.</p>
+<div class="section" id="id1">
+<h4>Single backend<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>CMAC can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CMAC_C.html#cmdoption-arg-config-mbedtls-cmac-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CMAC_C</span></code></a> Kconfig variable.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CMAC</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CMAC_C.html#cmdoption-arg-config-mbedtls-cmac-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CMAC_C</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id2">
+<h4>Multiple backends<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>CMAC can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CMAC_C.html#cmdoption-arg-config-mbedtls-cmac-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CMAC_C</span></code></a> Kconfig variable, and one or more of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 27%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CMAC</p></td>
+<td><p>Glue</p></td>
+<td><p>cc310: <a class="reference internal" href="../../kconfig/CONFIG_CC310_MBEDTLS_CMAC_C.html#cmdoption-arg-config-cc310-mbedtls-cmac-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CC310_MBEDTLS_CMAC_C</span></code></a></p>
+<p>nrf_oberon: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_OBERON_MBEDTLS_CMAC_C</span></code></p>
+<p>Original mbed TLS: <a class="reference internal" href="../../kconfig/CONFIG_VANILLA_MBEDTLS_CMAC_C.html#cmdoption-arg-config-vanilla-mbedtls-cmac-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_VANILLA_MBEDTLS_CMAC_C</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a> is limited to key sizes of 128 bits.</p></li>
+<li><p>If both <a class="reference internal" href="#nrf-oberon-backend">nrf_oberon backend</a> and <a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a> is enabled, the implementation from
+nrf_oberon backend will provide support for CMAC.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="aead-configurations">
+<h3>AEAD configurations<a class="headerlink" href="#aead-configurations" title="Permalink to this headline">¶</a></h3>
+<p>Authenticated Encryption with Associated Data (AEAD) can be enabled according to the cipher in question.
+AEAD cipher mode support support can be enabled by setting Kconfig variables according to single or multiple enabled backends.</p>
+<div class="section" id="id3">
+<h4>Single backend<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>AEAD cipher mode support can be enabled by setting one or more of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 0%" />
+<col style="width: 42%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AEAD cipher</p></th>
+<th class="head" colspan="2"><p>Configurations</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AES CCM/CCM*</p></td>
+<td colspan="2"><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CCM_C.html#cmdoption-arg-config-mbedtls-ccm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CCM_C</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>AES GCM</p></td>
+<td colspan="2"><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_GCM_C.html#cmdoption-arg-config-mbedtls-gcm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_GCM_C</span></code></a></p></td>
+<td><p>Original mbed TLS or nrf_oberon only</p></td>
+</tr>
+<tr class="row-even"><td><p>ChaCha20</p></td>
+<td colspan="2"><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CHACHA20_C.html#cmdoption-arg-config-mbedtls-chacha20-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CHACHA20_C</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Poly1305</p></td>
+<td colspan="2"><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_POLY1305_C.html#cmdoption-arg-config-mbedtls-poly1305-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_POLY1305_C</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ChaCha-Poly</p></td>
+<td colspan="2"><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CHACHAPOLY_C.html#cmdoption-arg-config-mbedtls-chachapoly-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CHACHAPOLY_C</span></code></a></p></td>
+<td><p>Requires <cite>Poly1305</cite> and <cite>ChaCha20</cite></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>AEAD AES cipher modes are dependent on enabling AES core support according to <a class="reference internal" href="#aes-configuration">AES configuration</a>.</p></li>
+<li><p>The <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a> is limited to key sizes of 128 bits.</p></li>
+<li><p>The ChaCha-Poly implemented by the Arm CryptoCell cc310 backend does not support incremental operations.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id4">
+<h4>Multiple backends<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="aes-ccm-ccm">
+<h5>AES CCM/CCM*<a class="headerlink" href="#aes-ccm-ccm" title="Permalink to this headline">¶</a></h5>
+<p>AES CCM/CCM* can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CCM_C.html#cmdoption-arg-config-mbedtls-ccm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CCM_C</span></code></a> Kconfig variable, and one or more of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AEAD cipher</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AES CCM/CCM*</p></td>
+<td><p>Glue</p></td>
+<td><p>cc310: <a class="reference internal" href="../../kconfig/CONFIG_CC310_MBEDTLS_CCM_C.html#cmdoption-arg-config-cc310-mbedtls-ccm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CC310_MBEDTLS_CCM_C</span></code></a></p>
+<p>nrf_oberon: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_OBERON_MBEDTLS_CCM_C</span></code></p>
+<p>Original mbed TLS: <a class="reference internal" href="../../kconfig/CONFIG_VANILLA_MBEDTLS_CCM_C.html#cmdoption-arg-config-vanilla-mbedtls-ccm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_VANILLA_MBEDTLS_CCM_C</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>AEAD AES cipher modes are dependent on AES core support according to <a class="reference internal" href="#aes-configuration">AES configuration</a>.</p></li>
+<li><p>The <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a> is limited to key sizes of 128 bits.</p></li>
+<li><p>If both <a class="reference internal" href="#nrf-oberon-backend">nrf_oberon backend</a> and <a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a> is enabled, the nrf_oberon backend will
+provide support for AES CCM/CCM*.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="aes-gcm">
+<h5>AES GCM<a class="headerlink" href="#aes-gcm" title="Permalink to this headline">¶</a></h5>
+<p>AES GCM can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_GCM_C.html#cmdoption-arg-config-mbedtls-gcm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_GCM_C</span></code></a> Kconfig variable.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 40%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AEAD cipher</p></th>
+<th class="head"><p>Configurations</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AES GCM</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_GCM_C.html#cmdoption-arg-config-mbedtls-gcm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_GCM_C</span></code></a></p></td>
+<td><p>Original mbed TLS or nrf_oberon only</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>AES GCM is not supported in Arm CryptoCell cc310 hardware.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="chacha20">
+<h5>ChaCha20<a class="headerlink" href="#chacha20" title="Permalink to this headline">¶</a></h5>
+<p>ChaCha20 support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CHACHA20_C.html#cmdoption-arg-config-mbedtls-chacha20-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CHACHA20_C</span></code></a> Kconfig variable, and one of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 16%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AEAD cipher</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ChaCha20</p></td>
+<td><p>Choice</p></td>
+<td><p>cc310: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_CC310_MBEDTLS_CHACHA20_C</span></code></p>
+<p>Original mbed TLS: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_VANILLA_MBEDTLS_CHACHA20_C</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>For features provided with <a class="reference internal" href="#choice">Choice</a> support, the enabled backend that is first in order is selected by default.</p></li>
+<li><p>The ChaCha-Poly implemented by the <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a> does not support incremental operations.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="poly1305">
+<h5>Poly1305<a class="headerlink" href="#poly1305" title="Permalink to this headline">¶</a></h5>
+<p>Poly1305 can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_POLY1305_C.html#cmdoption-arg-config-mbedtls-poly1305-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_POLY1305_C</span></code></a> Kconfig variable and one of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 17%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AEAD cipher</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Poly1305</p></td>
+<td><p>Choice</p></td>
+<td><p>cc310: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_CC310_MBEDTLS_POLY1305_C</span></code></p>
+<p>Original mbed TLS: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_VANILLA_MBEDTLS_POLY1305_C</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>For features provided with <a class="reference internal" href="#choice">Choice</a> support, the enabled backend that is first in order is selected by default.</p></li>
+<li><p>The ChaCha-Poly implemented by the <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a> does not support incremental operations.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="chacha-poly">
+<h5>ChaCha-Poly<a class="headerlink" href="#chacha-poly" title="Permalink to this headline">¶</a></h5>
+<p>ChaCha-Poly can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_CHACHAPOLY_C.html#cmdoption-arg-config-mbedtls-chachapoly-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_CHACHAPOLY_C</span></code></a> Kconfig variable, and one of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 16%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AEAD cipher</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ChaCha-Poly</p></td>
+<td><p>Choice</p></td>
+<td><p>cc310: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_VANILLA_MBEDTLS_CHACHAPOLY_C</span></code></p>
+<p>Original mbed TLS: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_VANILLA_MBEDTLS_CHACHAPOLY_C</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>ChaCha-Poly support requires enabling both <a class="reference internal" href="#chacha20">ChaCha20</a> and <a class="reference internal" href="#poly1305">Poly1305</a>.</p></li>
+<li><p>For features provided with <a class="reference internal" href="#choice">Choice</a> support, the enabled backend that is first in order is selected by default.</p></li>
+<li><p>The ChaCha-Poly implementation in <a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a> does not support incremental operations.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dhm-configurations">
+<h3>DHM configurations<a class="headerlink" href="#dhm-configurations" title="Permalink to this headline">¶</a></h3>
+<p>Diffie-Hellman-Merkel (DHM) support can be enabled by setting Kconfig variables according to single or multiple enabled backends.</p>
+<div class="section" id="id5">
+<h4>Single backend<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>DHM can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_DHM_C.html#cmdoption-arg-config-mbedtls-dhm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_DHM_C</span></code></a> Kconfig variable.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DHM</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_DHM_C.html#cmdoption-arg-config-mbedtls-dhm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_DHM_C</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a>  is limited to key size of &lt;= 2048 bits.</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>Multiple backends<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>DHM can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_DHM_C.html#cmdoption-arg-config-mbedtls-dhm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_DHM_C</span></code></a> Kconfig variable, and one or more of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DHM</p></td>
+<td><p>Glue</p></td>
+<td><p>cc310: <a class="reference internal" href="../../kconfig/CONFIG_CC310_MBEDTLS_DHM_C.html#cmdoption-arg-config-cc310-mbedtls-dhm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CC310_MBEDTLS_DHM_C</span></code></a></p>
+<p>Original mbed TLS: <a class="reference internal" href="../../kconfig/CONFIG_VANILLA_MBEDTLS_DHM_C.html#cmdoption-arg-config-vanilla-mbedtls-dhm-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_VANILLA_MBEDTLS_DHM_C</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a>  is limited to key size of &lt;= 2048 bits.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="ecc-configurations">
+<h3>ECC configurations<a class="headerlink" href="#ecc-configurations" title="Permalink to this headline">¶</a></h3>
+<p>Elliptic Curve Cryptography (ECC) configuration provides support for Elliptic Curve over GF(p).
+ECC core support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_C.html#cmdoption-arg-config-mbedtls-ecp-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_C</span></code></a> Kconfig variable.
+Enabling <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_C.html#cmdoption-arg-config-mbedtls-ecp-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_C</span></code></a> will activate configuration options that depend upon ECC, such as ECDH, ECDSA, ECJPAKE, and a selection of ECC curves to support in the system.
+If multiple backends are available, you can select which backend to use for <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_C.html#cmdoption-arg-config-mbedtls-ecp-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_C</span></code></a>.
+This backend will be used to provide support for ECDH, ECDSA, and/or ECJPAKE (if enabled).</p>
+<div class="section" id="id7">
+<h4>Single backend<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>ECC core support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_C.html#cmdoption-arg-config-mbedtls-ecp-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_C</span></code></a> Kconfig variable.</p>
+</div>
+<div class="section" id="id8">
+<h4>Multiple backends<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>ECC core support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_C.html#cmdoption-arg-config-mbedtls-ecp-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_C</span></code></a> Kconfig variable, and one of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ECP</p></td>
+<td><p>Choice</p></td>
+<td><p>cc310: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_CC310_MBEDTLS_ECP_C</span></code></p>
+<p>nrf_oberon: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_OBERON_MBEDTLS_ECP_C</span></code></p>
+<p>Original mbed TLS: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_VANILLA_MBEDTLS_ECP_C</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>For features provided with <a class="reference internal" href="#choice">Choice</a> support, the enabled backend that is first in order is selected by default.</p></li>
+<li><p>The <a class="reference internal" href="../../crypto/doc/nrf_oberon.html#nrf-oberon-readme"><span class="std std-ref">nrf_oberon crypto library</span></a> only supports ECC curve secp256r1.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="ecdh-configurations">
+<h3>ECDH configurations<a class="headerlink" href="#ecdh-configurations" title="Permalink to this headline">¶</a></h3>
+<p>Elliptic Curve Diffie-Hellman (ECDH) support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECDH_C.html#cmdoption-arg-config-mbedtls-ecdh-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECDH_C</span></code></a> Kconfig variable.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ECDH</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECDH_C.html#cmdoption-arg-config-mbedtls-ecdh-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECDH_C</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>ECDH support depends upon <a class="reference internal" href="#ecc-configurations">ECC Configurations</a> being enabled.</p></li>
+<li><p>The <a class="reference internal" href="../../crypto/doc/nrf_cc310_mbedcrypto.html#nrf-cc310-mbedcrypto-readme"><span class="std std-ref">nrf_cc310_mbedcrypto library</span></a> does not integrate on ECP layer.
+Only the top-level APIs for ECDH are replaced.</p></li>
+<li><p>The <a class="reference internal" href="../../crypto/doc/nrf_oberon.html#nrf-oberon-readme"><span class="std std-ref">nrf_oberon crypto library</span></a> only supports ECC curve secp256r1.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="ecdsa-configurations">
+<h3>ECDSA configurations<a class="headerlink" href="#ecdsa-configurations" title="Permalink to this headline">¶</a></h3>
+<p>Elliptic Curve Digital Signature Algorithm (ECDSA) support can be enabled be configured by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECDSA_C.html#cmdoption-arg-config-mbedtls-ecdsa-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECDSA_C</span></code></a> Kconfig variable.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 74%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algoritm</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ECDSA</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECDSA_C.html#cmdoption-arg-config-mbedtls-ecdsa-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECDSA_C</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>ECDSA support depends upon <a class="reference internal" href="#ecc-configurations">ECC Configurations</a> being enabled.</p></li>
+<li><p>The <a class="reference internal" href="../../crypto/doc/nrf_cc310_mbedcrypto.html#nrf-cc310-mbedcrypto-readme"><span class="std std-ref">nrf_cc310_mbedcrypto library</span></a> does not integrate on ECP layer.
+Only the top-level APIs for ECDSA are replaced.</p></li>
+<li><p>The <a class="reference internal" href="../../crypto/doc/nrf_oberon.html#nrf-oberon-readme"><span class="std std-ref">nrf_oberon crypto library</span></a> only supports ECC curve secp256r1.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="ecjpake-configurations">
+<h3>ECJPAKE configurations<a class="headerlink" href="#ecjpake-configurations" title="Permalink to this headline">¶</a></h3>
+<p>Elliptic Curve, Password Authenticated Key Exchange by Juggling (ECJPAKE) support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECJPAKE_C.html#cmdoption-arg-config-mbedtls-ecjpake-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECJPAKE_C</span></code></a> Kconfig variable.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 74%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ECJPAKE</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECJPAKE_C.html#cmdoption-arg-config-mbedtls-ecjpake-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECJPAKE_C</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>ECJPAKE support depends upon <a class="reference internal" href="#ecc-configurations">ECC Configurations</a> being enabled.</p></li>
+<li><p>The <a class="reference internal" href="../../crypto/doc/nrf_oberon.html#nrf-oberon-readme"><span class="std std-ref">nrf_oberon crypto library</span></a> only supports ECC curve secp256r1.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="ecc-curves-configurations">
+<h3>ECC curves configurations<a class="headerlink" href="#ecc-curves-configurations" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to configure the curves that should be supported in the system
+depending on the backend selected.</p>
+<p>The following table shows the curves that can be enabled.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 49%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Curve</p></th>
+<th class="head"><p>Configurations</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NIST secp192r1</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_SECP192R1_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-secp192r1-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_SECP192R1_ENABLED</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>NIST secp224r1</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_SECP224R1_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-secp224r1-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_SECP224R1_ENABLED</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>NIST secp256r1</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_SECP256R1_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-secp256r1-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_SECP256R1_ENABLED</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>NIST secp384r1</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_SECP384R1_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-secp384r1-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_SECP384R1_ENABLED</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>NIST secp521r1</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_SECP521R1_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-secp521r1-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_SECP521R1_ENABLED</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Koblitz secp192k1</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_SECP192K1_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-secp192k1-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_SECP192K1_ENABLED</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Koblitz secp224k1</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_SECP224K1_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-secp224k1-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_SECP224K1_ENABLED</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Koblitz secp256k1</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_SECP256K1_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-secp256k1-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_SECP256K1_ENABLED</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Brainpool bp256r1</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_BP256R1_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-bp256r1-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_BP256R1_ENABLED</span></code></a></p></td>
+<td><p>Original mbed TLS only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Brainpool bp384r1</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_BP384R1_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-bp384r1-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_BP384R1_ENABLED</span></code></a></p></td>
+<td><p>Original mbed TLS only</p></td>
+</tr>
+<tr class="row-even"><td><p>Brainpool bp512r1</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_BP512R1_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-bp512r1-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_BP512R1_ENABLED</span></code></a></p></td>
+<td><p>Original mbed TLS only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Curve25519 / Edwards25519</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_CURVE25519_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-curve25519-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_CURVE25519_ENABLED</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Curve448 / Edwards448</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_DP_CURVE448_ENABLED.html#cmdoption-arg-config-mbedtls-ecp-dp-curve448-enabled"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_DP_CURVE448_ENABLED</span></code></a></p></td>
+<td><p>Original mbed TLS only</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="../../crypto/doc/nrf_oberon.html#nrf-oberon-readme"><span class="std std-ref">nrf_oberon crypto library</span></a> only supports ECC curve secp256r1.</p></li>
+<li><p>Choosing the nrf_oberon backend does not allow enabling the rest of the ECC curve types.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="rsa-configurations">
+<h3>RSA configurations<a class="headerlink" href="#rsa-configurations" title="Permalink to this headline">¶</a></h3>
+<p>Rivest-Shamir-Adleman (RSA) support can be enabled by setting Kconfig variables according to single or multiple enabled backends.</p>
+<div class="section" id="id9">
+<h4>Single backend<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>RSA support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_RSA_C.html#cmdoption-arg-config-mbedtls-rsa-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_RSA_C</span></code></a> Kconfig variable.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 74%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RSA</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_RSA_C.html#cmdoption-arg-config-mbedtls-rsa-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_RSA_C</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a>  is limited to key sizes of &lt;= 2048 bits.</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>Multiple backends<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>RSA support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_RSA_C.html#cmdoption-arg-config-mbedtls-rsa-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_RSA_C</span></code></a> Kconfig variable, and one of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 17%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Configurations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RSA</p></td>
+<td><p>Choice</p></td>
+<td><p>cc310: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_CC310_MBEDTLS_RSA_C</span></code></p>
+<p>Original mbed TLS: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_VANILLA_MBEDTLS_RSA_C</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>For configurations providing <a class="reference internal" href="#choice">Choice</a> support, the enabled backend that is first in order is selected by default.</p></li>
+<li><p><a class="reference internal" href="#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a>  is limited to key sizes of &lt;= 2048 bits.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="secure-hash-configurations">
+<h3>Secure Hash configurations<a class="headerlink" href="#secure-hash-configurations" title="Permalink to this headline">¶</a></h3>
+<p>The Secure Hash algorithms can be configured by setting Kconfig variables according to single or multiple enabled backends.</p>
+<div class="section" id="id11">
+<h4>Single backend<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>SHA support can be enabled by setting Kconfig according to the following table:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 28%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorith</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Backend selection</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SHA-1</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SHA1_C.html#cmdoption-arg-config-mbedtls-sha1-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SHA1_C</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>SHA-256</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SHA256_C.html#cmdoption-arg-config-mbedtls-sha256-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SHA256_C</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p>SHA-512</p></td>
+<td><p>Shared</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SHA512_C.html#cmdoption-arg-config-mbedtls-sha512-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SHA512_C</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id12">
+<h4>Multiple backends<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="sha-1">
+<h5>SHA-1<a class="headerlink" href="#sha-1" title="Permalink to this headline">¶</a></h5>
+<p>SHA-1 support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SHA1_C.html#cmdoption-arg-config-mbedtls-sha1-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SHA1_C</span></code></a> Kconfig variable, and one of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 17%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorith</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Backend selection</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SHA-1</p></td>
+<td><p>Choice</p></td>
+<td><p>cc310: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_CC310_MBEDTLS_SHA1_C</span></code></p>
+<p>nrf_oberon: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_OBERON_MBEDTLS_SHA1_C</span></code></p>
+<p>Original mbed TLS: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_VANILLA_MBEDTLS_SHA1_C</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>For features provided with <a class="reference internal" href="#choice">Choice</a> support, the enabled backend that is first in order is selected by default.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sha-256">
+<h5>SHA-256<a class="headerlink" href="#sha-256" title="Permalink to this headline">¶</a></h5>
+<p>SHA-256 support can be enabled by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SHA256_C.html#cmdoption-arg-config-mbedtls-sha256-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SHA256_C</span></code></a> Kconfig variable, and one of the following Kconfig variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 17%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorith</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Backend selection</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SHA-256</p></td>
+<td><p>Choice</p></td>
+<td><p>cc310: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_CC310_MBEDTLS_SHA256_C</span></code></p>
+<p>nrf_oberon: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_OBERON_MBEDTLS_SHA256_C</span></code></p>
+<p>Original mbed TLS: <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_CHOICE_VANILLA_MBEDTLS_SHA256_C</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>For features provided with <a class="reference internal" href="#choice">Choice</a> support, the enabled backend that is first in order is selected by default.</p></li>
+<li><p>The nrf_oberon backend does not support SHA-224.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sha-512">
+<h5>SHA-512<a class="headerlink" href="#sha-512" title="Permalink to this headline">¶</a></h5>
+<p>SHA-256 support can be configured by setting the <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SHA512_C.html#cmdoption-arg-config-mbedtls-sha512-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SHA512_C</span></code></a> Kconfig variable.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorith</p></th>
+<th class="head"><p>Support</p></th>
+<th class="head"><p>Backend selection</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SHA-512</p></td>
+<td><p>Shared</p></td>
+<td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SHA512_C.html#cmdoption-arg-config-mbedtls-sha512-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SHA512_C</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>For features provided with <a class="reference internal" href="#choice">Choice</a> support, the enabled backend that is first in order is selected by default.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="platform-specific-configurations">
+<h3>Platform specific configurations<a class="headerlink" href="#platform-specific-configurations" title="Permalink to this headline">¶</a></h3>
+<p>The Kconfig integration of nrf_security module coupled with CMake sets some default configurations to ensure the backend works as expected.
+This includes integration with entropy data sampled from the Arm CryptoCell cc310 hardware, as well as a way to abstract the memory management in an RTOS context.
+See the <a class="reference internal" href="../../crypto/doc/nrf_cc310_mbedcrypto.html#nrf-cc310-mbedcrypto-readme"><span class="std std-ref">nrf_cc310_mbedcrypto library</span></a> documentation for details.</p>
+</div>
+<div class="section" id="advanced-configuration-section">
+<h3>Advanced configuration section<a class="headerlink" href="#advanced-configuration-section" title="Permalink to this headline">¶</a></h3>
+<p>The advanced configuration section in Kconfig can be used to fine-tune the build of specific backends.
+For example, the options available in the advanced configuration section can help to reduce the memory usage and/or flash footprint of the <a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a>.</p>
+<p>Actual size reductions depend on the option being adjusted.</p>
+<p>Before modifying the default settings, see this <a class="reference external" href="https://tls.mbed.org/kb/how-to/reduce-mbedtls-memory-and-storage-footprint">article on reducing mbed TLS memory and storage footprint</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The settings available in the advanced configuration section are not validated.
+Adjust these settings with caution.</p>
+</div>
+<div class="section" id="aes-tables-in-rom">
+<h4>AES tables in ROM<a class="headerlink" href="#aes-tables-in-rom" title="Permalink to this headline">¶</a></h4>
+<p>You can set the <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_AES_ROM_TABLES</span></code> Kconfig variable to place the AES lookup tables in ROM instead of RAM.
+This decreases the RAM usage by about 8 KB with an additional cost of about 8 KB of ROM.
+Note that executing operations in ROM is slower.
+If the configuration <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_AES_FEWER_TABLES</span></code> is set, then the size moved from RAM to ROM is about 2 KB.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Max</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_AES_ROM_TABLES</span></code></p></td>
+<td><p><cite>n</cite></p></td>
+<td><p><cite>n</cite></p></td>
+<td><p><cite>y</cite></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This configuration is only available in <a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a>.</p>
+</div>
+</div>
+<div class="section" id="fewer-aes-tables">
+<h4>Fewer AES tables<a class="headerlink" href="#fewer-aes-tables" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_AES_FEWER_TABLES</span></code> Kconfig variable controls the size of the AES lookup tables in use.
+Enabling this omits about 75% of the AES tables in RAM or ROM.
+If the option is enabled, AES must perform more calculations, which impacts the overall performance.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Max</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_AES_FEWER_TABLES</span></code></p></td>
+<td><p><cite>n</cite></p></td>
+<td><p><cite>n</cite></p></td>
+<td><p><cite>y</cite></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This configuration is only available in <a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a>.</p>
+</div>
+</div>
+<div class="section" id="multiple-precision-integers-mpi-bignum-calculation">
+<h4>Multiple Precision Integers (MPI) / Bignum calculation<a class="headerlink" href="#multiple-precision-integers-mpi-bignum-calculation" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_MPI_WINDOW_SIZE.html#cmdoption-arg-config-mbedtls-mpi-window-size"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_MPI_WINDOW_SIZE</span></code></a> Kconfig variable controls the window size used in mbed TLS for MPI calculations.
+Reduce this value to reduce memory usage. Note that reducing this this value may have an impact on the performance.</p>
+<p>The <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_MPI_MAX_SIZE.html#cmdoption-arg-config-mbedtls-mpi-max-size"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_MPI_MAX_SIZE</span></code></a> Kconfig variable controls the maximum size of MPIs that can be used for calculation.
+Reduce this value only if you are sure that the system will not need larger sizes.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 69%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Max</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_MPI_WINDOW_SIZE.html#cmdoption-arg-config-mbedtls-mpi-window-size"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_MPI_WINDOW_SIZE</span></code></a></p></td>
+<td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_MPI_MAX_SIZE.html#cmdoption-arg-config-mbedtls-mpi-max-size"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_MPI_MAX_SIZE</span></code></a></p></td>
+<td><p>1024</p></td>
+<td><p>0</p></td>
+<td><p>1024</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This configuration is only available in cc310 backend and <a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a>.</p>
+</div>
+</div>
+<div class="section" id="elliptic-curves">
+<h4>Elliptic Curves<a class="headerlink" href="#elliptic-curves" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_MAX_BITS.html#cmdoption-arg-config-mbedtls-ecp-max-bits"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_MAX_BITS</span></code></a> Kconfig variable controls the largest elliptic curve supported in the library.</p>
+<p>If the curves that are used are smaller than 521 bits, then this option can be reduced in order to save memory.
+See <a class="reference internal" href="#ecc-curves-configurations">ECC curves configurations</a> for information on how to select the curves to use.
+For example, if <cite>NIST secp384r1</cite> is the only curve enabled, then <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_MAX_BITS.html#cmdoption-arg-config-mbedtls-ecp-max-bits"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_MAX_BITS</span></code></a> can be reduced to 384 bits.</p>
+<p>The <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_WINDOW_SIZE.html#cmdoption-arg-config-mbedtls-ecp-window-size"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_WINDOW_SIZE</span></code></a> Kconfig variable controls the window size used for elliptic curve multiplication.
+This value can be reduced down to 2 to reduce memory usage.
+Keep in mind that reducing the value impacts the performance of the system.</p>
+<p>The <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_FIXED_POINT_OPTIM.html#cmdoption-arg-config-mbedtls-ecp-fixed-point-optim"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_FIXED_POINT_OPTIM</span></code></a> Kconfig variable controls ECP fixed point optimizations.
+If disabled, the system uses less memory, but performance of the system is reduced.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Max</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_MAX_BITS.html#cmdoption-arg-config-mbedtls-ecp-max-bits"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_MAX_BITS</span></code></a></p></td>
+<td><p>521</p></td>
+<td><p>0</p></td>
+<td><p>521</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_WINDOW_SIZE.html#cmdoption-arg-config-mbedtls-ecp-window-size"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_WINDOW_SIZE</span></code></a></p></td>
+<td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_ECP_FIXED_POINT_OPTIM.html#cmdoption-arg-config-mbedtls-ecp-fixed-point-optim"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_ECP_FIXED_POINT_OPTIM</span></code></a></p></td>
+<td><p><cite>y</cite></p></td>
+<td><p><cite>n</cite></p></td>
+<td><p><cite>y</cite></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This configuration is only available in cc310 backend and <a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a>.</p>
+</div>
+</div>
+<div class="section" id="id13">
+<h4>SHA-256<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SHA256_SMALLER.html#cmdoption-arg-config-mbedtls-sha256-smaller"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SHA256_SMALLER</span></code></a> Kconfig variable can be used to select a SHA-256 implementation with smaller footprint.
+Such configuration reduces SHA-256 calculation performance.</p>
+<p>For example, on a Cortex-M4, the size of <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">mbedtls_sha256_process()</span></code> is reduced from ~2 KB to ~0.5 KB, however it also performs around 30% slower.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Max</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SHA256_SMALLER.html#cmdoption-arg-config-mbedtls-sha256-smaller"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SHA256_SMALLER</span></code></a></p></td>
+<td><p><cite>n</cite></p></td>
+<td><p><cite>n</cite></p></td>
+<td><p><cite>y</cite></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This configuration is only available in <a class="reference internal" href="#original-mbed-tls-backend">Original mbed TLS backend</a>.</p>
+</div>
+</div>
+<div class="section" id="ssl-configurations">
+<h4>SSL Configurations<a class="headerlink" href="#ssl-configurations" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SSL_MAX_CONTENT_LEN.html#cmdoption-arg-config-mbedtls-ssl-max-content-len"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SSL_MAX_CONTENT_LEN</span></code></a> Kconfig variable can be used to specify the maximum size for incoming and outgoing mbed TLS I/O buffers.
+The default value is 16384 as specified in RFC5246, however if both sides are under your control, this value can safely be reduced under the following conditions:</p>
+<ul class="simple">
+<li><p>Both sides support the max_fragment_length SSL extension, RFC8449.
+The max_fragment_length allows for buffer reduction to less than 1 KB.</p></li>
+<li><p>Knowledge of the maximum size that will ever be sent in a single SSL/TLS frame.</p></li>
+</ul>
+<p>If one of those conditions is met, the buffer size can safely be reduced to a more appropriate value for memory constrained devices.</p>
+<p>The <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SSL_CIPHERSUITES.html#cmdoption-arg-config-mbedtls-ssl-ciphersuites"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SSL_CIPHERSUITES</span></code></a> Kconfig variable is a custom list of cipher suites to support in SSL/TLS.
+The cipher suites are provided as a comma-separated string, in order of preference.
+This list can only be used for restricting cipher suites available in the system.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 59%" />
+<col style="width: 11%" />
+<col style="width: 13%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Max</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SSL_MAX_CONTENT_LEN.html#cmdoption-arg-config-mbedtls-ssl-max-content-len"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SSL_MAX_CONTENT_LEN</span></code></a></p></td>
+<td><p>Integer</p></td>
+<td><p>16384</p></td>
+<td><p>0</p></td>
+<td><p>16384</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SSL_CIPHERSUITES.html#cmdoption-arg-config-mbedtls-ssl-ciphersuites"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SSL_CIPHERSUITES</span></code></a></p></td>
+<td><p>String</p></td>
+<td><p><cite>&lt;empty&gt;</cite></p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The string in <a class="reference internal" href="../../kconfig/CONFIG_MBEDTLS_SSL_CIPHERSUITES.html#cmdoption-arg-config-mbedtls-ssl-ciphersuites"><code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_MBEDTLS_SSL_CIPHERSUITES</span></code></a> should not be quoted.</p>
+</div>
+</div>
+</div>
+<div class="section" id="user-provided-mbed-tls-config-header">
+<h3>User-provided mbed TLS config header<a class="headerlink" href="#user-provided-mbed-tls-config-header" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="#nrf-security-readme"><span class="std std-ref">Nordic security module</span></a> provides a Kconfig interface to control compilation and linking of mbed TLS and the <a class="reference internal" href="../../crypto/doc/nrf_cc310_mbedcrypto.html#nrf-cc310-mbedcrypto-readme"><span class="std std-ref">nrf_cc310_mbedcrypto library</span></a> library.</p>
+<p>The Kconfig interface and build system ensures that the configuration of <a class="reference internal" href="#nrf-security-readme"><span class="std std-ref">Nordic security module</span></a> is valid and working, and ensures that dependencies between different cryptographic APIs are met.</p>
+<p>It is therefore highly recommended to let the build system generate the mbed TLS configuration header.</p>
+<p>However, for special use cases that cannot be achieved using the Kconfig configuration tool, it is possible to provide a custom mbed TLS configuration header.
+When doing so, make sure that the system is working.</p>
+<p>It is therefore advised to use Kconfig and the build system to create an mbed TLS configuration header as a starting point, and then tweak this file to include settings that are not available in Kconfig.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When providing a custom mbed TLS configuration header, it is important that the following criteria are still met:</p>
+<ul class="simple">
+<li><p>Entropy length of 144, i.e. <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">MBEDTLS_ENTROPY_MAX_GATHER</span> <span class="pre">144</span></code></p></li>
+<li><p>Force SHA256</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="api-documentation">
+<h2>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="api.html#nrf-security-api-mbedcrypto-glue"><span class="std std-ref">mbed TLS glue layer</span></a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

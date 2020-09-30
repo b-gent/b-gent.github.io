@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BSD socket extensions &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PDN management" href="pdn_extension.html" />
+    <link rel="prev" title="Security tags" href="security_tags.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">BSD library</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="supported_features.html">Supported features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="limitations.html">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Library architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_tags.html">Security tags</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">BSD socket extensions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdn_extension.html">PDN management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="at_commands.html">AT commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnss_extension.html">GNSS socket</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ug_bsdlib_porting_os.html">Porting the BSD library to your OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_security/README.html">Nordic Security Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../README.html">BSD library</a> &raquo;</li>
+        
+      <li>BSD socket extensions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/bsdlib/doc/extensions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bsd-socket-extensions">
+<span id="bsdlib-extensions"></span><h1>BSD socket extensions<a class="headerlink" href="#bsd-socket-extensions" title="Permalink to this headline">¶</a></h1>
+<p>In addition to the standard <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/socket.html">Socket API</a>, the BSD library supports several extensions.</p>
+<p>Extensions are available for:</p>
+<ul class="simple">
+<li><p>Packet data network (PDN) management</p></li>
+<li><p>Assisted GPS (A-GPS)</p></li>
+<li><p>Global Navigation Satellite System (GNSS)</p></li>
+<li><p>Modem device firmware update (DFU)</p></li>
+<li><p>AT commands</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pdn_extension.html">PDN management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pdn_extension.html#creating-a-pdn-socket">Creating a PDN socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdn_extension.html#closing-a-pdn-socket">Closing a PDN socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdn_extension.html#binding-a-data-socket-to-an-apn">Binding a data socket to an APN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdn_extension.html#configuring-the-type-of-transport">Configuring the type of transport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdn_extension.html#checking-if-a-pdn-is-active">Checking if a PDN is active</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdn_extension.html#retrieving-the-context-id-cid">Retrieving the context ID (CID)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdn_extension.html#sending-a-dns-query">Sending a DNS query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdn_extension.html#waiting-for-an-ipv6-connection">Waiting for an IPv6 connection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="at_commands.html">AT commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnss_extension.html">GNSS socket</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnss_extension.html#creating-a-gnss-socket">Creating a GNSS socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnss_extension.html#starting-the-gps">Starting the GPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnss_extension.html#stopping-the-gps">Stopping the GPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnss_extension.html#configuring-the-gps">Configuring the GPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnss_extension.html#reading-a-fix">Reading a fix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnss_extension.html#a-gps-data">A-GPS data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnss_extension.html#closing-a-gnss-socket">Closing a GNSS socket</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pdn_extension.html" class="btn btn-neutral float-right" title="PDN management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="security_tags.html" class="btn btn-neutral" title="Security tags" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

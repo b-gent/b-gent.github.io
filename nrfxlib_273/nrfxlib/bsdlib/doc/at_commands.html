@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AT commands &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="GNSS socket" href="gnss_extension.html" />
+    <link rel="prev" title="PDN management" href="pdn_extension.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">BSD library</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="supported_features.html">Supported features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="limitations.html">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Library architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_tags.html">Security tags</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="extensions.html">BSD socket extensions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pdn_extension.html">PDN management</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AT commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnss_extension.html">GNSS socket</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ug_bsdlib_porting_os.html">Porting the BSD library to your OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_security/README.html">Nordic Security Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../README.html">BSD library</a> &raquo;</li>
+        
+          <li><a href="extensions.html">BSD socket extensions</a> &raquo;</li>
+        
+      <li>AT commands</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/bsdlib/doc/at_commands.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="at-commands">
+<span id="id1"></span><h1>AT commands<a class="headerlink" href="#at-commands" title="Permalink to this headline">¶</a></h1>
+<p>You can use the BSD socket interface to send AT commands to the LTE modem and to receive the responses.</p>
+<p>To do so, create a socket with the proprietary address family <a class="reference internal" href="api.html#c.NRF_AF_LTE" title="NRF_AF_LTE"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_AF_LTE</span></code></a> and the protocol family <a class="reference internal" href="api.html#c.NRF_PROTO_AT" title="NRF_PROTO_AT"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_PROTO_AT</span></code></a>.
+You can then write AT command strings to that socket using <a class="reference internal" href="api.html#_CPPv48nrf_sendiPKv6size_ti" title="nrf_send"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_send()</span></code></a> and <a class="reference internal" href="api.html#_CPPv49nrf_writeiPKv6size_t" title="nrf_write"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_write()</span></code></a>, and they are sent to the modem.
+The responses are available when you read from the socket using <a class="reference internal" href="api.html#_CPPv48nrf_readiPv6size_t" title="nrf_read"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_read()</span></code></a> and <a class="reference internal" href="api.html#_CPPv48nrf_recviPv6size_ti" title="nrf_recv"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_recv()</span></code></a>.
+Received AT messages are not truncated; to read the full response, provide a sufficiently large buffer or fetch the full response in several read operations.</p>
+<p>See the <a class="reference external" href="https://infocenter.nordicsemi.com/topic/ref_at_commands/REF/at_commands/intro.html">AT Commands Reference Guide</a> for detailed information on the available AT commands.</p>
+<p>The following BSD socket functions are available for the <a class="reference internal" href="api.html#c.NRF_PROTO_AT" title="NRF_PROTO_AT"><code class="xref c c-type docutils literal notranslate"><span class="pre">NRF_PROTO_AT</span></code></a> protocol family:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html#_CPPv410nrf_socketiii" title="nrf_socket"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_socket()</span></code></a> for creating a socket</p></li>
+<li><p><a class="reference internal" href="api.html#_CPPv49nrf_closei" title="nrf_close"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_close()</span></code></a> for closing a socket</p></li>
+<li><p><a class="reference internal" href="api.html#_CPPv49nrf_fcntliii" title="nrf_fcntl"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_fcntl()</span></code></a> for managing socket options</p></li>
+<li><p><a class="reference internal" href="api.html#_CPPv48nrf_readiPv6size_t" title="nrf_read"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_read()</span></code></a> for reading data from a socket</p></li>
+<li><p><a class="reference internal" href="api.html#_CPPv48nrf_recviPv6size_ti" title="nrf_recv"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_recv()</span></code></a> for reading data from a socket and concatenating several received messages into one receive buffer</p></li>
+<li><p><a class="reference internal" href="api.html#_CPPv49nrf_writeiPKv6size_t" title="nrf_write"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_write()</span></code></a> for writing data to a socket</p></li>
+<li><p><a class="reference internal" href="api.html#_CPPv48nrf_sendiPKv6size_ti" title="nrf_send"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_send()</span></code></a> for writing data to a socket using specific flags</p></li>
+</ul>
+<p>By default, read and write functions are blocking.
+To make them non-blocking, use <a class="reference internal" href="api.html#_CPPv49nrf_fcntliii" title="nrf_fcntl"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">nrf_fcntl()</span></code></a> to set the NRF_O_NONBLOCK flag, or pass NRF_MSG_DONTWAIT as flag to the function call.</p>
+<p>The following code example shows how to send an AT command and receive the response:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;nrf_socket.h&quot; // socket(), NRF_AF_LTE family type, NRF_PROTO_AT protocol.</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;     // strncmp()</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">func</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Create a socket for AT commands.</span>
+    <span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">nrf_socket</span><span class="p">(</span><span class="n">NRF_AF_LTE</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">NRF_PROTO_AT</span><span class="p">);</span>
+
+    <span class="c1">// Write the AT command.</span>
+    <span class="n">nrf_write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="s">&quot;AT+CEREG=2&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+
+    <span class="c1">// Allocate a response buffer.</span>
+    <span class="kt">char</span> <span class="n">ok_buffer</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
+    <span class="c1">// Read an AT message (read 10 bytes to ensure that the</span>
+    <span class="c1">// entire message is consumed).</span>
+    <span class="kt">int</span> <span class="n">num_of_bytes_recvd</span> <span class="o">=</span> <span class="n">nrf_read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">ok_buffer</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+
+    <span class="c1">// Compare buffer content against expected return value.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">strncmp</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">,</span> <span class="n">ok_buffer</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Return in case of failure.</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Return on success.</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gnss_extension.html" class="btn btn-neutral float-right" title="GNSS socket" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pdn_extension.html" class="btn btn-neutral" title="PDN management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

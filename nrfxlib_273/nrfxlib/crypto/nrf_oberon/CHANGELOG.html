@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Changelog - nRF Oberon &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="nrf_cc310_bl crypto library" href="../doc/nrf_cc310_bl.html" />
+    <link rel="prev" title="Changelog - nRF cc310 mbed crypto" href="../nrf_cc310_mbedcrypto/CHANGELOG.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../bsdlib/README.html">BSD library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">Crypto Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../nrf_cc310_platform/CHANGELOG.html">Changelog - nrf_cc310_platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nrf_cc310_bl/CHANGELOG.html">Changelog - nRF cc310 bl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nrf_cc310_mbedcrypto/CHANGELOG.html">Changelog - nRF cc310 mbed crypto</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Changelog - nRF Oberon</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#added">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removed">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Removed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nrf-oberon-2-0-7">nrf_oberon - 2.0.7</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/nrf_cc310_bl.html">nrf_cc310_bl crypto library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/nrf_cc310_platform.html">nrf_cc310_platform library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/nrf_cc310_mbedcrypto.html">nrf_cc310_mbedcrypto library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/nrf_oberon.html">nrf_oberon crypto library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/api.html">API documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_security/README.html">Nordic Security Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../README.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../README.html">Crypto Libraries</a> &raquo;</li>
+        
+      <li>Changelog - nRF Oberon</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/crypto/nrf_oberon/CHANGELOG.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="changelog-nrf-oberon">
+<span id="crypto-changelog-oberon"></span><h1>Changelog - nRF Oberon<a class="headerlink" href="#changelog-nrf-oberon" title="Permalink to this headline">¶</a></h1>
+<p>All notable changes to this project are documented in this file.</p>
+<p>nrf_oberon - 3.0.5</p>
+<div class="section" id="added">
+<h2>Added<a class="headerlink" href="#added" title="Permalink to this headline">¶</a></h2>
+<p>Added the following header files with ocrypto APIs</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">include/ocrypto_aes_cbc.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">include/ocrypto_aes_ccm.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">include/ocrypto_aes_cmac.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">include/ocrypto_ecjpake_p256.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">include/ocrypto_hkdf_sha1.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">include/ocrypto_hmac_sha1.h</span></code></p></li>
+</ul>
+<p>Added the following header files with mbed TLS alternate APIs</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">include/mbedtls/ecjpake_alt.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">include/mbedtls/sha1_alt.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">include/mbedtls/sha256_alt.h</span></code></p></li>
+</ul>
+<p>Added library-internal symbols for mbed TLS alternate APIs</p>
+<ul class="simple">
+<li><p>ECDSA generate key, sign, and verify (secp256r1)</p></li>
+<li><p>ECDH generate key, compute shared secret (secp256r1)</p></li>
+</ul>
+<p>Added the following Oberon crypto libraries for nRF9160, nRF53, nRF52, and nRF51 architectures.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>short-wchar: Those libraries are compiled with a wchar_t size of 16 bits.</p>
+</div>
+<ul class="simple">
+<li><p>nrf_oberon, nRF9160 and nRF53 app core variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/liboberon_3.0.5.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/liboberon_3.0.5.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/short-wchar/liboberon_3.0.5.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/short-wchar/liboberon_3.0.5.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/short-wchar/oberon_3.0.5.lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/short-wchar/oberon_3.0.5.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>nrf_oberon, nrf53 network core variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33+nodsp/soft-float/liboberon_3.0.5.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33+nodsp/soft-float/short-wchar/liboberon_3.0.5.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/short-wchar/oberon_3.0.5.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>nrf_oberon, nRF52 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/liboberon_3.0.5.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/liboberon_3.0.5.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/short-wchar/liboberon_3.0.5.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/short-wchar/liboberon_3.0.5.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/short-wchar/oberon_3.0.5.lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/short-wchar/oberon_3.0.5.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>nrf_oberon, nRF51 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/liboberon_3.0.5.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/short-wchar/liboberon_3.0.5.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/short-wchar/oberon_3.0.5.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="removed">
+<h2>Removed<a class="headerlink" href="#removed" title="Permalink to this headline">¶</a></h2>
+<p>nrf_oberon - 3.0.3</p>
+</div>
+<div class="section" id="id1">
+<h2>Added<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Added the following Oberon crypto libraries for nRF9160, nRF52, and nRF51 architectures.</p>
+<p>Added Oberon ocrypto_poly1305.h and ocrypto_sc_p256.h headers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>short-wchar: Those libraries are compiled with a wchar_t size of 16 bits.</p>
+</div>
+<ul class="simple">
+<li><p>nrf_oberon, nRF9160 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/liboberon_3.0.3.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/liboberon_3.0.3.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/short-wchar/liboberon_3.0.3.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/short-wchar/liboberon_3.0.3.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/short-wchar/oberon_3.0.3.lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/short-wchar/oberon_3.0.3.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>nrf_oberon, nRF52 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/liboberon_3.0.3.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/liboberon_3.0.3.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/short-wchar/liboberon_3.0.3.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/short-wchar/liboberon_3.0.3.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/short-wchar/oberon_3.0.3.lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/short-wchar/oberon_3.0.3.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>nrf_oberon, nRF51 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/liboberon_3.0.3.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/short-wchar/liboberon_3.0.3.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/short-wchar/oberon_3.0.3.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Removed<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>All 3.0.2 versions of the library and old include files</p></li>
+</ul>
+<p>nrf_oberon - 3.0.2</p>
+</div>
+<div class="section" id="id3">
+<h2>Added<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Added the following Oberon crypto libraries for nRF9160, nRF52, and nRF51 architectures.</p>
+<p>Added Oberon SRP, Secure Remote Password, ocrypto_srp functions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>short-wchar: Those libraries are compiled with a wchar_t size of 16 bits.</p>
+</div>
+<ul class="simple">
+<li><p>nrf_oberon, nRF9160 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/liboberon_3.0.2.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/liboberon_3.0.2.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/short-wchar/liboberon_3.0.2.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/short-wchar/liboberon_3.0.2.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/short-wchar/oberon_3.0.2.lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/short-wchar/oberon_3.0.2.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>nrf_oberon, nRF52 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/liboberon_3.0.2.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/liboberon_3.0.2.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/short-wchar/liboberon_3.0.2.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/short-wchar/liboberon_3.0.2.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/short-wchar/oberon_3.0.2.lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/short-wchar/oberon_3.0.2.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>nrf_oberon, nRF51 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/liboberon_3.0.2.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/short-wchar/liboberon_3.0.2.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/short-wchar/oberon_3.0.2.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>Removed<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>All 3.0.0 versions of the library and old include files</p></li>
+</ul>
+<p>nrf_oberon - 3.0.0</p>
+</div>
+<div class="section" id="id5">
+<h2>Added<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Added the following Oberon crypto libraries for nRF9160, nRF52, and nRF51 architectures.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The include files and APIs have changed the prefix from <code class="docutils literal notranslate"><span class="pre">occ_</span></code> to <code class="docutils literal notranslate"><span class="pre">ocrypto_</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>short-wchar: Those libraries are compiled with a wchar_t size of 16 bits.</p>
+</div>
+<ul class="simple">
+<li><p>nrf_oberon, nRF9160 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/liboberon_3.0.0.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/liboberon_3.0.0.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/short-wchar/liboberon_3.0.0.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/short-wchar/liboberon_3.0.0.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/short-wchar/oberon_3.0.0.lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/short-wchar/oberon_3.0.0.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>nrf_oberon, nRF52 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/liboberon_3.0.0.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/liboberon_3.0.0.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/short-wchar/liboberon_3.0.0.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/short-wchar/liboberon_3.0.0.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/short-wchar/oberon_3.0.0.lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/short-wchar/oberon_3.0.0.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>nrf_oberon, nRF51 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/liboberon_3.0.0.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/short-wchar/liboberon_3.0.0.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/short-wchar/oberon_3.0.0.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>Removed<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>All 2.0.7 versions of the library and old include files</p></li>
+</ul>
+<div class="section" id="nrf-oberon-2-0-7">
+<h3>nrf_oberon - 2.0.7<a class="headerlink" href="#nrf-oberon-2-0-7" title="Permalink to this headline">¶</a></h3>
+<p>Initial release.</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Added<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Added the following Oberon crypto libraries for nRF9160, nRF52, and nRF51 architectures.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>short-wchar: Those libraries are compiled with a wchar_t size of 16 bits.</p>
+</div>
+<ul class="simple">
+<li><p>nrf_oberon, nrf9160 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/liboberon_2.0.7.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/liboberon_2.0.7.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/short-wchar/liboberon_2.0.7.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/short-wchar/liboberon_2.0.7.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/hard-float/short-wchar/oberon_2.0.7.lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m33/soft-float/short-wchar/oberon_2.0.7.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>nrf_oberon, nrf52 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/liboberon_2.0.7.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/liboberon_2.0.7.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/short-wchar/liboberon_2.0.7.a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/short-wchar/liboberon_2.0.7.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/soft-float/short-wchar/oberon_2.0.7.lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m4/hard-float/short-wchar/oberon_2.0.7.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>nrf_oberon, nrf51 variants</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/liboberon_2.0.7.a</span></code></p></li>
+<li><p>short-wchar</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/short-wchar/liboberon_2.0.7.a</span></code></p></li>
+</ul>
+</li>
+<li><p>Keil</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cortex-m0/soft-float/short-wchar/oberon_2.0.7.lib</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../doc/nrf_cc310_bl.html" class="btn btn-neutral float-right" title="nrf_cc310_bl crypto library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../nrf_cc310_mbedcrypto/CHANGELOG.html" class="btn btn-neutral" title="Changelog - nRF cc310 mbed crypto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

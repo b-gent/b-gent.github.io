@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Nordic Security Module &mdash; nrfxlib 1.3.99 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/ncs.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/nrfxlib.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Prerequisites" href="doc/prerequisites.html" />
+    <link rel="prev" title="API documentation" href="../mpsl/doc/api.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../README.html" class="icon icon-home"> nrfxlib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.99
+              </div>
+            
+          
+
+          
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Libraries:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bsdlib/README.html">BSD library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crypto/README.html">Crypto Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpsl/README.html">Multiprotocol Service Layer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nordic Security Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc/prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backends.html">nrf_security backends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/glue_layer.html">mbed TLS glue layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html">Backend configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/adv_backend_config.html">Advanced backend configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/mbed_tls_header.html">User-provided mbed TLS config header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/api.html">API documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nfc/README.html">Near Field Communication (NFC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openthread/README.html">OpenThread pre-built libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../softdevice_controller/README.html">SoftDevice Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zboss/README.html">ZBOSS Zigbee stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nrf_rpc/README.html">Remote procedure call library (nRF RPC)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../README.html">nrfxlib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../README.html">Docs</a> &raquo;</li>
+        
+      <li>Nordic Security Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/nrf_security/README.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nordic-security-module">
+<span id="nrf-security"></span><h1>Nordic Security Module<a class="headerlink" href="#nordic-security-module" title="Permalink to this headline">¶</a></h1>
+<p>The Nordic Security Module (nrf_security) provides an integration between mbed TLS and software libraries that provide hardware-accelerated cryptographic functionality on selected Nordic Semiconductor SoCs as well as alternate software-based implementations of the mbed TLS APIs.
+This module includes an mbed TLS glue layer to enable both hardware-accelerated and software-based mbed TLS implementation at the same time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The nrf_security module interfaces with the <a class="reference internal" href="../crypto/doc/nrf_cc310_mbedcrypto.html#nrf-cc310-mbedcrypto-readme"><span class="std std-ref">nrf_cc310_mbedcrypto library</span></a>.
+This library conforms to a specific version of mbed TLS.</p>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="doc/prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/backends.html">nrf_security backends</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc/backends.html#arm-cryptocell-cc310-backend">Arm CryptoCell cc310 backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backends.html#nrf-oberon-backend">nrf_oberon backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backends.html#original-mbed-tls-backend">Original mbed TLS backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backends.html#using-the-nrf-cc310-mbedcrypto-as-backend">Using the nrf_cc310_mbedcrypto as backend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doc/glue_layer.html">mbed TLS glue layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc/glue_layer.html#support-and-priority">Support and priority</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/glue_layer.html#enabling-the-mbed-tls-glue-layer">Enabling the mbed TLS glue layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/glue_layer.html#mbed-tls-glue-layer-mechanisms">mbed TLS glue layer mechanisms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doc/backend_config.html">Backend configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#configuring-multiple-backends">Configuring multiple backends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#aes-configuration">AES configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#aes-cipher-configuration">AES cipher configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#cmac-configuration">CMAC configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#aead-configurations">AEAD configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#dhm-configurations">DHM configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#ecc-configurations">ECC configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#ecdh-configurations">ECDH configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#ecdsa-configurations">ECDSA configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#ecjpake-configurations">ECJPAKE configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#ecc-curves-configurations">ECC curves configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#rsa-configurations">RSA configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#secure-hash-configurations">Secure Hash configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/backend_config.html#backend-platform-specific-configurations">Backend platform-specific configurations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doc/adv_backend_config.html">Advanced backend configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc/adv_backend_config.html#aes-tables-in-rom">AES tables in ROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/adv_backend_config.html#fewer-aes-tables">Fewer AES tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/adv_backend_config.html#multiple-precision-integers-mpi-bignum-calculation">Multiple Precision Integers (MPI) / Bignum calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/adv_backend_config.html#elliptic-curves">Elliptic Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/adv_backend_config.html#sha-256">SHA-256</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/adv_backend_config.html#ssl-configurations">SSL Configurations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doc/mbed_tls_header.html">User-provided mbed TLS config header</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/api.html">API documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc/api.html#mbed-tls-glue-layer">mbed TLS glue layer</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="doc/prerequisites.html" class="btn btn-neutral float-right" title="Prerequisites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../mpsl/doc/api.html" class="btn btn-neutral" title="API documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2019-2020, Nordic Semiconductor.
+      Last updated on Sep 30, 2020.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../_static/images/nordic.svg" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> nrfxlib</span>
+       <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <div class="rst-other-version ncs">
+        <a href="../../nrf/index.html">nRF Connect SDK</a>
+      </div>
+      <div class="rst-other-version zephyr">
+        <a href="../../zephyr/index.html">Zephyr</a><br/>
+      </div>
+      <div class="rst-other-version mcuboot">
+        <a href="../../mcuboot/wrapper.html">MCUboot</a>
+      </div>
+      <div class="rst-other-version kconfig">
+        <a href="../../kconfig/index.html">Kconfig Reference</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

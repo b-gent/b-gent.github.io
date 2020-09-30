@@ -1,0 +1,41 @@
+:orphan:
+
+.. title:: CC310_INTERRUPTS_BACKEND
+
+.. option:: CONFIG_CC310_INTERRUPTS_BACKEND
+
+*(No prompt -- not directly user assignable.)*
+
+Type: ``bool``
+
+Direct dependencies
+===================
+
+\ :option:`CC310_BACKEND <CONFIG_CC310_BACKEND>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Default
+=======
+
+- n
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:89``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security → Use Nordic provided security backend → Use cc310 backend
+
+.. parsed-literal::
+
+    config CC310_INTERRUPTS_BACKEND
+    	bool
+    	default n
+    	depends on \ :option:`CC310_BACKEND <CONFIG_CC310_BACKEND>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

@@ -1,0 +1,55 @@
+:orphan:
+
+.. title:: MBEDTLS_MPI_MAX_SIZE
+
+.. option:: CONFIG_MBEDTLS_MPI_MAX_SIZE
+
+*MPI - Multiple Precision Integers maximum size*
+
+Type: ``int``
+
+Help
+====
+
+Maximum number of bytes for usable Multiple Precision Integers (MPI) / Bignum.
+This will reduce the size of MPIs that can be used for calculation.
+Only reduce this value if it is ensured that the system won't need larger numbers.
+MBEDTLS_MPI_MAX_SIZE setting in mbed TLS config file.
+
+Direct dependencies
+===================
+
+\ :option:`NRF_SECURITY_ADVANCED <CONFIG_NRF_SECURITY_ADVANCED>` && \ :option:`MBEDTLS_VANILLA_BACKEND <CONFIG_MBEDTLS_VANILLA_BACKEND>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Default
+=======
+
+- 1024
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:850``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security → Use Nordic provided security backend → Advanced mbed TLS Configuration Settings
+
+.. parsed-literal::
+
+    config MBEDTLS_MPI_MAX_SIZE
+    	int "MPI - Multiple Precision Integers maximum size"
+    	range 0 1024
+    	default 1024
+    	depends on \ :option:`NRF_SECURITY_ADVANCED <CONFIG_NRF_SECURITY_ADVANCED>` && \ :option:`MBEDTLS_VANILLA_BACKEND <CONFIG_MBEDTLS_VANILLA_BACKEND>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+    	help
+    	  Maximum number of bytes for usable Multiple Precision Integers (MPI) / Bignum.
+    	  This will reduce the size of MPIs that can be used for calculation.
+    	  Only reduce this value if it is ensured that the system won't need larger numbers.
+    	  MBEDTLS_MPI_MAX_SIZE setting in mbed TLS config file.
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

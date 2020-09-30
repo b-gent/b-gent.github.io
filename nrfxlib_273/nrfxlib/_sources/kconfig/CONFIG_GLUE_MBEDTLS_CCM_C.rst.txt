@@ -1,0 +1,45 @@
+:orphan:
+
+.. title:: GLUE_MBEDTLS_CCM_C
+
+.. option:: CONFIG_GLUE_MBEDTLS_CCM_C
+
+*(No prompt -- not directly user assignable.)*
+
+Type: ``bool``
+
+Direct dependencies
+===================
+
+\ :option:`NRF_CRYPTO_BACKEND_COMBINATION_0 <CONFIG_NRF_CRYPTO_BACKEND_COMBINATION_0>` && (\ :option:`CC310_BACKEND <CONFIG_CC310_BACKEND>` || \ :option:`MBEDTLS_VANILLA_BACKEND <CONFIG_MBEDTLS_VANILLA_BACKEND>`) && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Defaults
+========
+
+No defaults. Implicitly defaults to ``n``.
+
+Symbols that select this symbol
+===============================
+
+- \ :option:`VANILLA_MBEDTLS_CCM_C <CONFIG_VANILLA_MBEDTLS_CCM_C>`
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:386``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security → Use Nordic provided security backend → AEAD  - Authenticated Encryption with Associated Data → AES-CCM - Counter with CBC-MAC mode
+
+.. parsed-literal::
+
+    config GLUE_MBEDTLS_CCM_C
+    	bool
+    	depends on \ :option:`NRF_CRYPTO_BACKEND_COMBINATION_0 <CONFIG_NRF_CRYPTO_BACKEND_COMBINATION_0>` && (\ :option:`CC310_BACKEND <CONFIG_CC310_BACKEND>` || \ :option:`MBEDTLS_VANILLA_BACKEND <CONFIG_MBEDTLS_VANILLA_BACKEND>`) && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*

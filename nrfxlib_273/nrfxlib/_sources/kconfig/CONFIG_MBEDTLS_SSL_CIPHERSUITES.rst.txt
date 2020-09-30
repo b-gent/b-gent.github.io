@@ -1,0 +1,55 @@
+:orphan:
+
+.. title:: MBEDTLS_SSL_CIPHERSUITES
+
+.. option:: CONFIG_MBEDTLS_SSL_CIPHERSUITES
+
+*SSL - Cipher suites tuning*
+
+Type: ``string``
+
+Help
+====
+
+List of cipher suites to support in SSL/TLS.
+The cipher suites are given as a comma separated string, and in order of preference.
+This list can only be used for restricting cipher suites available in the system.
+Warning: This field has offers no validation checks.
+MBEDTLS_SSL_CIPHERSUITES setting in mbed TLS config file.
+
+Direct dependencies
+===================
+
+\ :option:`MBEDTLS_TLS_LIBRARY <CONFIG_MBEDTLS_TLS_LIBRARY>` && \ :option:`NRF_SECURITY_ADVANCED <CONFIG_NRF_SECURITY_ADVANCED>` && \ :option:`MBEDTLS_VANILLA_BACKEND <CONFIG_MBEDTLS_VANILLA_BACKEND>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+
+*(Includes any dependencies from ifs and menus.)*
+
+Defaults
+========
+
+No defaults. Implicitly defaults to the empty string.
+
+Kconfig definition
+==================
+
+.. highlight:: kconfig
+
+At ``C:/Git/ncs/nrfxlib\nrf_security/Kconfig:906``
+
+Included via ``C:/Git/ncs/nrfxlib/Kconfig.nrfxlib:14``
+
+Menu path: (Top) → Nordic nrfxlib → Nordic Security → Use Nordic provided security backend → Advanced mbed TLS Configuration Settings
+
+.. parsed-literal::
+
+    config MBEDTLS_SSL_CIPHERSUITES
+    	string "SSL - Cipher suites tuning"
+    	depends on \ :option:`MBEDTLS_TLS_LIBRARY <CONFIG_MBEDTLS_TLS_LIBRARY>` && \ :option:`NRF_SECURITY_ADVANCED <CONFIG_NRF_SECURITY_ADVANCED>` && \ :option:`MBEDTLS_VANILLA_BACKEND <CONFIG_MBEDTLS_VANILLA_BACKEND>` && \ :option:`NORDIC_SECURITY_BACKEND <CONFIG_NORDIC_SECURITY_BACKEND>`
+    	help
+    	  List of cipher suites to support in SSL/TLS.
+    	  The cipher suites are given as a comma separated string, and in order of preference.
+    	  This list can only be used for restricting cipher suites available in the system.
+    	  Warning: This field has offers no validation checks.
+    	  MBEDTLS_SSL_CIPHERSUITES setting in mbed TLS config file.
+
+*(The 'depends on' condition includes propagated dependencies from ifs and menus.)*
