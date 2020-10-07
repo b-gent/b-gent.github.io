@@ -1,0 +1,4 @@
+C:/Git/ScummVM2/scummvm/common/events.h:404: warning: The following parameters of Common::EventDispatcher::registerObserver(EventObserver *obs, uint priority, bool autoFree, bool listenPolls=false) are not documented:
+  parameter 'obs'
+  parameter 'priority'
+  parameter 'autoFree'
