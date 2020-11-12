@@ -211,7 +211,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Set the stream position indicator for the stream.</p>
-<p>The new position, measured in bytes, is obtained by adding offset bytes to the position specified by whence. If whence is set to SEEK_SET, SEEK_CUR, or SEEK_END, the offset is relative to the start of the file, the current position indicator, or end-of-file, respectively. A successful call to the <a class="el" href="../../df/d90/class_common_1_1_seekable_write_stream.html#aa5f5d51c7bdc3f710723c1b5b6f6bf47">seek()</a> method clears the end-of-file indicator for the stream.</p>
+<p>The new position, measured in bytes, is obtained by adding offset bytes to the position specified by whence. If whence is set to SEEK_SET, SEEK_CUR, or SEEK_END, the offset is relative to the start of the file, the current position indicator, or end-of-stream, respectively. A successful call to the <a class="el" href="../../df/d90/class_common_1_1_seekable_write_stream.html#aa5f5d51c7bdc3f710723c1b5b6f6bf47">seek()</a> method clears the end-of-stream indicator for the stream.</p>
 <dl class="section note"><dt>Note</dt><dd>The semantics of any implementation of this method is supposed to match that of ISO C fseek().</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

@@ -25,8 +25,6 @@ var group__common__system__graphics =
     [ "setGraphicsMode", "dc/d51/group__common__system__graphics.html#gade71cd6f36f9c795ffc738f1dd5f1ff1", null ],
     [ "getGraphicsMode", "dc/d51/group__common__system__graphics.html#ga1ac9f23d6481dcab24dc0ced883d8674", null ],
     [ "resetGraphicsScale", "dc/d51/group__common__system__graphics.html#ga80a1e6c09495e5d71d6b911f30a47d0d", null ],
-    [ "getScreenFormat", "dc/d51/group__common__system__graphics.html#ga2be618c2b61d3922d6121a1c6bee632d", null ],
-    [ "getSupportedFormats", "dc/d51/group__common__system__graphics.html#ga00566524cca83605dc3595bdc3d9352f", null ],
     [ "getSupportedAntiAliasingLevels", "dc/d51/group__common__system__graphics.html#gab8f80c389e7d5aa14c3b76a29842b7fc", null ],
     [ "getSupportedShaders", "dc/d51/group__common__system__graphics.html#ga84ed216d0fa410c8a97f4c96adb87721", null ],
     [ "getDefaultShader", "dc/d51/group__common__system__graphics.html#gadf9b2ad0d7a10c74bdc57e0732471b3a", null ],

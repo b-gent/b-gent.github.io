@@ -272,7 +272,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Finalize and close this stream.</p>
-<p>Call this method right before this stream instance is deleted. The goal is to enable calling the code to detect and handle I/O errors that might occur when closing (and flushing, if buffered) the stream.</p>
+<p>Call this method right before this stream instance is deleted. The goal is to enable the client code to detect and handle I/O errors that might occur when closing (and flushing, if buffered) the stream.</p>
 <p>After this method has been called, no further writes can be performed on the stream. Calling <a class="el" href="../../da/d26/class_common_1_1_stream.html#ad99ede5eb6fb5c0a194bfa2d7e6a886e">err()</a> is allowed.</p>
 <p>By default, this just flushes the stream. </p>
 
@@ -300,7 +300,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Obtain the current value of the stream position indicator of the stream.</p>
+<p>Obtain the current value of the stream position indicator.</p>
 <dl class="section return"><dt>Returns</dt><dd>The current position indicator, or -1 if an error occurred. </dd></dl>
 
 </div>
@@ -816,7 +816,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Write data from another stream into this one, specifying the data size to write. </p>
+<p>Write at most <code>dataSize</code> of data from another stream into this one, starting from the current stream position.</p>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes written into the stream. </dd></dl>
 
 </div>
 </div>
@@ -835,7 +836,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Write data from another stream into this one. </p>
+<p>Write data from another stream into this one, starting from its current position to the end of the stream.</p>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes written into the stream. </dd></dl>
 
 </div>
 </div>

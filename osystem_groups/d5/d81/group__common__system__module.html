@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ScummVM API documentation: Module slots</title>
+<title>ScummVM API documentation: Subsystem modules</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,9 +92,10 @@ $(document).ready(function(){initNavTree('d5/d81/group__common__system__module.h
 
 <div class="header">
   <div class="summary">
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">Module slots<div class="ingroups"><a class="el" href="../../db/d78/group__common.html">Common API</a> &raquo; <a class="el" href="../../d1/d0c/group__common__system.html">OSystem</a></div></div>  </div>
+<div class="title">Subsystem modules<div class="ingroups"><a class="el" href="../../db/d78/group__common.html">Common API</a> &raquo; <a class="el" href="../../d1/d0c/group__common__system.html">OSystem</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Description</h2>
@@ -102,6 +103,21 @@ $(document).ready(function(){initNavTree('d5/d81/group__common__system__module.h
 <p>For some of the slots, a default instance is set if your backend does not do so. For details, refer to the documentation of each slot.</p>
 <p>A backend may set up slot values in its <a class="el" href="../../d2/d38/class_o_system.html#a3e51e2c96b42377b7f18a2b603b8bd96">initBackend()</a> method, its constructor, or somewhere in between. But it must set a slot's value no later than in its <a class="el" href="../../d2/d38/class_o_system.html#a3e51e2c96b42377b7f18a2b603b8bd96">initBackend()</a> implementation, because <a class="el" href="../../d2/d38/class_o_system.html#a3e51e2c96b42377b7f18a2b603b8bd96">OSystem::initBackend()</a> will create any default instances if none have been set yet (and for other slots, will verify that one has been set; if not, an error may be generated). </p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gab8d8463193d5e21efcefdd869c408f66"><td class="memItemLeft" align="right" valign="top">virtual Common::SaveFileManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#gab8d8463193d5e21efcefdd869c408f66">OSystem::getSavefileManager</a> ()</td></tr>
+<tr class="separator:gab8d8463193d5e21efcefdd869c408f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca36a4894666598e9b6d3bf18986893d"><td class="memItemLeft" align="right" valign="top">virtual Common::TaskbarManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#gaca36a4894666598e9b6d3bf18986893d">OSystem::getTaskbarManager</a> ()</td></tr>
+<tr class="separator:gaca36a4894666598e9b6d3bf18986893d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7eec37857535994be2830f13654889c"><td class="memItemLeft" align="right" valign="top">virtual Common::UpdateManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#gaa7eec37857535994be2830f13654889c">OSystem::getUpdateManager</a> ()</td></tr>
+<tr class="separator:gaa7eec37857535994be2830f13654889c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c116a2f2d27d11db3277e1ff982ac86"><td class="memItemLeft" align="right" valign="top">virtual Common::TextToSpeechManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#ga8c116a2f2d27d11db3277e1ff982ac86">OSystem::getTextToSpeechManager</a> ()</td></tr>
+<tr class="separator:ga8c116a2f2d27d11db3277e1ff982ac86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5defe8088b506d54956df007c1941a43"><td class="memItemLeft" align="right" valign="top">virtual Common::DialogManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#ga5defe8088b506d54956df007c1941a43">OSystem::getDialogManager</a> ()</td></tr>
+<tr class="separator:ga5defe8088b506d54956df007c1941a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d25f4c9f5aa7f786eaf1be0bb01256c"><td class="memItemLeft" align="right" valign="top">virtual FilesystemFactory *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#ga6d25f4c9f5aa7f786eaf1be0bb01256c">OSystem::getFilesystemFactory</a> ()</td></tr>
+<tr class="separator:ga6d25f4c9f5aa7f786eaf1be0bb01256c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ga49364817fe70fbb97a06667c1f467afc"><td class="memItemLeft" align="right" valign="top">AudioCDManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#ga49364817fe70fbb97a06667c1f467afc">OSystem::_audiocdManager</a></td></tr>
@@ -112,6 +128,12 @@ Variables</h2></td></tr>
 <tr class="separator:gaeb7f5d775e24a17dcdffa896e9131bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae88bb97da5abfc76d877eb60df948367"><td class="memItemLeft" align="right" valign="top">Common::SaveFileManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#gae88bb97da5abfc76d877eb60df948367">OSystem::_savefileManager</a></td></tr>
 <tr class="separator:gae88bb97da5abfc76d877eb60df948367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga07b504eff9f254cc4acee529b2a31243"><td class="memItemLeft" align="right" valign="top">Common::TaskbarManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#ga07b504eff9f254cc4acee529b2a31243">OSystem::_taskbarManager</a></td></tr>
+<tr class="separator:ga07b504eff9f254cc4acee529b2a31243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74e91ee5ec71617ea767d2d9412e1241"><td class="memItemLeft" align="right" valign="top">Common::UpdateManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#ga74e91ee5ec71617ea767d2d9412e1241">OSystem::_updateManager</a></td></tr>
+<tr class="separator:ga74e91ee5ec71617ea767d2d9412e1241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6d02d86c5c1eba9103a7c719f542beb"><td class="memItemLeft" align="right" valign="top">Common::TextToSpeechManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#gaa6d02d86c5c1eba9103a7c719f542beb">OSystem::_textToSpeechManager</a></td></tr>
+<tr class="separator:gaa6d02d86c5c1eba9103a7c719f542beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa387983680861f22532c4bb1825d13ef"><td class="memItemLeft" align="right" valign="top">Common::DialogManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#gaa387983680861f22532c4bb1825d13ef">OSystem::_dialogManager</a></td></tr>
 <tr class="separator:gaa387983680861f22532c4bb1825d13ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1ad8b776858aa183be882f5f36b2d42e"><td class="memItemLeft" align="right" valign="top">FilesystemFactory *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#ga1ad8b776858aa183be882f5f36b2d42e">OSystem::_fsFactory</a></td></tr>
@@ -121,6 +143,169 @@ Variables</h2></td></tr>
 <tr class="memitem:ga491c45a2ace9dc87bbb04b1debef050b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/group__common__system__module.html#ga491c45a2ace9dc87bbb04b1debef050b">OSystem::_dummyUnused</a></td></tr>
 <tr class="separator:ga491c45a2ace9dc87bbb04b1debef050b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gab8d8463193d5e21efcefdd869c408f66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab8d8463193d5e21efcefdd869c408f66">&#9670;&nbsp;</a></span>getSavefileManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Common::SaveFileManager* OSystem::getSavefileManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the SaveFileManager, which is used to store and load savestates and other modifiable persistent game data.</p>
+<p>For more information, see SaveFileManager. </p>
+
+</div>
+</div>
+<a id="gaca36a4894666598e9b6d3bf18986893d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaca36a4894666598e9b6d3bf18986893d">&#9670;&nbsp;</a></span>getTaskbarManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Common::TaskbarManager* OSystem::getTaskbarManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the TaskbarManager, which is used to handle progress bars, icon overlay, tasks, and recent items list on the taskbar.</p>
+<dl class="section return"><dt>Returns</dt><dd>The TaskbarManager for the current architecture. </dd></dl>
+
+</div>
+</div>
+<a id="gaa7eec37857535994be2830f13654889c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa7eec37857535994be2830f13654889c">&#9670;&nbsp;</a></span>getUpdateManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Common::UpdateManager* OSystem::getUpdateManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the UpdateManager, which is used to handle auto-updating and updating of ScummVM in general.</p>
+<dl class="section return"><dt>Returns</dt><dd>The UpdateManager for the current architecture. </dd></dl>
+
+</div>
+</div>
+<a id="ga8c116a2f2d27d11db3277e1ff982ac86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8c116a2f2d27d11db3277e1ff982ac86">&#9670;&nbsp;</a></span>getTextToSpeechManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Common::TextToSpeechManager* OSystem::getTextToSpeechManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the TextToSpeechManager, used to handle text-to-speech features.</p>
+<dl class="section return"><dt>Returns</dt><dd>The TextToSpeechManager for the current architecture. </dd></dl>
+
+</div>
+</div>
+<a id="ga5defe8088b506d54956df007c1941a43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5defe8088b506d54956df007c1941a43">&#9670;&nbsp;</a></span>getDialogManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Common::DialogManager* OSystem::getDialogManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the DialogManager, which is used to handle system dialogs.</p>
+<dl class="section return"><dt>Returns</dt><dd>The DialogManager for the current architecture. </dd></dl>
+
+</div>
+</div>
+<a id="ga6d25f4c9f5aa7f786eaf1be0bb01256c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6d25f4c9f5aa7f786eaf1be0bb01256c">&#9670;&nbsp;</a></span>getFilesystemFactory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual FilesystemFactory* OSystem::getFilesystemFactory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the FilesystemFactory object, depending on the current architecture.</p>
+<dl class="section return"><dt>Returns</dt><dd>The FSNode factory for the current architecture. </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="ga49364817fe70fbb97a06667c1f467afc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga49364817fe70fbb97a06667c1f467afc">&#9670;&nbsp;</a></span>_audiocdManager</h2>
@@ -218,6 +403,78 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ga07b504eff9f254cc4acee529b2a31243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga07b504eff9f254cc4acee529b2a31243">&#9670;&nbsp;</a></span>_taskbarManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Common::TaskbarManager* OSystem::_taskbarManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>No default value is provided for _taskbarManager by <a class="el" href="../../d2/d38/class_o_system.html">OSystem</a>.</p>
+<dl class="section note"><dt>Note</dt><dd>_taskbarManager is deleted by the <a class="el" href="../../d2/d38/class_o_system.html">OSystem</a> destructor. </dd></dl>
+
+</div>
+</div>
+<a id="ga74e91ee5ec71617ea767d2d9412e1241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga74e91ee5ec71617ea767d2d9412e1241">&#9670;&nbsp;</a></span>_updateManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Common::UpdateManager* OSystem::_updateManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>No default value is provided for _updateManager by <a class="el" href="../../d2/d38/class_o_system.html">OSystem</a>.</p>
+<dl class="section note"><dt>Note</dt><dd>_updateManager is deleted by the <a class="el" href="../../d2/d38/class_o_system.html">OSystem</a> destructor. </dd></dl>
+
+</div>
+</div>
+<a id="gaa6d02d86c5c1eba9103a7c719f542beb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa6d02d86c5c1eba9103a7c719f542beb">&#9670;&nbsp;</a></span>_textToSpeechManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Common::TextToSpeechManager* OSystem::_textToSpeechManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>No default value is provided for _textToSpeechManager by <a class="el" href="../../d2/d38/class_o_system.html">OSystem</a>.</p>
+<dl class="section note"><dt>Note</dt><dd>_textToSpeechManager is deleted by the <a class="el" href="../../d2/d38/class_o_system.html">OSystem</a> destructor. </dd></dl>
+
+</div>
+</div>
 <a id="gaa387983680861f22532c4bb1825d13ef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaa387983680861f22532c4bb1825d13ef">&#9670;&nbsp;</a></span>_dialogManager</h2>
 
@@ -309,7 +566,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>/** Workaround for a bug in the osx_intel toolchain introduced by 014bef9eab9fb409cfb3ec66830e033e4aaa29a9. Adding this variable fixes it. </p>
+<p>Workaround for a bug in the osx_intel toolchain introduced by 014bef9eab9fb409cfb3ec66830e033e4aaa29a9. Adding this variable fixes it. </p>
 
 </div>
 </div>

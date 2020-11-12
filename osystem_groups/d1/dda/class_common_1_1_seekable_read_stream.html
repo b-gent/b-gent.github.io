@@ -204,7 +204,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Obtain the current value of the stream position indicator of the stream.</p>
+<p>Obtain the current value of the stream position indicator.</p>
 <dl class="section return"><dt>Returns</dt><dd>The current position indicator, or -1 if an error occurred. </dd></dl>
 
 </div>
@@ -270,7 +270,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Set the stream position indicator for the stream.</p>
-<p>The new position, measured in bytes, is obtained by adding offset bytes to the position specified by whence. If whence is set to SEEK_SET, SEEK_CUR, or SEEK_END, the offset is relative to the start of the file, the current position indicator, or end-of-file, respectively. A successful call to the <a class="el" href="../../d1/dda/class_common_1_1_seekable_read_stream.html#a35fe2ee100b51657d4ce42625e647263">seek()</a> method clears the end-of-file indicator for the stream.</p>
+<p>The new position, measured in bytes, is obtained by adding offset bytes to the position specified by whence. If whence is set to SEEK_SET, SEEK_CUR, or SEEK_END, the offset is relative to the start of the file, the current position indicator, or end-of-stream, respectively. A successful call to the <a class="el" href="../../d1/dda/class_common_1_1_seekable_read_stream.html#a35fe2ee100b51657d4ce42625e647263">seek()</a> method clears the end-of-stream indicator for the stream.</p>
 <dl class="section note"><dt>Note</dt><dd>The semantics of any implementation of this method is supposed to match that of ISO C fseek().</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -306,6 +306,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Skip the given number of bytes in the stream.</p>
+<p>This is equivalent to calling: </p><div class="fragment"><div class="line"><a class="code" href="../../d1/dda/class_common_1_1_seekable_read_stream.html#a35fe2ee100b51657d4ce42625e647263">seek</a>(offset, SEK_CUR)</div></div><!-- fragment --><p> to add the given number of bytes to the current position indicator of the stream.</p>
 <dl class="section return"><dt>Returns</dt><dd>True on success, false in case of a failure. </dd></dl>
 
 </div>
@@ -350,12 +352,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Read at most one less than the number of characters specified by <code>bufSize</code> from the stream and store them in the string buffer.</p>
-<p>Reading stops when the end of a line is reached (CR, CR/LF, or LF), and at end-of-file or error. The newline, if any, is retained (CR and CR/LF are translated to <code>LF = 0xA = '\n'</code>). If any characters are read and there is no error, a <code>\0</code> character is appended to end the string.</p>
-<p>Upon successful completion, return a pointer to the string. If end-of-file occurs before any characters are read, returns NULL and the buffer contents remain unchanged. If an error occurs, returns NULL and the buffer contents are indeterminate. This method does not distinguish between end-of-file and error; callers must use <a class="el" href="../../da/d26/class_common_1_1_stream.html#ad99ede5eb6fb5c0a194bfa2d7e6a886e">err()</a> or <a class="el" href="../../df/dab/class_common_1_1_read_stream.html#a8accfd9d01092ce6c2261fa257e63090">eos()</a> to determine which occurred.</p>
+<p>Reading stops when the end of a line is reached (CR, CR/LF, or LF), and at end-of-stream or error. The newline, if any, is retained (CR and CR/LF are translated to <code>LF = 0xA = '\n'</code>). If any characters are read and there is no error, a <code>\0</code> character is appended to end the string.</p>
+<p>Upon successful completion, return a pointer to the string. If end-of-stream occurs before any characters are read, returns NULL and the buffer contents remain unchanged. If an error occurs, returns NULL and the buffer contents are indeterminate. This method does not distinguish between end-of-stream and error; callers must use <a class="el" href="../../da/d26/class_common_1_1_stream.html#ad99ede5eb6fb5c0a194bfa2d7e6a886e">err()</a> or <a class="el" href="../../df/dab/class_common_1_1_read_stream.html#a8accfd9d01092ce6c2261fa257e63090">eos()</a> to determine which occurred.</p>
 <dl class="section note"><dt>Note</dt><dd>This method is closely modeled after the standard fgets() function from stdio.h.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>t The buffer to store into. </td></tr>
+    <tr><td class="paramname">s</td><td>The buffer to store into. </td></tr>
     <tr><td class="paramname">bufSize</td><td>Size of the buffer. </td></tr>
     <tr><td class="paramname">handleCR</td><td>If set (default), then CR and CR/LF are handled, as well as LF.</td></tr>
   </table>
@@ -389,7 +391,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Read a full line and returns it as a Common::String.</p>
-<p>Reading stops when the end of a line is reached (CR, CR/LF, or LF), and at end-of-file or error.</p>
+<p>Reading stops when the end of a line is reached (CR, CR/LF, or LF), and at end-of-stream or error.</p>
 <p>Upon successful completion, return a string with the content of the line, <em>without</em> the end of a line marker. This method does not indicate whether an error occurred. Callers must use <a class="el" href="../../da/d26/class_common_1_1_stream.html#ad99ede5eb6fb5c0a194bfa2d7e6a886e">err()</a> or <a class="el" href="../../df/dab/class_common_1_1_read_stream.html#a8accfd9d01092ce6c2261fa257e63090">eos()</a> to determine whether an exception occurred.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

@@ -210,7 +210,7 @@ Public Member Functions</h2></td></tr>
 <p>Set the endianness of the read stream.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bigEndian</td><td>If set, create a big endian stream. If not set, create a little endian stream. </td></tr>
+    <tr><td class="paramname">bigEndian</td><td>If true, create a big endian stream. If false, create a little endian stream. </td></tr>
   </table>
   </dd>
 </dl>
@@ -266,7 +266,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Read an unsigned 16-bit word and return it encoded in big endian or little endian order. </p>
+<p>Read an unsigned 16-bit word using the stream endianness and return it in native endianness. </p>
 
 </div>
 </div>
@@ -292,7 +292,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Read an unsigned 32-bit word and return it encoded in big endian or little endian order. </p>
+<p>Read an unsigned 32-bit word using the stream endianness and return it in native endianness. </p>
 
 </div>
 </div>
@@ -318,7 +318,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Read an unsigned 64-bit word and return it encoded in big endian or little endian order. </p>
+<p>Read an unsigned 64-bit word using the stream endianness and return it in native endianness. </p>
 
 </div>
 </div>
@@ -344,7 +344,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Read an unsigned 16-bit word and return it. </p>
+<p>Read a signed 16-bit word using the stream endianness and return it in native endianness. </p>
 
 </div>
 </div>
@@ -370,7 +370,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Read an unsigned 32-bit word and return it. </p>
+<p>Read a signed 32-bit word using the stream endianness and return it in native endianness. </p>
 
 </div>
 </div>
@@ -396,7 +396,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Read an unsigned 64-bit word and return it. </p>
+<p>Read a signed 64-bit word using the stream endianness and return it in native endianness. </p>
 
 </div>
 </div>

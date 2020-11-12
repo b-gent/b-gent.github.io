@@ -149,10 +149,12 @@ Functions</h2></td></tr>
 <tr class="separator:ga1ac9f23d6481dcab24dc0ced883d8674"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga80a1e6c09495e5d71d6b911f30a47d0d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d51/group__common__system__graphics.html#ga80a1e6c09495e5d71d6b911f30a47d0d">OSystem::resetGraphicsScale</a> ()</td></tr>
 <tr class="separator:ga80a1e6c09495e5d71d6b911f30a47d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2be618c2b61d3922d6121a1c6bee632d"><td class="memItemLeft" align="right" valign="top">virtual Graphics::PixelFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d51/group__common__system__graphics.html#ga2be618c2b61d3922d6121a1c6bee632d">OSystem::getScreenFormat</a> () const =0</td></tr>
-<tr class="separator:ga2be618c2b61d3922d6121a1c6bee632d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00566524cca83605dc3595bdc3d9352f"><td class="memItemLeft" align="right" valign="top">virtual Common::List&lt; Graphics::PixelFormat &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d51/group__common__system__graphics.html#ga00566524cca83605dc3595bdc3d9352f">OSystem::getSupportedFormats</a> () const =0</td></tr>
-<tr class="separator:ga00566524cca83605dc3595bdc3d9352f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15f7c6fd2ef7072e92ce6d087479f3c8"><td class="memItemLeft" align="right" valign="top"><a id="ga15f7c6fd2ef7072e92ce6d087479f3c8"></a>
+Graphics::PixelFormat&#160;</td><td class="memItemRight" valign="bottom"><b>OSystem::getScreenFormat</b> () const</td></tr>
+<tr class="separator:ga15f7c6fd2ef7072e92ce6d087479f3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga214571d455baa7a6c84354bf1e21280f"><td class="memItemLeft" align="right" valign="top"><a id="ga214571d455baa7a6c84354bf1e21280f"></a>
+Common::List&lt; Graphics::PixelFormat &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>OSystem::getSupportedFormats</b> () const</td></tr>
+<tr class="separator:ga214571d455baa7a6c84354bf1e21280f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab8f80c389e7d5aa14c3b76a29842b7fc"><td class="memItemLeft" align="right" valign="top">virtual Common::Array&lt; uint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d51/group__common__system__graphics.html#gab8f80c389e7d5aa14c3b76a29842b7fc">OSystem::getSupportedAntiAliasingLevels</a> () const</td></tr>
 <tr class="separator:gab8f80c389e7d5aa14c3b76a29842b7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga84ed216d0fa410c8a97f4c96adb87721"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../dd/dc1/struct_o_system_1_1_graphics_mode.html">GraphicsMode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d51/group__common__system__graphics.html#ga84ed216d0fa410c8a97f4c96adb87721">OSystem::getSupportedShaders</a> () const</td></tr>
@@ -225,7 +227,7 @@ Functions</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggae815218bc6505c71d60e2f3fb5674b60a6b33e2bfa5cf0d7f0e190a523db0db95"></a>kGfxModeNoFlags&#160;</td><td class="fielddoc"><p>No flags. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ggae815218bc6505c71d60e2f3fb5674b60a701062893ba76d45d45d1dbd2ae128a1"></a>kGfxModeRender3d&#160;</td><td class="fielddoc"><p>Indicate 3D hardware-accelerated in-game gfx. </p>
+<tr><td class="fieldname"><a id="ggae815218bc6505c71d60e2f3fb5674b60a701062893ba76d45d45d1dbd2ae128a1"></a>kGfxModeRender3d&#160;</td><td class="fielddoc"><p>Indicate 3D hardware-accelerated in-game GFX. </p>
 </td></tr>
 </table>
 
@@ -357,7 +359,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Switch to the specified graphics mode.</p>
 <p>If switching to the new mode fails, this method returns false.</p>
-<p>The flag 'kGfxModeRender3d' is optional. It allows to switch to 3D-only rendering mode. Game engine is allowed to use OpenGL(ES) directly.</p>
+<p>The flag 'kGfxModeRender3d' is optional. It allows to switch to 3D-only rendering mode. In this mode, the game engine is allowed to use OpenGL(ES) directly.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mode</td><td>ID of the new graphics mode. </td></tr>
@@ -448,64 +450,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Set the graphics scale factor to x1.</p>
 <p>Games with large screen sizes reset the scale to x1 so that the screen is not too big when starting the game. </p>
-
-</div>
-</div>
-<a id="ga2be618c2b61d3922d6121a1c6bee632d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2be618c2b61d3922d6121a1c6bee632d">&#9670;&nbsp;</a></span>getScreenFormat()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual Graphics::PixelFormat OSystem::getScreenFormat </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Determine the pixel format currently in use for screen rendering.</p>
-<dl class="section return"><dt>Returns</dt><dd>the active screen pixel format.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd>Graphics::PixelFormat </dd></dl>
-
-</div>
-</div>
-<a id="ga00566524cca83605dc3595bdc3d9352f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga00566524cca83605dc3595bdc3d9352f">&#9670;&nbsp;</a></span>getSupportedFormats()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual Common::List&lt;Graphics::PixelFormat&gt; OSystem::getSupportedFormats </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Return a list of all pixel formats supported by the backend.</p>
-<p>The first item in the list must be directly supported by hardware and provide the largest color space of those formats with direct hardware support. It is also strongly recommended that remaining formats are placed in the order of descending preference for the backend to use.</p>
-<p>Example: a backend that supports 32-bit ABGR and 16-bit 555 BGR in hardware and provides conversion from equivalent RGB(A) modes should order its list in the following way: 1) Graphics::PixelFormat(4, 0, 0, 0, 0, 0, 8, 16, 24) 2) Graphics::PixelFormat(2, 3, 3, 3, 8, 0, 5, 10, 0) 3) Graphics::PixelFormat(4, 0, 0, 0, 0, 24, 16, 8, 0) 4) Graphics::PixelFormat(2, 3, 3, 3, 8, 10, 5, 0, 0) 5) Graphics::PixelFormat::createFormatCLUT8()</p>
-<dl class="section see"><dt>See also</dt><dd>Graphics::PixelFormat</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Backends supporting RGB color should accept game data in RGB color order, even if hardware uses BGR or some other color order. </dd></dl>
 
 </div>
 </div>
@@ -1170,7 +1114,7 @@ kTransactionError</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The specified destination rectangle must be completly contained in the visible screen space, and must be non-empty. If not, a backend may or may not perform clipping, trigger an assert, or silently corrupt memory.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/d51/group__common__system__graphics.html#ga6983105f21ef8bdf828a51e4cec4cfe8">updateScreen</a> </dd>
 <dd>
-<a class="el" href="../../dc/d51/group__common__system__graphics.html#ga2be618c2b61d3922d6121a1c6bee632d">getScreenFormat</a> </dd></dl>
+getScreenFormat </dd></dl>
 
 </div>
 </div>
@@ -1200,7 +1144,7 @@ kTransactionError</dd></dl>
 <p>The caller can then perform arbitrary graphics transformations on the framebuffer (blitting, scrolling, etc.). Must be followed by a matching call to <a class="el" href="../../dc/d51/group__common__system__graphics.html#gab87138a721368bed7abde76c0f24c880">unlockScreen()</a>. Code that is calling this should make sure to only lock the framebuffer for the shortest time possible, as the whole system is potentially stalled while the lock is active.</p>
 <dl class="section return"><dt>Returns</dt><dd>0 if an error occurs. Otherwise, a surface with the pixel format described by getScreenFormat is returned.</dd></dl>
 <p>The returned surface must <em>not</em> be deleted by the client code.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/d51/group__common__system__graphics.html#ga2be618c2b61d3922d6121a1c6bee632d">getScreenFormat</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>getScreenFormat </dd></dl>
 
 </div>
 </div>

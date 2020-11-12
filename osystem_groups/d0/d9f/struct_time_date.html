@@ -120,8 +120,8 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure describing time and date.</p>
-<p>This is a clone of struct tm from time.h. We roll our own since not all systems provide time.h. Not all files of struct tm are imitated, only those that are actually needed.</p>
-<dl class="section note"><dt>Note</dt><dd>For now, the members are named exactly as in struct tm to ease the transition. </dd></dl>
+<p>This is a clone of struct <code>tm</code> from time.h. We implement our own since not all systems provide time.h. This is not a one-to-one replacement of the <code>tm</code> struct, as only the fields that we need were added.</p>
+<dl class="section note"><dt>Note</dt><dd>For now, the members are named exactly as in struct <code>tm</code> to ease the transition. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="ab7cdda7e72077033a4f3735f5d8af971"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab7cdda7e72077033a4f3735f5d8af971">&#9670;&nbsp;</a></span>tm_sec</h2>
