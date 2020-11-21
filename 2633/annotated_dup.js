@@ -1,0 +1,26 @@
+var annotated_dup =
+[
+    [ "ADDetectedGame", "df/de8/struct_a_d_detected_game.html", "df/de8/struct_a_d_detected_game" ],
+    [ "ADExtraGuiOptionsMap", "d4/dfe/struct_a_d_extra_gui_options_map.html", "d4/dfe/struct_a_d_extra_gui_options_map" ],
+    [ "ADFileBasedFallback", "da/dd4/struct_a_d_file_based_fallback.html", "da/dd4/struct_a_d_file_based_fallback" ],
+    [ "ADGameDescription", "d0/dcc/struct_a_d_game_description.html", "d0/dcc/struct_a_d_game_description" ],
+    [ "ADGameFileDescription", "d2/d21/struct_a_d_game_file_description.html", "d2/d21/struct_a_d_game_file_description" ],
+    [ "AdvancedMetaEngine", "d7/df7/class_advanced_meta_engine.html", "d7/df7/class_advanced_meta_engine" ],
+    [ "AdvancedMetaEngineDetection", "d7/d92/class_advanced_meta_engine_detection.html", "d7/d92/class_advanced_meta_engine_detection" ],
+    [ "ChainedGamesManager", "d9/d2d/class_chained_games_manager.html", "d9/d2d/class_chained_games_manager" ],
+    [ "DetectedGame", "d3/d4a/struct_detected_game.html", "d3/d4a/struct_detected_game" ],
+    [ "DetectionResults", "d6/de3/class_detection_results.html", "d6/de3/class_detection_results" ],
+    [ "Engine", "d8/d9b/class_engine.html", "d8/d9b/class_engine" ],
+    [ "EngineManager", "dd/d10/class_engine_manager.html", "dd/d10/class_engine_manager" ],
+    [ "ExtendedSavegameHeader", "da/d23/struct_extended_savegame_header.html", "da/d23/struct_extended_savegame_header" ],
+    [ "ExtraGuiOption", "d5/da1/struct_extra_gui_option.html", "d5/da1/struct_extra_gui_option" ],
+    [ "FileProperties", "db/dcd/struct_file_properties.html", "db/dcd/struct_file_properties" ],
+    [ "MetaEngine", "de/d61/class_meta_engine.html", "de/d61/class_meta_engine" ],
+    [ "MetaEngineDetection", "db/d59/class_meta_engine_detection.html", "db/d59/class_meta_engine_detection" ],
+    [ "PauseToken", "d9/df0/class_pause_token.html", "d9/df0/class_pause_token" ],
+    [ "PlainGameDescriptor", "db/d05/struct_plain_game_descriptor.html", "db/d05/struct_plain_game_descriptor" ],
+    [ "PlainGameList", "df/de3/class_plain_game_list.html", "df/de3/class_plain_game_list" ],
+    [ "QualifiedGameDescriptor", "dc/d60/struct_qualified_game_descriptor.html", "dc/d60/struct_qualified_game_descriptor" ],
+    [ "SaveStateDescriptor", "d1/d2c/class_save_state_descriptor.html", "d1/d2c/class_save_state_descriptor" ],
+    [ "SaveStateDescriptorSlotComparator", "d1/d0a/struct_save_state_descriptor_slot_comparator.html", "d1/d0a/struct_save_state_descriptor_slot_comparator" ]
+];

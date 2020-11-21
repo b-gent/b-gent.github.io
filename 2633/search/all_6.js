@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['fallbackdetect',['fallbackDetect',['../d7/d92/class_advanced_meta_engine_detection.html#a4592655e3b1c505960e6cd2d13b5d283',1,'AdvancedMetaEngineDetection']]],
+  ['fallbackdetectextern',['fallbackDetectExtern',['../d7/df7/class_advanced_meta_engine.html#ace6bf7566e173fbffd207155e8719565',1,'AdvancedMetaEngine']]],
+  ['filemap',['FileMap',['../d7/d92/class_advanced_meta_engine_detection.html#ab2c04cddb3125af944bf853fb6adefed',1,'AdvancedMetaEngineDetection::FileMap()'],['../d7/df7/class_advanced_meta_engine.html#a5f20e5ccc1071567f0a3b85fe0aeed2d',1,'AdvancedMetaEngine::FileMap()']]],
+  ['filemaparchive',['FileMapArchive',['../d7/d92/class_advanced_meta_engine_detection.html#a8fc738a1013bc7c882bf7c3117092a65',1,'AdvancedMetaEngineDetection']]],
+  ['filename',['fileName',['../d2/d21/struct_a_d_game_file_description.html#a7a4ecb055c36aac863927321c38848b5',1,'ADGameFileDescription']]],
+  ['filenames',['filenames',['../da/dd4/struct_a_d_file_based_fallback.html#ad10040a2abcd8aee4abb030a62412688',1,'ADFileBasedFallback']]],
+  ['fileproperties',['FileProperties',['../db/dcd/struct_file_properties.html',1,'']]],
+  ['filepropertiesmap',['FilePropertiesMap',['../d6/d41/group__engines__game.html#ga3283f74a8d688abc0b9b6a90b1563ea1',1,'game.h']]],
+  ['filesdescriptions',['filesDescriptions',['../d0/dcc/struct_a_d_game_description.html#ac9ca68e22089c8b82fb9b04d0b8f5f8a',1,'ADGameDescription']]],
+  ['filesize',['fileSize',['../d2/d21/struct_a_d_game_file_description.html#a66fd64a457376ab9ceb5809f58d292e7',1,'ADGameFileDescription']]],
+  ['filetype',['fileType',['../d2/d21/struct_a_d_game_file_description.html#a21d1848d6519428a18636ccc8a945d85',1,'ADGameFileDescription']]],
+  ['filldummyheader',['fillDummyHeader',['../de/d61/class_meta_engine.html#a80b8d305e477be01a4eda65bd45f4a79',1,'MetaEngine']]],
+  ['findgame',['findGame',['../d7/d92/class_advanced_meta_engine_detection.html#a88f7eb3a839b9cf595811dbd10bfb901',1,'AdvancedMetaEngineDetection::findGame()'],['../db/d59/class_meta_engine_detection.html#a8969490ceb823472569f37d710fdcf2e',1,'MetaEngineDetection::findGame()']]],
+  ['findgamesmatching',['findGamesMatching',['../dd/d10/class_engine_manager.html#aea53f9803392e75242d0b2de0fc68931',1,'EngineManager']]],
+  ['findplaingamedescriptor',['findPlainGameDescriptor',['../d6/d41/group__engines__game.html#ga4ea77c3c5d0c6c7a65fc2372db80b725',1,'game.h']]],
+  ['findplugin',['findPlugin',['../dd/d10/class_engine_manager.html#a29ec0ae78136204b7aa26ed115ceddee',1,'EngineManager']]],
+  ['findtarget',['findTarget',['../dd/d10/class_engine_manager.html#aba009dc8317a7be85de43170ce153334',1,'EngineManager']]],
+  ['flags',['flags',['../d0/dcc/struct_a_d_game_description.html#a9ad939ff923dde5d440bd01e393ffd2b',1,'ADGameDescription']]],
+  ['flipmute',['flipMute',['../d8/d9b/class_engine.html#afc5b86c8e84c66a2bad48ad17b3f65cb',1,'Engine']]],
+  ['foundunknowngames',['foundUnknownGames',['../d6/de3/class_detection_results.html#af452b80d2e796b934c05959f25e1064c',1,'DetectionResults']]]
+];

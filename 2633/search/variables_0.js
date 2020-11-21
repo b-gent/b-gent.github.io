@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['_5fdescitemsize',['_descItemSize',['../d7/d92/class_advanced_meta_engine_detection.html#ac0eb169137577cab3160651772ce2e05',1,'AdvancedMetaEngineDetection']]],
+  ['_5fdirectoryglobs',['_directoryGlobs',['../d7/d92/class_advanced_meta_engine_detection.html#a80183fe52f6a7d2895a1125b81fa0e00',1,'AdvancedMetaEngineDetection']]],
+  ['_5feventman',['_eventMan',['../d8/d9b/class_engine.html#ab3ee7b637fcd9756f6f1a916bc070c4e',1,'Engine']]],
+  ['_5fextraconfigentries',['_extraConfigEntries',['../d3/d4a/struct_detected_game.html#a833d2a359375be1828f2680c8805f561',1,'DetectedGame']]],
+  ['_5fextraguioptions',['_extraGuiOptions',['../d7/d92/class_advanced_meta_engine_detection.html#a0a95993640f687422b8437b3880d3e83',1,'AdvancedMetaEngineDetection']]],
+  ['_5fflags',['_flags',['../d7/d92/class_advanced_meta_engine_detection.html#a45fcd4b7b84977c1e619f819e187d04c',1,'AdvancedMetaEngineDetection']]],
+  ['_5fgamedescriptors',['_gameDescriptors',['../d7/d92/class_advanced_meta_engine_detection.html#a9b7e627d31f164f8f4cb8fca9ba4955c',1,'AdvancedMetaEngineDetection']]],
+  ['_5fgameids',['_gameIds',['../d7/d92/class_advanced_meta_engine_detection.html#ab63cf36b7f06d5a13e7c5f0ab404c432',1,'AdvancedMetaEngineDetection']]],
+  ['_5fguioptions',['_guiOptions',['../d7/d92/class_advanced_meta_engine_detection.html#a6be19df7e5d681b9562c8cc25aff4079',1,'AdvancedMetaEngineDetection']]],
+  ['_5fmainmenudialog',['_mainMenuDialog',['../d8/d9b/class_engine.html#af79fbbea14a568fc86788b2a7e3370a4',1,'Engine']]],
+  ['_5fmatchfullpaths',['_matchFullPaths',['../d7/d92/class_advanced_meta_engine_detection.html#ae6a4915955d0a628061e930d2ec5b13e',1,'AdvancedMetaEngineDetection']]],
+  ['_5fmaxautogenlength',['_maxAutogenLength',['../d7/d92/class_advanced_meta_engine_detection.html#ad87d895b14083a6dc340195264c399f6',1,'AdvancedMetaEngineDetection']]],
+  ['_5fmaxscandepth',['_maxScanDepth',['../d7/d92/class_advanced_meta_engine_detection.html#a93a019bf5d24a0366197bdaeb902a168',1,'AdvancedMetaEngineDetection']]],
+  ['_5fmd5bytes',['_md5Bytes',['../d7/d92/class_advanced_meta_engine_detection.html#a02885819856f6b015481973d4d66a57b',1,'AdvancedMetaEngineDetection']]],
+  ['_5fmixer',['_mixer',['../d8/d9b/class_engine.html#ae14e29fa211909aeb29ae6a2be1510b6',1,'Engine']]],
+  ['_5fsavefileman',['_saveFileMan',['../d8/d9b/class_engine.html#a7c3f9c14b7969bb81cf83f5994a2f1e2',1,'Engine']]],
+  ['_5fsystem',['_system',['../d8/d9b/class_engine.html#aba049179e2c03ac2f3095e93ae9e7aa7',1,'Engine']]],
+  ['_5ftargetname',['_targetName',['../d8/d9b/class_engine.html#a990ead262ee728f6d2bb03f17a31197c',1,'Engine']]],
+  ['_5ftimer',['_timer',['../d8/d9b/class_engine.html#a9dbf6e9cad6c32116db706ed26336869',1,'Engine']]]
+];

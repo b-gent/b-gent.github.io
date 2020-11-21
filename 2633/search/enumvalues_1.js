@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['kadflaguseextraashint',['kADFlagUseExtraAsHint',['../de/d3d/group__engines__advdetector.html#ggad4f6e78041682e2493e544bf7714c880a3f05907beb8f3b3caffab33f1c5c9a6e',1,'advancedDetector.h']]],
+  ['ksavessupportcreationdate',['kSavesSupportCreationDate',['../de/d61/class_meta_engine.html#a659e16f82a8e65efa9326de04ed32789a5da3f0966d7556c3af949109913d8fcb',1,'MetaEngine']]],
+  ['ksavessupportmetainfo',['kSavesSupportMetaInfo',['../de/d61/class_meta_engine.html#a659e16f82a8e65efa9326de04ed32789ab330b3455478488ac82342a6ff946066',1,'MetaEngine']]],
+  ['ksavessupportplaytime',['kSavesSupportPlayTime',['../de/d61/class_meta_engine.html#a659e16f82a8e65efa9326de04ed32789ab38680ab50a5395691eddb77805cda21',1,'MetaEngine']]],
+  ['ksavessupportthumbnail',['kSavesSupportThumbnail',['../de/d61/class_meta_engine.html#a659e16f82a8e65efa9326de04ed32789a59d8417713bb701260e042b2d6702892',1,'MetaEngine']]],
+  ['ksavesuseextendedformat',['kSavesUseExtendedFormat',['../de/d61/class_meta_engine.html#a659e16f82a8e65efa9326de04ed32789a4a7e464cd35642c83448ed3d1415d920',1,'MetaEngine']]],
+  ['ksimplesavesnames',['kSimpleSavesNames',['../de/d61/class_meta_engine.html#a659e16f82a8e65efa9326de04ed32789ab51ad3d565adc1a1b64178f60736a38b',1,'MetaEngine']]],
+  ['ksupportsarbitraryresolutions',['kSupportsArbitraryResolutions',['../d8/d9b/class_engine.html#acb0a03c8ac7f6151943817d64f2b11d3ad15e10852511dccc00194caa421b5147',1,'Engine']]],
+  ['ksupportschangingoptionsduringruntime',['kSupportsChangingOptionsDuringRuntime',['../d8/d9b/class_engine.html#acb0a03c8ac7f6151943817d64f2b11d3af38cc04ef781730253713aa753f2e8f6',1,'Engine']]],
+  ['ksupportsdeletesave',['kSupportsDeleteSave',['../de/d61/class_meta_engine.html#a659e16f82a8e65efa9326de04ed32789aeabedf53c3b2fa7df0f4609922dd0509',1,'MetaEngine']]],
+  ['ksupportslistsaves',['kSupportsListSaves',['../de/d61/class_meta_engine.html#a659e16f82a8e65efa9326de04ed32789abd13b2533cce616fe9f0cab802211160',1,'MetaEngine']]],
+  ['ksupportsloadingduringruntime',['kSupportsLoadingDuringRuntime',['../d8/d9b/class_engine.html#acb0a03c8ac7f6151943817d64f2b11d3ab921931c9a18c970b866b3919d8e4a3d',1,'Engine']]],
+  ['ksupportsloadingduringstartup',['kSupportsLoadingDuringStartup',['../de/d61/class_meta_engine.html#a659e16f82a8e65efa9326de04ed32789ae259ffbbfb2dee6a7ffa170e9d196211',1,'MetaEngine']]],
+  ['ksupportsreturntolauncher',['kSupportsReturnToLauncher',['../d8/d9b/class_engine.html#acb0a03c8ac7f6151943817d64f2b11d3a0c2885e179c38ad770b6fd2dfa014831',1,'Engine']]],
+  ['ksupportssavingduringruntime',['kSupportsSavingDuringRuntime',['../d8/d9b/class_engine.html#acb0a03c8ac7f6151943817d64f2b11d3a97cb0b68772289013804aca0bec63544',1,'Engine']]],
+  ['ksupportssubtitleoptions',['kSupportsSubtitleOptions',['../d8/d9b/class_engine.html#acb0a03c8ac7f6151943817d64f2b11d3aeae87fa300b87ef8589b1a323f6586ca',1,'Engine']]]
+];
