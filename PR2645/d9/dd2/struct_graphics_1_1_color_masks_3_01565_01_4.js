@@ -1,0 +1,25 @@
+var struct_graphics_1_1_color_masks_3_01565_01_4 =
+[
+    [ "PixelType", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#ac5a9c4203b16aa90f2a22a9aac72c516", null ],
+    [ "kHighBitsMask", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aaa307009d1708d63936085ba4bf7f8c88", null ],
+    [ "kLowBitsMask", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aac6045be06cf498e30e3382198ab971b1", null ],
+    [ "qhighBits", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aab93496bd426978745f2d2c4d9229c591", null ],
+    [ "qlowBits", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aabe9fe420a2eac8970ae036bf7e63955b", null ],
+    [ "kBytesPerPixel", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aa07e2559ecd06761511a7d055ba723d31", null ],
+    [ "kAlphaBits", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aae84903eb8644f2af1397a043cab1ba14", null ],
+    [ "kRedBits", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aadb951364be9e4370f4f77227db7d12c0", null ],
+    [ "kGreenBits", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aac897e4590ef5b9600474e786eb61c9eb", null ],
+    [ "kBlueBits", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aa35c09954f7b183c19692688894b472f0", null ],
+    [ "kAlphaShift", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aa44576a1711e6acd35c1fe7a338efb699", null ],
+    [ "kRedShift", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aa8900cd04cabac602bbf07cc02a6ebe72", null ],
+    [ "kGreenShift", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aa2b63f1277a230b650b2dc0670c80558f", null ],
+    [ "kBlueShift", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aab11e0a31e1199587cf5c9deee0335162", null ],
+    [ "kAlphaMask", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aac8033c280d2afeaa9a48e735a1343dcd", null ],
+    [ "kRedMask", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aa4076edb228dd08fea9d5e7829aa13b19", null ],
+    [ "kGreenMask", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aa1ba2e7d268f3e6517a63b9c577463c6e", null ],
+    [ "kBlueMask", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aa2b484d41bde727c7a871943ed1a26b04", null ],
+    [ "kRedBlueMask", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aa801981b11ad9c59c21c722b5253b215d", null ],
+    [ "kLowBits", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aad080e03cab1a08fb2320400b2786df5c", null ],
+    [ "kLow2Bits", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aaed82180dd1a5d46118ffc1477a2fa7be", null ],
+    [ "kLow3Bits", "d9/dd2/struct_graphics_1_1_color_masks_3_01565_01_4.html#acbb1ff58faec2f68c3c94055f35bc08aa0e88fa413d005c6b5ea8968cdae98ae7", null ]
+];
