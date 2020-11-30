@@ -1,0 +1,26 @@
+var struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot =
+[
+    [ "TL", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a6330b40274513df67af1624244c5b99a", null ],
+    [ "TLL", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#acd381d115eb222a5edb0fb5b81149d40", null ],
+    [ "KSR", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a34c287437aa75a3b8bc146efb7713d84", null ],
+    [ "AR", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#ae96dbf669a985aeeea093757fd78ed63", null ],
+    [ "DR", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a4e756cec4aaea6a38b5bd6187db22932", null ],
+    [ "SL", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a3300dab2a328f36cf45b9041448aef4c", null ],
+    [ "RR", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#ac53238bbfe71d836d6658ff2b0d9ad88", null ],
+    [ "ksl", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a95692d6ff1aea1f055261e4d9e04b644", null ],
+    [ "ksr", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#aed93e6900aa4edd875f8e9f7d633dfac", null ],
+    [ "mul", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a5d88f93d3c93465c299a6ce154b075c7", null ],
+    [ "Cnt", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#ad1b73c2b642d318c200e86bddf59a415", null ],
+    [ "Incr", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a9a918c0313ae6f4cd2206e0a7b89e957", null ],
+    [ "eg_typ", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a037ec689c93ae7b5fefc51cf9207e783", null ],
+    [ "evm", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a49891f48c9b538d11994cb4954c4548b", null ],
+    [ "evc", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a71b78a7f90490c766f25184ba9556c8a", null ],
+    [ "eve", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a65e3f3461275794d54b4dc0b9b1be429", null ],
+    [ "evs", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a0033a8d284cd0ecad89c0b198a0d439b", null ],
+    [ "evsa", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a42c2f702c79fdb20a148092ca26d3e5d", null ],
+    [ "evsd", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a647d69ba7c746c2f415c44719e9a2b38", null ],
+    [ "evsr", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#af64ed5041a83beb081982d86cc58c376", null ],
+    [ "ams", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a3448731a6efde76d05ba72c00d834bc0", null ],
+    [ "vib", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#ae9d9e9edaf75347aea924c79f657eb03", null ],
+    [ "wavetable", "dd/d44/struct_o_p_l_1_1_m_a_m_e_1_1fm__opl__slot.html#a8a2fa549a79bc448178b1d5c430a1a32", null ]
+];

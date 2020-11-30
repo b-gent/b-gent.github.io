@@ -1,0 +1,25 @@
+var class_midi_channel =
+[
+    [ "~MidiChannel", "d8/deb/class_midi_channel.html#ae38c9a359eace10af928fa639a018e6a", null ],
+    [ "device", "d8/deb/class_midi_channel.html#a9dbc22189e0f4c950121fd186702a99b", null ],
+    [ "getNumber", "d8/deb/class_midi_channel.html#a4e2f4f7f82074b4b9b5dba7fbb275a89", null ],
+    [ "release", "d8/deb/class_midi_channel.html#a114838bb108316bbdc3ebd3f2b6f0f23", null ],
+    [ "send", "d8/deb/class_midi_channel.html#a5c4fd14b32769fc3f2d81c32f449b92d", null ],
+    [ "noteOff", "d8/deb/class_midi_channel.html#abfae7f0b49506674902c4d0beada8149", null ],
+    [ "noteOn", "d8/deb/class_midi_channel.html#aae23605170258d4a96ddc9cb36d58ccb", null ],
+    [ "programChange", "d8/deb/class_midi_channel.html#a9695673276c2870d20995bed3f8cbbac", null ],
+    [ "pitchBend", "d8/deb/class_midi_channel.html#afc5455c3ed13bd178a94042a93e0502a", null ],
+    [ "controlChange", "d8/deb/class_midi_channel.html#a345fdf139785ac9a5e25645ba716547e", null ],
+    [ "modulationWheel", "d8/deb/class_midi_channel.html#aafd78218ed795f20b1340be0e4b2d106", null ],
+    [ "volume", "d8/deb/class_midi_channel.html#af3e8c6c67f6f09946895ddabaf9a71ac", null ],
+    [ "panPosition", "d8/deb/class_midi_channel.html#aa7a95755db3de629d8d6a03982a8aa21", null ],
+    [ "pitchBendFactor", "d8/deb/class_midi_channel.html#a75182fd71f5066cd30af7de6447b3ea1", null ],
+    [ "transpose", "d8/deb/class_midi_channel.html#a51950da45d2bf389aac10d3728765897", null ],
+    [ "detune", "d8/deb/class_midi_channel.html#aedc3c4dee7f9337e0b93a598a5814a1b", null ],
+    [ "priority", "d8/deb/class_midi_channel.html#a1e14e727004cc2747099c7d555342d43", null ],
+    [ "sustain", "d8/deb/class_midi_channel.html#ac28ae32309a4f34ff6228a09a80ee720", null ],
+    [ "effectLevel", "d8/deb/class_midi_channel.html#af135ce685e7a08cc0c0d5ece9a913d4c", null ],
+    [ "chorusLevel", "d8/deb/class_midi_channel.html#a9e2d505c0b70c7763613656d49fda1ff", null ],
+    [ "allNotesOff", "d8/deb/class_midi_channel.html#ab1425406cea6cc9894376a33274d9534", null ],
+    [ "sysEx_customInstrument", "d8/deb/class_midi_channel.html#a62420796669950e93844954256277ec8", null ]
+];
